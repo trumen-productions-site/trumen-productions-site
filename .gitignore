@@ -10,3 +10,6 @@ package-lock.json
 .vscode/
 .idea/
 *.swp
+
+# Generated on demand by `npm run pitch`.
+clearly-established-pitch.html

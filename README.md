@@ -27,6 +27,7 @@ Node 20 or newer. Nothing to install — there are no dependencies.
 npm run dev      # build, serve at http://localhost:8080, rebuild on change
 npm run build    # build into dist/
 npm test         # build, then run the full suite (400+ assertions)
+npm run pitch    # write clearly-established-pitch.html — the pitch as one file
 npm run images   # regenerate the social card and touch icon (needs a Chromium)
 ```
 
@@ -106,6 +107,17 @@ What the port adds over the original prototype:
   composed poster frame rather than autoplaying if the visitor has reduced motion switched
   on.
 - **A homepage teaser** running the title card alone on a ten-second loop.
+
+### The pitch as a single file
+
+`npm run pitch` writes `clearly-established-pitch.html` — the whole piece in one
+self-contained file, about 92 kB, with both stylesheets, the engine, the stage and the
+transcript inlined. Double-click it and it plays; no server, no internet beyond the
+webfonts, which fall back to system faces if they cannot load.
+
+Link to `/clearly-established/pitch/` on the site; attach this file to an email, put it on a
+USB stick, or open it in a room with bad wifi. It regenerates from the same source, so it
+can never drift from the site's version.
 
 To retime the piece, edit the scene durations in `src/data/pitch.mjs`. Everything else —
 cues, chapter buttons, transcript timecodes, the tests — follows. `npm test` asserts the
