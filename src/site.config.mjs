@@ -32,8 +32,13 @@ export const site = {
   foundedLine: 'Founded by brothers David and Michael Martin.',
   founded: '2026',
 
-  // TODO: replace with the production domain before launch.
-  url: 'https://www.trumenproductions.com',
+  // The address the site is served from. Baked into every canonical URL, the
+  // sitemap, and the link preview that unfurls when someone shares the site.
+  //
+  // Provisional: a free Netlify subdomain, claimed at deploy time. When a real
+  // domain is registered, change this one line, rebuild, and redeploy — nothing
+  // else in the project refers to the domain.
+  url: 'https://trumen-productions.netlify.app',
 
   // A short description used for <meta name="description"> fallbacks,
   // Open Graph, and structured data.
@@ -50,14 +55,16 @@ export const site = {
   // leaves the visitor's own mail client. Each inquiry type gets its own
   // address so mail can be filtered on arrival.
   contact: {
-    // TODO: replace all four with real, monitored addresses.
-    general: 'hello@trumenproductions.com',
-    rights: 'rights@trumenproductions.com',
-    financing: 'financing@trumenproductions.com',
-    press: 'press@trumenproductions.com',
-    // TODO: replace or set to null to hide the phone line entirely.
+    // All four route to one monitored inbox for now. The four subject lines
+    // below still sort the mail, so this can be split into separate addresses
+    // later — on a domain, or as Gmail "+" aliases — without touching a page.
+    general: 'greenplanit1@gmail.com',
+    rights: 'greenplanit1@gmail.com',
+    financing: 'greenplanit1@gmail.com',
+    press: 'greenplanit1@gmail.com',
+    // Set to a string to show a phone line; null hides it entirely.
     phone: null,
-    // TODO: replace or set to null to hide the mailing address entirely.
+    // Set to a string to show a postal address; null hides it entirely.
     mailingAddress: null,
   },
 
