@@ -1,0 +1,12 @@
+# The build output. Regenerate with `npm run build`.
+dist/
+
+# There are no dependencies, but tooling still creates these.
+node_modules/
+package-lock.json
+
+# Editors and platforms
+.DS_Store
+.vscode/
+.idea/
+*.swp
