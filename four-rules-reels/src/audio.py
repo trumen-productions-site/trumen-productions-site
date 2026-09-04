@@ -74,16 +74,63 @@ def write_wav(path: Path, samples: np.ndarray) -> None:
 # ── Voiceover ─────────────────────────────────────────────────────────────
 
 
+FLITE = shutil.which("flite")
+PIPER = shutil.which("piper")
+
+
 def synth_scene_vo(text: str, out: Path) -> np.ndarray:
-    """One scene, spoken. Male, low, ~140 wpm — unhurried, per the brief."""
-    if not ESPEAK:
-        raise RuntimeError("espeak-ng is not installed; cannot synthesise a placeholder voiceover")
+    """
+    One scene, spoken. Male, low, ~140 wpm — unhurried, per the brief.
+
+    Which synthesiser is `audio.vo_engine` in brand/tokens.json. All of them
+    run offline; none of them is the voice this reel should ship with — that
+    is Michael's, and it drops in via audio/vo/<reel-id>.wav. The engines
+    exist so the timing, ducking and captions can be judged against something
+    less grating than formant synthesis while that recording is made.
+    """
     out.parent.mkdir(parents=True, exist_ok=True)
-    subprocess.run(
-        [ESPEAK, "-v", "en-us+m3", "-s", "140", "-p", "28", "-a", "170", "-w", str(out), text],
-        check=True,
-        capture_output=True,
-    )
+    engine = AUDIO.get("vo_engine", "espeak")
+
+    if engine == "espeak":
+        if not ESPEAK:
+            raise RuntimeError("espeak-ng is not installed")
+        cmd = [ESPEAK, "-v", "en-us+m3", "-s", "140", "-p", "28", "-a", "170", "-w", str(out), text]
+
+    elif engine.startswith("mbrola-"):
+        # espeak-ng drives the MBROLA diphone voices: mb-us2, mb-us3.
+        if not ESPEAK:
+            raise RuntimeError("espeak-ng is not installed (needed to drive MBROLA)")
+        voice = "mb-" + engine.split("-", 1)[1]
+        cmd = [ESPEAK, "-v", voice, "-s", "130", "-w", str(out), text]
+
+    elif engine.startswith("flite-"):
+        if not FLITE:
+            raise RuntimeError("flite is not installed")
+        voice = engine.split("-", 1)[1]
+        cmd = [FLITE, "-voice", voice, "--setf", "duration_stretch=1.12", "-t", text, "-o", str(out)]
+
+    elif engine.startswith("piper:"):
+        # A neural voice, if someone has placed the .onnx (and its .json) in
+        # audio/vo/voices/. The models live on Hugging Face, which this render
+        # environment cannot reach, so this path is never taken by default.
+        model = ROOT / "audio" / "vo" / "voices" / engine.split(":", 1)[1]
+        if not model.exists():
+            raise RuntimeError(f"piper voice not found: {model}")
+        if PIPER:
+            cmd = [PIPER, "--model", str(model), "--output_file", str(out)]
+            subprocess.run(cmd, input=text, text=True, check=True, capture_output=True)
+            return read_wav(out)
+        from piper import PiperVoice  # pip install piper-tts
+        import wave as _wave
+        voice = PiperVoice.load(str(model))
+        with _wave.open(str(out), "wb") as w:
+            voice.synthesize(text, w)
+        return read_wav(out)
+
+    else:
+        raise RuntimeError(f"unknown vo_engine {engine!r} — see brand/tokens.json audio._vo_engines")
+
+    subprocess.run(cmd, check=True, capture_output=True)
     return read_wav(out)
 
 
@@ -123,7 +170,7 @@ def build_vo(reel_id: str, cuts: list[Cut], notes: AudioNotes) -> np.ndarray:
         out[: min(len(track), total_len)] = track[:total_len]
         return out
 
-    notes["vo_source"] = "PLACEHOLDER — espeak-ng synthesis"
+    notes["vo_source"] = f"PLACEHOLDER — {AUDIO.get('vo_engine', 'espeak')} synthesis"
     notes["vo_is_placeholder"] = True
     scratch = VO_DIR / "_scenes"
     out = np.zeros(total_len, dtype=np.float32)
