@@ -14,6 +14,7 @@
     "test": "node build.mjs --quiet && node --test 'test/**/*.test.mjs'",
     "check": "npm run build && npm test",
     "images": "node tools/make-images.mjs",
-    "pitch": "node tools/make-standalone-pitch.mjs"
+    "pitch": "node tools/make-standalone-pitch.mjs",
+    "preview": "node tools/make-standalone-site.mjs"
   }
 }

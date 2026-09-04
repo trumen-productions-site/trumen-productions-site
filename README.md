@@ -27,12 +27,29 @@ Node 20 or newer. Nothing to install — there are no dependencies.
 npm run dev      # build, serve at http://localhost:8080, rebuild on change
 npm run build    # build into dist/
 npm test         # build, then run the full suite (400+ assertions)
+npm run preview  # write trumen-site-preview.html — the whole site as one file
 npm run pitch    # write clearly-established-pitch.html — the pitch as one file
 npm run images   # regenerate the social card and touch icon (needs a Chromium)
 ```
 
 `dist/` is the deployable artefact: plain HTML, CSS, JS, and images. No server, no runtime,
 no database, no third-party scripts, no analytics, no cookies.
+
+### Two single-file builds
+
+Both are generated from the same source as the site, so neither can drift from it. Both are
+gitignored — regenerate rather than commit.
+
+| Command | Output | What it's for |
+| --- | --- | --- |
+| `npm run preview` | `trumen-site-preview.html` (~183 kB) | All nine pages in one file, with working navigation. Open it on a laptop, email it for sign-off, take it into a meeting with no wifi. |
+| `npm run pitch` | `clearly-established-pitch.html` (~92 kB) | The animated pitch alone, with its transcript. The one to attach to an email. |
+
+The preview turns internal links into in-page routing (`/faq/` becomes `#/faq/`, and
+`/our-story/#the-spine` becomes `#/our-story/~the-spine`), so every link works with no
+server. Three things it has to do by hand that a real page load gives for free: release the
+scroll-reveal animations on the page that just appeared, re-measure the pitch stage now that
+it has a width, and mark the right nav item as current.
 
 ---
 
