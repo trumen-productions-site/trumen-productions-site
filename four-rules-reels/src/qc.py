@@ -1,5 +1,5 @@
 """
-Automated QC. Ten checks, run after every render, written to out/QC_REPORT.md.
+Automated QC. Eleven checks, run after every render, written to out/QC_REPORT.md.
 
 A check that cannot be performed is reported as SKIP with the reason — never
 silently passed. The report is the thing Michael reads instead of scrubbing
@@ -316,6 +316,42 @@ def check_srt(result) -> Check:
     )
 
 
+def check_glyphs(result) -> Check:
+    """
+    Nothing on screen renders as a tofu box.
+
+    Added beyond the handoff's ten. A cmap lookup would have passed this reel:
+    EB Garamond lists U+2013 and draws nothing for it, so "5–0" shipped as
+    "5□0". Each character is rendered and compared against the font's own
+    .notdef, which is the only check that matches what a viewer sees.
+    """
+    from . import brand as b
+
+    offenders = []
+    prose_font = b.font(64, "regular")
+    numerals = b.numeral_font(120)
+    for scene in result["reel"]["scenes"]:
+        text = scene.get("onscreen", "") or ""
+        for extra in ("span", "hold_number"):
+            text += str(scene.get(extra, "") or "")
+        if "card" in scene:
+            text += scene["card"]["label"] + scene["card"]["line"]
+        for c in scene.get("compare", []):
+            text += c["label"] + c["line"]
+        for bad in b.missing_glyphs(text, prose_font):
+            offenders.append(f"{scene['type']}: {bad!r} (U+{ord(bad):04X}) missing from the prose face")
+        value = (scene.get("number") or {}).get("value", "")
+        for bad in b.missing_glyphs(value, numerals):
+            offenders.append(f"{scene['type']}: {bad!r} (U+{ord(bad):04X}) missing from the numeral face")
+
+    return Check(
+        11,
+        "No missing glyphs (tofu) in on-screen text",
+        "FAIL" if offenders else "PASS",
+        "; ".join(sorted(set(offenders))[:6]) or "every character renders in the face that draws it",
+    )
+
+
 def check_pytest() -> Check:
     proc = subprocess.run(
         ["python3", "-m", "pytest", "-q", str(ROOT / "tests")],
@@ -339,6 +375,7 @@ def check_reel(result) -> ReelQC:
         check_music_gate(result),
         check_endcard(result),
         check_srt(result),
+        check_glyphs(result),
     ]
     return reel_qc
 

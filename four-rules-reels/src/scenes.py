@@ -19,7 +19,7 @@ from PIL import Image, ImageDraw, ImageFilter
 from . import brand
 from .brand import (
     BRASS,
-    LINING_FIGURES,
+    numeral_font,
     CREAM,
     GOLD,
     GREEN,
@@ -129,6 +129,18 @@ def _centred_top(block_h: int) -> int:
     return max(VISIBLE_TOP + 20, VISIBLE_MID - block_h // 2)
 
 
+def _fit_numeral(text: str, start_px: int, max_w: int, max_h: int):
+    """_fit_font, for the display-numeral face."""
+    size = start_px
+    while size > 24:
+        f = numeral_font(size)
+        w, h = measure(text, f)
+        if w <= max_w and h <= max_h:
+            return f
+        size -= 8
+    return numeral_font(24)
+
+
 def _fit_font(text: str, style: str, start_px: int, max_w: int, max_h: int) -> "brand.ImageFont.FreeTypeFont":
     """Step a type size down until the block fits the content column."""
     size = start_px
@@ -213,7 +225,7 @@ def render_beat(scene: dict, reel: dict) -> RenderedScene:
     if "number" in scene:
         return _render_number_beat(rs, scene)
 
-    counter_f = font(180, "bold")
+    counter_f = numeral_font(180)
     _, counter_h = measure(str(n), counter_f)
     text = scene["onscreen"]
     f = _fit_font(text, "regular", TYPE["beat_size_px"], CONTENT_W, 520)
@@ -221,7 +233,7 @@ def render_beat(scene: dict, reel: dict) -> RenderedScene:
 
     gap = 110
     top = _centred_top(counter_h + gap + text_h)
-    _place(rs, str(n), counter_f, BRASS, x=W // 2, y=top, reveal=0.0, label=f"counter-{n}", center=True, features=LINING_FIGURES)
+    _place(rs, str(n), counter_f, BRASS, x=W // 2, y=top, reveal=0.0, label=f"counter-{n}", center=True)
     _place(rs, text, f, CREAM, x=W // 2, y=top + counter_h + gap, reveal=0.30, label=f"beat-{n}", center=True)
     return rs
 
@@ -268,7 +280,7 @@ def _document_card(label: str, line: str, width: int) -> Image.Image:
 def _render_number_beat(rs: RenderedScene, scene: dict) -> RenderedScene:
     """Reel 3: the number counts up over 400 ms, then locks."""
     value = scene["number"]["value"]
-    f = _fit_font(value, "bold", TYPE["number_size_px"], CONTENT_W, 320)
+    f = _fit_numeral(value, TYPE["number_size_px"], CONTENT_W, 320)
     _, nh = measure(value, f)
     text = scene["onscreen"]
     tf = _fit_font(text, "regular", 62, CONTENT_W, 300)
@@ -276,7 +288,7 @@ def _render_number_beat(rs: RenderedScene, scene: dict) -> RenderedScene:
 
     gap = 90
     top = _centred_top(nh + gap + th)
-    _place(rs, value, f, GOLD, x=W // 2, y=top, reveal=0.0, label=f"number-{scene['n']}", center=True, features=LINING_FIGURES)
+    _place(rs, value, f, GOLD, x=W // 2, y=top, reveal=0.0, label=f"number-{scene['n']}", center=True)
     _place(rs, text, tf, CREAM, x=W // 2, y=top + nh + gap, reveal=0.35, label=f"beat-{scene['n']}", center=True)
     return rs
 
@@ -298,13 +310,13 @@ def render_turn(scene: dict, reel: dict) -> RenderedScene:
             rs.layers.append((card, (x, y), reveal, f"compare-{i}"))
             rs.boxes.append((Box(x, y, card.width, card.height), f"compare-{i}", reveal))
         span_y = y + int(card_w * 0.52) + 70
-        _place(rs, scene["span"], font(64, "bold"), BRASS, x=W // 2, y=span_y, reveal=0.9, label="span", center=True, features=LINING_FIGURES)
+        _place(rs, scene["span"], numeral_font(64), BRASS, x=W // 2, y=span_y, reveal=0.9, label="span", center=True)
         text_y = span_y + 140
     elif "hold_number" in scene:  # Reel 3 — the 77 stays, the span draws in beneath
-        f = font(TYPE["number_size_px"], "bold")
-        _place(rs, scene["hold_number"], f, GOLD, x=W // 2, y=y, reveal=0.0, label="hold-number", center=True, features=LINING_FIGURES)
+        f = numeral_font(TYPE["number_size_px"])
+        _place(rs, scene["hold_number"], f, GOLD, x=W // 2, y=y, reveal=0.0, label="hold-number", center=True)
         _, nh = measure(scene["hold_number"], f)
-        _place(rs, scene["span"], font(58, "regular"), BRASS, x=W // 2, y=y + nh + 60, reveal=0.8, label="span", center=True, features=LINING_FIGURES)
+        _place(rs, scene["span"], numeral_font(58), BRASS, x=W // 2, y=y + nh + 60, reveal=0.8, label="span", center=True)
         text_y = y + nh + 200
     else:  # Reel 1 — the citation block
         text_y = y + 40

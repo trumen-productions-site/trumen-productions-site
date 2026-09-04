@@ -51,10 +51,23 @@ GOLD = rgb("gold")
 
 FONT_SUBSTITUTIONS: list[str] = []
 
-# EB Garamond defaults to old-style figures, where 2 sits at x-height and 6
-# ascends. Elegant in running prose, wrong for a 220px number that IS the
-# frame — "26" reads as a typo. Display numerals ask for lining figures.
-LINING_FIGURES = ["lnum", "tnum"]
+# Display numerals come from a different cut, for two reasons found by looking
+# at the renders:
+#
+#   1. EB Garamond sets old-style figures — 2 at x-height, 3 and 7 descending.
+#      Correct in running prose, wrong for a 220px number that IS the frame:
+#      "26" reads as a typo. The font has no `lnum` feature to switch.
+#   2. Its en-dash glyph is EMPTY. The cmap claims U+2013, so a coverage check
+#      passes, but the outline is blank and "5–0" renders as a tofu box. That
+#      shipped in reel 3 before `check_glyphs` caught it.
+#
+# FreeSerif is the nearest available serif with lining figures and a real
+# en-dash. Prose stays in EB Garamond; only figures move.
+_NUMERAL_CANDIDATES = [
+    "/usr/share/fonts/truetype/freefont/FreeSerifBold.ttf",
+    "/usr/share/fonts/truetype/liberation/LiberationSerif-Bold.ttf",
+    "/usr/share/fonts/truetype/dejavu/DejaVuSerif-Bold.ttf",
+]
 
 _SERIF_CANDIDATES = {
     "regular": [
@@ -100,6 +113,49 @@ def _resolve(style: str) -> str:
 @lru_cache(maxsize=256)
 def font(size: int, style: str = "regular") -> ImageFont.FreeTypeFont:
     return ImageFont.truetype(_resolve(style), size)
+
+
+@lru_cache(maxsize=64)
+def numeral_font(size: int) -> ImageFont.FreeTypeFont:
+    """The face for display figures. See _NUMERAL_CANDIDATES for why."""
+    local = ROOT / "brand" / "fonts"
+    if local.is_dir():
+        for candidate in sorted(local.glob("*[Nn]umerals*.[to]tf")):
+            return ImageFont.truetype(str(candidate), size)
+    for path in _NUMERAL_CANDIDATES:
+        if os.path.exists(path):
+            note = f"numerals: EB Garamond sets old-style figures and has no en-dash glyph; using {Path(path).name}"
+            if note not in FONT_SUBSTITUTIONS:
+                FONT_SUBSTITUTIONS.append(note)
+            return ImageFont.truetype(path, size)
+    return font(size, "bold")
+
+
+def missing_glyphs(text: str, f: ImageFont.FreeTypeFont) -> list[str]:
+    """
+    Characters this font will render as a tofu box.
+
+    A cmap lookup is not enough: EB Garamond lists U+2013 and then draws
+    nothing for it. So each character is actually rendered and compared against
+    the font's own .notdef box — the only test that matches what a viewer sees.
+    """
+    size = 48
+    probe = ImageFont.truetype(f.path, size)
+    def bitmap(ch: str) -> bytes:
+        img = Image.new("L", (size * 3, size * 3), 0)
+        ImageDraw.Draw(img).text((size // 2, size // 2), ch, font=probe, fill=255)
+        return img.tobytes()
+
+    notdef = bitmap("\uffff")
+    blank = bitmap(" ")
+    bad = []
+    for ch in dict.fromkeys(text):
+        if ch.isspace():
+            continue
+        rendered = bitmap(ch)
+        if rendered == notdef or rendered == blank:
+            bad.append(ch)
+    return bad
 
 
 # ── Text helpers ──────────────────────────────────────────────────────────

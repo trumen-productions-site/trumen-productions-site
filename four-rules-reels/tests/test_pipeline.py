@@ -246,6 +246,32 @@ def test_end_card_carries_the_three_required_marks():
         assert {"endcard-section", "endcard-scales", "endcard-lockup"} <= labels
 
 
+@pytest.mark.parametrize("n", REELS)
+def test_no_on_screen_character_renders_as_tofu(n):
+    """
+    EB Garamond's cmap claims U+2013 and its outline is empty, so "5–0" shipped
+    as "5□0" until a render was looked at. A coverage check would not have
+    caught it; rendering the character does.
+    """
+    reel = timeline.load_reel(n)
+    prose = brand.font(64, "regular")
+    numerals = brand.numeral_font(120)
+    for scene in reel["scenes"]:
+        text = (scene.get("onscreen") or "") + str(scene.get("span") or "") + str(scene.get("hold_number") or "")
+        if "card" in scene:
+            text += scene["card"]["label"] + scene["card"]["line"]
+        for c in scene.get("compare", []):
+            text += c["label"] + c["line"]
+        assert brand.missing_glyphs(text, prose) == [], f"reel {n} {scene['type']}: tofu in prose"
+        value = (scene.get("number") or {}).get("value", "")
+        assert brand.missing_glyphs(value, numerals) == [], f"reel {n} {scene['type']}: tofu in numerals"
+
+
+def test_display_figures_are_lining_not_old_style():
+    """The numeral face is chosen for real figures; assert it is not the prose face."""
+    assert brand.numeral_font(120).path != brand.font(120, "bold").path
+
+
 def test_grain_is_deterministic():
     """A re-run must produce identical files, so the grain cannot be random."""
     a = scenes._grain_tiles(2, seed=1)[0].tobytes()

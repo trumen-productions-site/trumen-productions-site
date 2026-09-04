@@ -160,7 +160,7 @@ The deletion is stated. It is never motivated.
 
 ## QC
 
-Ten checks run after every render and write `out/QC_REPORT.md`. A check that
+Eleven checks run after every render and write `out/QC_REPORT.md`. A check that
 cannot be performed is reported as **SKIP** with its reason — never as a pass.
 
 1. Duration 59.5–60.5s, 1080×1920, 30fps, H.264/yuv420p, AAC
@@ -175,6 +175,25 @@ cannot be performed is reported as **SKIP** with its reason — never as a pass.
 8. End card holds ≥3s and carries §, scales and the mark
 9. `.srt` cue count matches the burned-in cues; no cue over two lines
 10. pytest green
+11. No missing glyphs — *one check beyond the handoff's ten, added because a
+    render needed it*
+
+### A note on the fonts
+
+Two defects came out of looking at rendered frames rather than at code.
+
+EB Garamond's cmap lists U+2013 and its outline is **empty**, so reel 3's `5–0`
+rendered as `5□0` — in the middle of the beat that says *every justice, zero
+dissents*. A coverage check passes that; only rendering the character catches
+it. Hence check 11, which draws each character and compares it against the
+font's own `.notdef` box.
+
+The same face sets **old-style figures** — 2 at x-height, 3 and 7 descending.
+Correct in running prose, wrong for a 220px number that is the whole frame:
+`26` reads as a typo. The font carries no `lnum` feature to switch with (tested:
+the before and after renders were byte-identical), so display figures come from
+FreeSerif instead. Prose stays in EB Garamond. Numerals from a separate cut is
+ordinary typographic practice, not a compromise.
 
 ### A note on the loudness stage
 
