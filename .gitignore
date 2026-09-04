@@ -14,3 +14,14 @@ package-lock.json
 # Generated on demand by `npm run pitch`.
 clearly-established-pitch.html
 trumen-site-preview.html
+
+# Reel renders — regenerate with `cd four-rules-reels && make all`.
+four-rules-reels/out/*.mp4
+four-rules-reels/out/*.wav
+four-rules-reels/audio/vo/_scenes/
+__pycache__/
+*.pyc
+.pytest_cache/
+four-rules-reels/out/QC_REPORT.md
+four-rules-reels/out/*.srt
+four-rules-reels/out/thumbnails/

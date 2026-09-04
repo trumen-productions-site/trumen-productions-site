@@ -1,0 +1,79 @@
+{
+  "id": "reel-2-four-documents",
+  "title": "Four Documents",
+  "archetype": "document-reveal",
+  "comment_keyword": "RECORD",
+  "scenes": [
+    {
+      "type": "hook",
+      "t_start": 0.0,
+      "t_end": 6.0,
+      "vo": "There are only four documents you need to read to understand how an innocent man gets erased. All four are public.",
+      "onscreen": "FOUR DOCUMENTS.\nALL PUBLIC."
+    },
+    {
+      "type": "beat",
+      "n": 1,
+      "t_start": 6.0,
+      "t_end": 11.0,
+      "vo": "Document one: a 1997 verdict. Guilty.",
+      "onscreen": "A 1997 verdict.\nGuilty.",
+      "card": { "label": "1997", "line": "VERDICT" }
+    },
+    {
+      "type": "beat",
+      "n": 2,
+      "t_start": 11.0,
+      "t_end": 19.0,
+      "vo": "Document two: Opinion Number 25093, filed March 27, 2000. Unanimous. No dissent. It should have been impossible to convict me.",
+      "onscreen": "Unanimous. No dissent.\nIt should have been\nimpossible to convict me.",
+      "card": { "label": "Op. No. 25093", "line": "3/27/2000" }
+    },
+    {
+      "type": "beat",
+      "n": 3,
+      "t_start": 19.0,
+      "t_end": 27.0,
+      "vo": "Document three: Opinion Number 25093 — filed again, June 12, 2000. Seventy-seven days later. Not the same document. There is language in the first one that is not in the second.",
+      "onscreen": "Not the same document.\nThere is language in the first\nthat is not in the second.",
+      "card": { "label": "Op. No. 25093", "line": "6/12/2000 · 77 DAYS" }
+    },
+    {
+      "type": "beat",
+      "n": 4,
+      "t_start": 27.0,
+      "t_end": 32.0,
+      "vo": "Document four: my release record. Dated seventy-seven days after the reversal.",
+      "onscreen": "My release record.",
+      "card": { "label": "RELEASE", "line": "77 DAYS AFTER" }
+    },
+    {
+      "type": "turn",
+      "t_start": 32.0,
+      "t_end": 44.0,
+      "music_in": true,
+      "vo": "Read them side by side. That's the whole argument. Not my opinion. Their paper.",
+      "onscreen": "Not my opinion.\nTheir paper.",
+      "compare": [
+        { "label": "Op. No. 25093", "line": "3/27/2000" },
+        { "label": "Op. No. 25093", "line": "6/12/2000" }
+      ],
+      "span": "77 DAYS"
+    },
+    {
+      "type": "man",
+      "t_start": 44.0,
+      "t_end": 54.0,
+      "vo": "My lawyer, Dan Stacey, gave me one instruction before he died: get those words into a record nobody can edit.",
+      "onscreen": "Dan Stacey"
+    },
+    {
+      "type": "cta",
+      "t_start": 54.0,
+      "t_end": 60.0,
+      "endcard": true,
+      "vo": "This is that record. Clearly Established. Link in bio. Comment which document you'd read first.",
+      "onscreen": ""
+    }
+  ]
+}

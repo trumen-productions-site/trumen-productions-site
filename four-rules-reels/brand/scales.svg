@@ -1,0 +1,16 @@
+<!-- Balance beneath the end-card title. Drawn, not illustrated: a post, a beam,
+     two pans. Kept plain on purpose — an ornate scales would be the one
+     decorative thing in sixty seconds of straight lines.
+     src/brand.py:scales() draws this same figure at render time. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 136" width="220" height="136" role="img" aria-label="Scales of justice">
+  <g fill="none" stroke="#B08D57" stroke-width="3" stroke-linecap="round">
+    <line x1="110" y1="19" x2="110" y2="109"/>
+    <line x1="26"  y1="41" x2="194" y2="41"/>
+    <line x1="66"  y1="112" x2="154" y2="112"/>
+    <path d="M26 41 L6 71 M26 41 L46 71"/>
+    <path d="M6 60 A20 20 0 0 0 46 60"/>
+    <path d="M194 41 L174 71 M194 41 L214 71"/>
+    <path d="M174 60 A20 20 0 0 0 214 60"/>
+  </g>
+  <circle cx="110" cy="16" r="6" fill="#B08D57"/>
+</svg>

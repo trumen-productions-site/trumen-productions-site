@@ -1,0 +1,14 @@
+MUSIC BED — LICENCE
+===================
+
+The bed in these renders is not licensed third-party music. It is
+synthesised at render time by src/audio.py:synth_bed() — summed detuned
+harmonics with a slow swell and a one-pole low-pass filter.
+
+It is therefore an original work owned by Revelatory Productions, LLC,
+with no third-party rights attached and nothing to clear.
+
+It is also a PLACEHOLDER. It exists so the turn has lift and so the
+ducking and loudness stages have something real to act on. Replace it
+with a scored or licensed bed before publication, and record the licence
+here when you do.

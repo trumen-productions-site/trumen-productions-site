@@ -1,0 +1,11 @@
+# Python dependencies. Deliberately three lines long.
+#
+# Frames are composed with Pillow and piped straight to ffmpeg, so there is no
+# moviepy/imageio/proglog stack here — see src/build.py for why.
+#
+# System packages (not pip): ffmpeg, espeak-ng, tesseract-ocr, fonts-ebgaramond.
+# `make install` fetches them on a Debian/Ubuntu box.
+
+Pillow>=10.0
+numpy>=1.24
+pytest>=7.4

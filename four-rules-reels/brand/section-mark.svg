@@ -1,0 +1,7 @@
+<!-- The § corner mark. Rendered at build time from the body serif (src/brand.py:
+     section_mark) so it always matches the type in force; this file is the
+     reference drawing for anyone working outside the pipeline. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 90" width="64" height="90" role="img" aria-label="Section mark">
+  <text x="32" y="72" font-family="EB Garamond, Georgia, serif" font-size="86"
+        text-anchor="middle" fill="#B08D57">§</text>
+</svg>

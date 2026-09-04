@@ -1,0 +1,13 @@
+<!-- TRU★MEN wordmark. Italic, the star replacing the A, never smaller than the
+     letters, faceted gold.
+     NOTE: this is a REFERENCE drawing. The brand rules require the supplied
+     lockup PNG (brand/trumen-lockup.png) on the end card, never type rebuilt
+     from scratch. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 220" width="900" height="220" role="img" aria-label="TRU★MEN">
+  <rect width="900" height="220" fill="#0B1F3A"/>
+  <text x="60" y="150" font-family="Poppins, Georgia, serif" font-style="italic"
+        font-weight="700" font-size="130" fill="#F3EBDD">TRU</text>
+  <path d="M450 30 l26 63 68 5 -52 44 17 66 -59 -37 -59 37 17 -66 -52 -44 68 -5z" fill="#D4AF37"/>
+  <text x="560" y="150" font-family="Poppins, Georgia, serif" font-style="italic"
+        font-weight="700" font-size="130" fill="#F3EBDD">MEN</text>
+</svg>

@@ -1,0 +1,70 @@
+{
+  "id": "reel-1-four-rules",
+  "title": "The Four Rules",
+  "archetype": "systemic",
+  "comment_keyword": "RECORD",
+  "scenes": [
+    {
+      "type": "hook",
+      "t_start": 0.0,
+      "t_end": 6.0,
+      "vo": "There are only four things the State needs to convict an innocent man. In 1997, South Carolina used all four on me.",
+      "onscreen": "FOUR RULES.\nONE INNOCENT MAN."
+    },
+    {
+      "type": "beat",
+      "n": 1,
+      "t_start": 6.0,
+      "t_end": 12.0,
+      "vo": "Rule one: you don't need evidence. You need a story, told with a straight face.",
+      "onscreen": "You don't need evidence.\nYou need a story, told\nwith a straight face."
+    },
+    {
+      "type": "beat",
+      "n": 2,
+      "t_start": 12.0,
+      "t_end": 18.0,
+      "vo": "Rule two: a jury that trusts the badge more than the facts.",
+      "onscreen": "A jury that trusts the\nbadge more than the facts."
+    },
+    {
+      "type": "beat",
+      "n": 3,
+      "t_start": 18.0,
+      "t_end": 24.0,
+      "vo": "Rule three: a record nobody actually reads.",
+      "onscreen": "A record nobody\nactually reads."
+    },
+    {
+      "type": "beat",
+      "n": 4,
+      "t_start": 24.0,
+      "t_end": 30.0,
+      "vo": "Rule four: time. The longer they hold you, the more people assume you belong there.",
+      "onscreen": "Time. The longer they hold\nyou, the more people\nassume you belong there."
+    },
+    {
+      "type": "turn",
+      "t_start": 30.0,
+      "t_end": 44.0,
+      "music_in": true,
+      "vo": "Three years and eleven months later, every judge on the South Carolina Supreme Court said the same thing: it should have been impossible to convict me. Unanimous. Then they withdrew the opinion, refiled it, and deleted the words — while the State was still holding me past the order.",
+      "onscreen": "State v. Martin\nOp. No. 25093\nMarch 27, 2000\n→ refiled June 12, 2000"
+    },
+    {
+      "type": "man",
+      "t_start": 44.0,
+      "t_end": 54.0,
+      "vo": "My lawyer, Dan Stacey, gave me one instruction before he died: get those words into a record nobody can edit.",
+      "onscreen": "Dan Stacey"
+    },
+    {
+      "type": "cta",
+      "t_start": 54.0,
+      "t_end": 60.0,
+      "endcard": true,
+      "vo": "This is that record. Clearly Established. Link in bio. Comment which rule you've watched them use.",
+      "onscreen": ""
+    }
+  ]
+}

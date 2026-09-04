@@ -1,0 +1,76 @@
+{
+  "id": "reel-3-four-numbers",
+  "title": "Four Numbers",
+  "archetype": "clock",
+  "comment_keyword": "STORY",
+  "scenes": [
+    {
+      "type": "hook",
+      "t_start": 0.0,
+      "t_end": 6.0,
+      "vo": "There are only four numbers in my case. Most people don't believe the fourth one.",
+      "onscreen": "FOUR NUMBERS."
+    },
+    {
+      "type": "beat",
+      "n": 1,
+      "t_start": 6.0,
+      "t_end": 12.0,
+      "vo": "Twenty-six. My age when they arrested me, 1996.",
+      "onscreen": "My age when they\narrested me, 1996.",
+      "number": { "value": "26", "count_from": 0 }
+    },
+    {
+      "type": "beat",
+      "n": 2,
+      "t_start": 12.0,
+      "t_end": 19.0,
+      "vo": "Three years, eleven months. How long I was inside.",
+      "onscreen": "How long I was inside.",
+      "number": { "value": "3y 11m" }
+    },
+    {
+      "type": "beat",
+      "n": 3,
+      "t_start": 19.0,
+      "t_end": 26.0,
+      "vo": "Five. Every justice on the South Carolina Supreme Court, saying the same thing: it should have been impossible to convict me. Zero dissents.",
+      "onscreen": "Every justice, the same thing:\nit should have been\nimpossible to convict me.",
+      "number": { "value": "5–0" }
+    },
+    {
+      "type": "beat",
+      "n": 4,
+      "t_start": 26.0,
+      "t_end": 32.0,
+      "vo": "Seventy-seven. The days the State kept me locked up after that order.",
+      "onscreen": "The days the State kept me\nlocked up after that order.",
+      "number": { "value": "77", "count_from": 0 }
+    },
+    {
+      "type": "turn",
+      "t_start": 32.0,
+      "t_end": 44.0,
+      "music_in": true,
+      "vo": "Seventy-seven is also the number of days between the opinion that freed me and the version they filed in its place. Withdrawn. Refiled. Language deleted.",
+      "onscreen": "Withdrawn. Refiled.\nLanguage deleted.",
+      "hold_number": "77",
+      "span": "3/27/2000 → 6/12/2000"
+    },
+    {
+      "type": "man",
+      "t_start": 44.0,
+      "t_end": 54.0,
+      "vo": "My lawyer, Dan Stacey, gave me one instruction before he died: get those words into a record nobody can edit.",
+      "onscreen": "Dan Stacey"
+    },
+    {
+      "type": "cta",
+      "t_start": 54.0,
+      "t_end": 60.0,
+      "endcard": true,
+      "vo": "This is that record. Clearly Established. Link in bio. Comment which number stopped you.",
+      "onscreen": ""
+    }
+  ]
+}
