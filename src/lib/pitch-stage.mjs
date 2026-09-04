@@ -157,7 +157,7 @@ function sceneCase() {
     Arrested in 1996 at twenty-six. Convicted in 1997 — sentenced to natural life without parole.
   </p>
   <h3 class="pk-punch pk-mt-24" data-enter="${t(T.case + 11)},0.9,32">Three years, eleven months in prison.</h3>
-  <h3 class="pk-punch pk-punch--red pk-mt-10" data-enter="${t(T.case + 13)},0.9,32">Sixty-plus days of it past what the law allowed.</h3>
+  <h3 class="pk-punch pk-punch--red pk-mt-10" data-enter="${t(T.case + 13)},0.9,32">Seventy-seven days of it past what the law allowed.</h3>
 </section>`;
 }
 

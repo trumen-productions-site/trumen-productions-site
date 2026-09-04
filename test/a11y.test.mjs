@@ -90,29 +90,32 @@ describe('markup accessibility', () => {
  * text and 3:1 for large text and UI edges.
  */
 describe('colour contrast (WCAG AA)', () => {
-  const paper = cssVar(siteCss, 'paper');
-  const ink = cssVar(siteCss, 'ink');
-  const red = cssVar(siteCss, 'red');
-  const red600 = cssVar(siteCss, 'red-600');
-  const redDeep = cssVar(siteCss, 'red-deep');
+  const cream = cssVar(siteCss, 'cream');
+  const navy = cssVar(siteCss, 'navy');
+  const brass = cssVar(siteCss, 'brass');
+  const brassDeep = cssVar(siteCss, 'brass-deep');
+  const gold = cssVar(siteCss, 'gold');
+  const green = cssVar(siteCss, 'green');
   const muted = cssVar(siteCss, 'muted');
   const mutedStrong = cssVar(siteCss, 'muted-strong');
   const inkMuted = cssVar(siteCss, 'muted', '.on-ink');
   const inkAccent = cssVar(siteCss, 'accent', '.on-ink');
 
   const pairs = [
-    ['body ink on paper', ink, paper, 4.5],
-    ['muted text on paper', muted, paper, 4.5],
-    ['strong muted text on paper', mutedStrong, paper, 4.5],
-    ['accent-ink links on paper', redDeep, paper, 4.5],
-    // Small white type never sits on the full-strength brand red — that is
-    // what --red-600 is for. The full red only ever carries display type.
-    ['white button labels on --red-600', '#ffffff', red600, 4.5],
-    ['white display type on the red field', '#ffffff', red, 3],
-    ['tinted white secondary type on the red field', '#ffe9e4', red, 3],
-    ['paper on ink (dark sections)', paper, ink, 4.5],
-    ['muted on ink', inkMuted, ink, 4.5],
-    ['accent on ink (large text and rules)', inkAccent, ink, 3],
+    ['navy body text on cream', navy, cream, 4.5],
+    ['muted text on cream', muted, cream, 4.5],
+    ['strong muted text on cream', mutedStrong, cream, 4.5],
+    ['brass-deep links and labels on cream', brassDeep, cream, 4.5],
+    ['green section mark on cream', green, cream, 4.5],
+    // Full-strength brass is a dark-ground colour only: 2.6:1 on cream. Small
+    // brass-coloured text on a light ground uses --brass-deep instead.
+    ['cream button labels on navy', cream, navy, 4.5],
+    ['navy display type on the brass field', navy, brass, 3],
+    ['navy secondary type on the brass field', navy, brass, 4.5],
+    ['cream on navy (dark sections)', cream, navy, 4.5],
+    ['muted on navy', inkMuted, navy, 4.5],
+    ['gold accent on navy', inkAccent, navy, 4.5],
+    ['the gold star on navy', gold, navy, 3],
   ];
 
   for (const [label, fg, bg, floor] of pairs) {

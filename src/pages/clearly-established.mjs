@@ -79,7 +79,7 @@ ${pageHeader({
               ${each(
                 b.punch,
                 (p) =>
-                  `<p class="spine-item__stat-value${p.tone === 'red' ? ' text-red' : ''}" style="max-width:26ch">${esc(p.text)}</p>`,
+                  `<p class="spine-item__stat-value${p.tone === 'red' ? ' text-accent' : ''}" style="max-width:26ch">${esc(p.text)}</p>`,
               )}
             </div>`,
           )}
@@ -91,7 +91,7 @@ ${pageHeader({
   </div>
 </section>
 
-<section class="question-panel on-red">
+<section class="question-panel on-brass">
   <div class="container" data-reveal>
     <p class="eyebrow">The question at the centre</p>
     <h2 class="question-panel__primary">${esc(film.questions.primary)}</h2>
@@ -134,7 +134,7 @@ ${pageHeader({
         (ch) => `<div data-reveal>${numberedCard({
           number: ch.role,
           title: ch.name,
-          body: `${esc(ch.body)}${when(showCastingVision && ch.castingVision, ` <span class="text-red">Casting vision: ${esc(ch.castingVision)}.</span>`)}`,
+          body: `${esc(ch.body)}${when(showCastingVision && ch.castingVision, ` <span class="text-accent">Casting vision: ${esc(ch.castingVision)}.</span>`)}`,
         })}</div>`,
       )}
     </div>

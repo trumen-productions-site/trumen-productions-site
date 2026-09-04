@@ -51,7 +51,7 @@ const ogCard = `<!doctype html>
 <style>
   * { box-sizing: border-box; margin: 0; }
   body {
-    width: 1200px; height: 630px; background: #201e1d; color: #f6f4f2;
+    width: 1200px; height: 630px; background: #0b1f3a; color: #f3ebdd;
     font-family: 'Poppins', system-ui, sans-serif;
     padding: 84px 88px; display: flex; flex-direction: column; justify-content: space-between;
     position: relative; overflow: hidden;
@@ -59,17 +59,17 @@ const ogCard = `<!doctype html>
   .grid {
     position: absolute; inset: 0; opacity: 1;
     background-image:
-      linear-gradient(to right, rgba(246,244,242,.055) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(246,244,242,.055) 1px, transparent 1px);
+      linear-gradient(to right, rgba(243,235,221,.055) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(243,235,221,.055) 1px, transparent 1px);
     background-size: 80px 80px;
   }
   .inner { position: relative; }
   .mark { display: flex; align-items: center; gap: 16px; font-size: 96px; font-weight: 700; font-style: italic; letter-spacing: .03em; line-height: 1; }
-  .mark svg { width: 62px; height: 62px; fill: #ec3013; }
+  .mark svg { width: 62px; height: 62px; fill: #d4af37; }
   .sub { margin-top: 20px; font-size: 27px; font-weight: 500; letter-spacing: .45em; text-transform: uppercase; }
-  .motto { margin-top: 26px; font-family: Georgia, serif; font-style: italic; font-size: 34px; color: #b7b1ab; }
-  .rule { height: 3px; background: #ec3013; width: 190px; margin-bottom: 30px; }
-  .tag { font-family: Georgia, serif; font-size: 36px; line-height: 1.35; color: #ded8d2; max-width: 21ch; }
+  .motto { margin-top: 26px; font-family: Georgia, serif; font-style: italic; font-size: 34px; color: #bfb09a; }
+  .rule { height: 3px; background: #d4af37; width: 190px; margin-bottom: 30px; }
+  .tag { font-family: Georgia, serif; font-size: 36px; line-height: 1.35; color: #ded4c2; max-width: 21ch; }
 </style>
 <div class="grid"></div>
 <div class="inner">
@@ -87,8 +87,8 @@ const touchIcon = `<!doctype html>
 <meta charset="utf-8">
 <style>
   * { margin: 0; box-sizing: border-box; }
-  body { width: 180px; height: 180px; background: #201e1d; display: grid; place-items: center; }
-  svg { width: 116px; height: 116px; fill: #ec3013; }
+  body { width: 180px; height: 180px; background: #0b1f3a; display: grid; place-items: center; }
+  svg { width: 116px; height: 116px; fill: #d4af37; }
 </style>
 ${STAR}`;
 

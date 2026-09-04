@@ -67,8 +67,9 @@ const body = () => `
             unanimously.
           </p>
           <p>
-            Between those dates: three years and eleven months in prison, and more than sixty
-            documented days held past the point the law allowed.
+            Between those dates: three years and eleven months in prison, and seventy-seven
+            days held past the point the law allowed — the exact span between the opinion that
+            freed him and the version filed in its place.
           </p>
           <p>
             <em>Clearly Established</em> is the memoir of what happened — the conviction, the
@@ -146,7 +147,7 @@ const body = () => `
   </div>
 </section>
 
-<section class="question-panel on-red">
+<section class="question-panel on-brass">
   <div class="container" data-reveal>
     <p class="eyebrow">The question at the centre</p>
     <h2 class="question-panel__primary">${esc(film.questions.primary)}</h2>

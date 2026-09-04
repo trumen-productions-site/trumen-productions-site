@@ -156,5 +156,10 @@ export function cssVar(css, name, selector = ':root') {
   if (!block) return null;
   const varRe = new RegExp(`--${name}:\\s*([^;]+);`);
   const m = block[1].match(varRe);
-  return m ? m[1].trim() : null;
+  if (!m) return null;
+  const value = m[1].trim();
+  // Roles point at brand tokens (--accent: var(--gold)), so follow one hop
+  // rather than handing the caller a string it cannot measure.
+  const indirect = value.match(/^var\(--([a-z0-9-]+)\)$/i);
+  return indirect ? cssVar(css, indirect[1], ':root') : value;
 }

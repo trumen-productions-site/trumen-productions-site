@@ -147,9 +147,16 @@ Facts that appear on more than one page are defined once in `src/site.config.mjs
 When one is confirmed, set its `verify` to `false` and note the source in its `source` line.
 `npm test` prints the outstanding list on every run so it cannot quietly become permanent.
 
-**One correction already applied.** The pitch deck said "four and a half years"; the later
-site PDF says three years and eleven months. The site uses three years and eleven months
-throughout, and a test now fails if the old figure reappears anywhere.
+**Two corrections already applied.**
+
+1. The pitch deck said "four and a half years"; the later site PDF says three years and
+   eleven months. The site uses three years and eleven months throughout, and a test fails
+   if the old figure reappears anywhere.
+2. The site said "60+ documented days" of over-detention. The September 2026 canon locks it
+   at **77 days** — the exact span between the opinion that freed him (March 27, 2000) and
+   the version filed in its place (June 12, 2000). The reel pipeline derives that number
+   from the two dates rather than trusting it (`four-rules-reels/src/canon.py`), and the
+   site now states 77 everywhere. A test fails if "sixty" comes back.
 
 ---
 

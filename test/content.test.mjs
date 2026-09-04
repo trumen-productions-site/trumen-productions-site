@@ -47,7 +47,7 @@ describe('the record is consistent', () => {
     for (const path of ['/', '/clearly-established/', '/clearly-established/pitch/', '/our-story/']) {
       assert.match(
         byPath.get(path).html,
-        /sixty|60\+/i,
+        /seventy-seven|77 days/i,
         `${path} states the years served without the over-detention`,
       );
     }
@@ -225,6 +225,21 @@ describe('nothing authored goes unpublished', () => {
 /* ── Brand ────────────────────────────────────────────────────────────── */
 
 describe('the mark', () => {
+  test('the locked brand colours are in force', async () => {
+    const { readFile } = await import('node:fs/promises');
+    const css = await readFile(new URL('../src/assets/css/site.css', import.meta.url), 'utf8');
+    // The same five values as four-rules-reels/brand/tokens.json.
+    for (const [name, value] of [
+      ['navy', '#0b1f3a'],
+      ['cream', '#f3ebdd'],
+      ['brass', '#b08d57'],
+      ['green', '#2e6b4f'],
+      ['gold', '#d4af37'],
+    ]) {
+      assert.ok(css.includes(`--${name}: ${value};`), `--${name} is not ${value}`);
+    }
+  });
+
   test('the wordmark is drawn with a star between TRU and MEN on every page', () => {
     for (const page of pages) {
       assert.ok(

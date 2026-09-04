@@ -153,9 +153,9 @@ export const facts = {
   },
   incarcerated: { value: '3 yrs 11 mos', label: 'Incarcerated', detail: 'Three years and eleven months.' },
   overDetention: {
-    value: '60+ days',
+    value: '77 days',
     label: 'Held past what the law allowed',
-    detail: 'More than sixty documented days of over-detention.',
+    detail: 'Seventy-seven days of over-detention — the exact span between the opinion that freed him and the version filed in its place.',
   },
   opinion: { value: 'Op. No. 25093', label: 'State v. Martin', detail: 'Supreme Court of South Carolina.' },
   memoirWords: { value: '~99,000', label: 'Words, memoir', detail: 'Manuscript complete.' },

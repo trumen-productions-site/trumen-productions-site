@@ -43,7 +43,7 @@ export const faq = [
     q: 'What is “over-detention”?',
     a:
       'Being held in custody past the point at which the law permits it. Michael Martin ' +
-      'served three years and eleven months, more than sixty documented days of it beyond ' +
+      'served three years and eleven months, seventy-seven days of it beyond ' +
       'what the law allowed — and he was still incarcerated while the record of his ' +
       'innocence was being rewritten.',
   },

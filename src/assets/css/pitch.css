@@ -533,8 +533,8 @@
 /* ── B. The player chrome ─────────────────────────────────────────────── */
 
 .player {
-  background: var(--ink);
-  color: var(--paper);
+  background: var(--navy);
+  color: var(--cream);
   padding-block: clamp(2rem, 5vw, 4rem);
 }
 
@@ -566,7 +566,7 @@
   width: 3rem;
   height: 3rem;
   flex: none;
-  background: var(--red-600);
+  background: var(--brass-deep);
   color: #fff;
   border: 0;
   cursor: pointer;
@@ -574,7 +574,7 @@
 }
 
 .player__btn:hover {
-  background: var(--red);
+  background: var(--brass);
 }
 
 .player__btn svg {
@@ -627,7 +627,7 @@
   width: 14px;
   height: 14px;
   margin-top: -5px;
-  background: var(--red);
+  background: var(--brass);
   border: 0;
   border-radius: 50%;
 }
@@ -635,7 +635,7 @@
 .player__scrub::-moz-range-thumb {
   width: 14px;
   height: 14px;
-  background: var(--red);
+  background: var(--brass);
   border: 0;
   border-radius: 50%;
 }
@@ -653,7 +653,7 @@
 }
 
 .player__scene {
-  color: var(--paper);
+  color: var(--cream);
   font-weight: 600;
 }
 
@@ -687,8 +687,8 @@
 }
 
 .player__chapter:hover {
-  background: var(--red);
-  border-color: var(--red);
+  background: var(--brass);
+  border-color: var(--brass);
   color: #fff;
 }
 
@@ -718,7 +718,7 @@
     margin-top: var(--sp-4);
     font-size: var(--step--1);
     color: #ded8d2;
-    border-left: 3px solid var(--red);
+    border-left: 3px solid var(--brass);
     padding-left: var(--sp-4);
   }
 }

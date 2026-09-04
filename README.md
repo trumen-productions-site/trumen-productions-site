@@ -73,6 +73,17 @@ accident.
 
 ---
 
+## The brand
+
+Navy `#0b1f3a`, cream `#f3ebdd`, brass `#b08d57`, green `#2e6b4f`, gold `#d4af37` — the
+palette locked July 12, 2026, and the same five values the reel pipeline uses
+(`four-rules-reels/brand/tokens.json`). A test asserts them, so the two can never drift.
+
+One constraint worth knowing before you reach for brass: **brass on cream is 2.6:1**, which
+fails even the large-text floor. Anything brass-coloured on a light ground uses
+`--brass-deep` (`#6b5836`, 5.8:1) instead. Full-strength brass is for dark grounds and for
+the full-bleed field, where navy type sits on it at 5.3:1.
+
 ## How it is built
 
 ```

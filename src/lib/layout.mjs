@@ -88,7 +88,7 @@ function head({ title, description, path, ogType = 'website', jsonLd = [], css =
 <link rel="canonical" href="${esc(canonical)}">
 ${when(noindex, '<meta name="robots" content="noindex, follow">')}
 <meta name="color-scheme" content="light">
-<meta name="theme-color" content="#201e1d">
+<meta name="theme-color" content="#0b1f3a">
 
 <meta property="og:type" content="${esc(ogType)}">
 <meta property="og:site_name" content="${esc(site.namePlain)}">
