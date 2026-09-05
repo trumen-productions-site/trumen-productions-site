@@ -171,12 +171,13 @@ export const facts = {
 export const quotes = {
   prosecutor: {
     text: 'We will probably never know which one of these defendants actually did the killing.',
-    attribution: 'Prosecutor Mark Moyer, in open court',
+    attribution: 'Deputy Solicitor Mark Moyer, in open court',
     source:
       'Solicitor’s closing argument, Record on Appeal p. 349, lines 10–14, as quoted in the ' +
-      'Final Brief of Appellant (Argument III). The transcript names the solicitor only as ' +
-      '“Mr. Moyer” (ROA p. 356).',
-    verify: true, // TODO: the surname is confirmed by the record; the first name “Mark” is not in it.
+      'Final Brief of Appellant (Argument III). Speaker identified as “Mr. Moyer” in the ' +
+      'transcript (ROA p. 356) and as L. Mark Moyer, Deputy Solicitor, Pickens County, in his ' +
+      'acceptance of service of the Notice of Intent to Appeal, November 5, 1997 (case file).',
+    verify: false,
   },
   judge: {
     text: 'You don’t know if either one of them did.',
@@ -188,11 +189,18 @@ export const quotes = {
   },
   court: {
     text:
-      'The State’s evidence did not place either defendant in the apartment … it is impossible ' +
-      'to hold the individual defendants collectively guilty under the legal theories used by the State.',
+      'The State’s evidence does not place either defendant in the apartment. … it is impossible ' +
+      'to hold the individual defendants collectively guilty of [the] murder under the legal ' +
+      'theories used by the State since neither conspiracy nor accomplice liability were charged ' +
+      'to the jury.',
     attribution: 'Supreme Court of South Carolina, Opinion No. 25093',
-    source: 'Filed March 27, 2000. These are among the paragraphs deleted on June 12, 2000.',
-    verify: true, // TODO: confirm against the originally filed opinion.
+    source:
+      'Opinion as filed March 27, 2000 (case file, Toal, A.J., all justices concurring). The ' +
+      'first sentence is from the third paragraph of the Law/Analysis, which the order of ' +
+      'June 12, 2000 says was “modified”; the second is the closing sentence of the three ' +
+      'paragraphs that order says were “deleted”. The refiled opinion keeps the solicitor’s ' +
+      'admissions and drops the Court’s conclusion from them.',
+    verify: false,
   },
   directors: {
     text:

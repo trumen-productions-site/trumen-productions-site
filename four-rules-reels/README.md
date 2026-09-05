@@ -100,21 +100,19 @@ mistaken for the finished read.
 | --- | --- |
 | **Voiceover** | Synthesis, engine named in the report (`audio.vo_engine`; espeak-ng by default). Replace per above. |
 | **Music bed** | Synthesised pad — a sustained low drone with a slow swell. No CC0 bed can be fetched offline. See `audio/bed/LICENCE.txt`: it is an original work with nothing to clear, and it is still a placeholder. |
-| **End-card lockup** | `brand/trumen-lockup.png` **was not supplied with this handoff.** A structural placeholder is drawn instead. |
 | **Body serif** | Georgia is a Microsoft core font and is not licensable here, so the handoff’s own named fallback is used: **EB Garamond**. Never a sans. |
 
-### The lockup is the one real blocker
+### The lockup
 
 The brand rules say the end-card lockup is supplied, must be used as-is, and
-must **never be rebuilt from type**. It did not arrive with the handoff, so the
-end card currently shows a placeholder built from the available serif — exactly
-the thing the rules forbid.
+must **never be rebuilt from type**. It is: `brand/trumen-lockup.png` is the
+2400×1131 reference lockup from the brand folder (“TRU★MEN PRODUCTIONS · VIRI
+VERI on navy”), whose field is the exact brand navy `#0B1F3A`, so it sits on
+the end card without a seam. It is scaled to 820px wide and centred.
 
-Drop the real 2400×1131 PNG at `brand/trumen-lockup.png` and re-render. It is
-picked up automatically, scaled to 820px wide and centred; no code change, and
-the placeholder warning disappears from the QC report. Everything else about the
-end card — the green §, the title, the scales, the three-second hold — is
-already correct.
+If the file is ever missing, the pipeline draws a structural placeholder from
+type and says so in `QC_REPORT.md` on every render, so the substitution cannot
+go unnoticed.
 
 ---
 

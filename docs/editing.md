@@ -150,15 +150,26 @@ the solicitor’s “the whole point is we don’t know if they acted in concert
 lines 12–13) and the court’s “I will also have to admit that I have never had the state say
 they can’t prove who did what” (ROA p. 362, lines 18–19).
 
-**Still to confirm:**
+**Confirmed against the Supreme Court case file** (the State’s petition for rehearing, the
+order of June 12, 2000, both versions of the opinion, and the remittitur):
 
-| Quotation | On the site as | To confirm |
-| --- | --- | --- |
-| The prosecutor’s line, above | Prosecutor **Mark** Moyer | The transcript names him only as “Mr. Moyer” (ROA p. 356). The solicitor of record is Robert M. Ariail, Thirteenth Circuit; Moyer tried the case. The first name is the authors’ recollection. The memoir refers to him by a pseudonym. |
-| “The State’s evidence did not place either defendant in the apartment … it is impossible to hold the individual defendants collectively guilty…” | Supreme Court of South Carolina, Op. No. 25093 | Wording against the opinion **as originally filed on March 27, 2000** — the version the site is about. The memoir’s epigraph gives the deleted sentence as: “…it is impossible to hold the individual defendants collectively guilty of [the] murder under the legal theories used by the State since neither conspiracy nor accomplice liability were charged to the jury.” |
+| Item | Source |
+| --- | --- |
+| The prosecutor is **L. Mark Moyer, Deputy Solicitor**, Pickens County. | His acceptance of service of the Notice of Intent to Appeal, November 5, 1997. Robert M. Ariail, Solicitor of the Thirteenth Circuit, is the solicitor of record on the opinion; Moyer tried the case. The memoir refers to him by a pseudonym. |
+| “The State’s evidence does not place either defendant in the apartment.” | Opinion No. 25093 as filed March 27, 2000, third paragraph of the Law/Analysis. The June 12 order says this paragraph was “modified”: the refiled version reads “failed to place either defendant inside the apartment” and moves the solicitor’s admissions into it. |
+| “…it is impossible to hold the individual defendants collectively guilty of Victim’s murder under the legal theories used by the State since neither conspiracy nor accomplice liability were charged to the jury.” | Opinion as filed March 27, 2000, closing sentence of the last three paragraphs of the Law/Analysis. The June 12 order says those paragraphs were “deleted”. The site prints “[the] murder” for “Victim’s murder”. |
+| The order of June 12, 2000 | “The opinion heretofore filed in this case … is withdrawn and the attached opinion is substituted in its place. The third paragraph of the Law/Analysis section in the initial opinion has been modified. Furthermore, the last three paragraphs of that section have been deleted. Respondent’s petition for rehearing is denied.” |
+| The remittitur | Issued June 28, 2000, to the Clerk of Court, Pickens County. |
 
-When one is confirmed, set its `verify` to `false` and note the source in its `source` line.
-`npm test` prints the outstanding list on every run so it cannot quietly become permanent.
+**Nothing on the site is now unverified.** `npm test` prints any quotation whose `verify`
+flag is set back to `true`, so a new quotation cannot quietly become permanent.
+
+**One figure to watch.** The site describes the 77 days between the opinion (March 27) and
+its replacement (June 12) as over-detention. The case file shows the remittitur, the
+document that returns the case to the trial court, did not issue until June 28, 2000 — 93
+days after the opinion — and the memoir says the Department of Corrections’ actual release
+date is the subject of a pending FOIA request. Seventy-seven days is the exact, documented
+span of the erasure. It is a floor for the detention, not its length.
 
 **Two corrections already applied.**
 
