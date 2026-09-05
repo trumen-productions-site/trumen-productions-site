@@ -17,7 +17,7 @@ export const spine = [
     etymology: null,
     body: [
       'A man arrested at twenty-six, convicted in 1997, and held three years and eleven ' +
-        'months — seventy-seven days of it past what the law allowed — before ' +
+        'months — ninety-three days of it past what the law allowed — before ' +
         'the Supreme Court of South Carolina reversed the conviction. Unanimously.',
       'This is the story the memoir tells and the screenplay dramatizes.',
     ],

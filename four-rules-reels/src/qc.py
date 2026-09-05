@@ -220,7 +220,9 @@ def check_canon(result) -> Check:
         5,
         "Canon: facts, numbers, banned phrases",
         "PASS",
-        f"77 days derived from {canon.CANON['reversal_date']}→{canon.CANON['refiled_date']}; "
+        f"{canon.CANON['days_between_filings']} days derived from "
+        f"{canon.CANON['reversal_date']}→{canon.CANON['refiled_date']}, "
+        f"{canon.CANON['days_to_remittitur']} from →{canon.CANON['remittitur_date']}; "
         f"{len(canon.BANNED_PHRASES)} banned phrases absent; finding stated",
     )
 

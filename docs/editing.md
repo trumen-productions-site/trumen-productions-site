@@ -164,23 +164,22 @@ order of June 12, 2000, both versions of the opinion, and the remittitur):
 **Nothing on the site is now unverified.** `npm test` prints any quotation whose `verify`
 flag is set back to `true`, so a new quotation cannot quietly become permanent.
 
-**One figure to watch.** The site describes the 77 days between the opinion (March 27) and
-its replacement (June 12) as over-detention. The case file shows the remittitur, the
-document that returns the case to the trial court, did not issue until June 28, 2000 — 93
-days after the opinion — and the memoir says the Department of Corrections’ actual release
-date is the subject of a pending FOIA request. Seventy-seven days is the exact, documented
-span of the erasure. It is a floor for the detention, not its length.
-
-**Two corrections already applied.**
+**Three corrections already applied.**
 
 1. The pitch deck said "four and a half years"; the later site PDF says three years and
    eleven months. The site uses three years and eleven months throughout, and a test fails
    if the old figure reappears anywhere.
-2. The site said "60+ documented days" of over-detention. The September 2026 canon locks it
-   at **77 days** — the exact span between the opinion that freed him (March 27, 2000) and
-   the version filed in its place (June 12, 2000). The reel pipeline derives that number
-   from the two dates rather than trusting it (`four-rules-reels/src/canon.py`), and the
-   site now states 77 everywhere. A test fails if "sixty" comes back.
+2. The site said "60+ documented days" of over-detention, then "77 days" — the span between
+   the opinion of March 27, 2000 and the version refiled June 12, 2000. That span is real
+   and the site still states it, as the timing of the erasure.
+3. The over-detention itself is **93 days**, corrected by Michael on September 5, 2026 from
+   the case file: the remittitur, the document that returns the case to the trial court,
+   issued June 28, 2000, ninety-three days after the opinion that freed him. The reel
+   pipeline derives both numbers from the three dates rather than trusting them
+   (`four-rules-reels/src/canon.py`), and a test fails if seventy-seven or sixty is ever
+   again presented as the over-detention. The Department of Corrections’ actual release
+   date is the subject of a pending FOIA request; when it arrives, it can only lengthen the
+   figure.
 
 ---
 

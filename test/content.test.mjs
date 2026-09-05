@@ -27,6 +27,8 @@ describe('the record is consistent', () => {
   test('the dates are the ones on the opinion', () => {
     assert.equal(facts.reversed.value, 'March 27, 2000');
     assert.equal(facts.refiled.value, 'June 12, 2000');
+    assert.equal(facts.remittitur.value, 'June 28, 2000');
+    assert.equal(facts.overDetention.value, '93 days');
     assert.equal(facts.arrested.value, '1996');
     assert.equal(facts.convicted.value, '1997');
   });
@@ -47,10 +49,21 @@ describe('the record is consistent', () => {
     for (const path of ['/', '/clearly-established/', '/clearly-established/pitch/', '/our-story/']) {
       assert.match(
         byPath.get(path).html,
-        /seventy-seven|77 days/i,
+        /ninety-three|93 days/i,
         `${path} states the years served without the over-detention`,
       );
     }
+  });
+
+  test('the over-detention is never the superseded seventy-seven', () => {
+    // 77 days is the span between the two filings of the opinion and may be
+    // stated as such. It was once presented as the over-detention; the
+    // remittitur in the case file (June 28, 2000) makes that 93. Keep it so.
+    assert.ok(
+      !/(seventy-seven|77) days (of it )?(past|beyond|held|of over-detention)/i.test(allHtml),
+      'the over-detention must be stated as ninety-three days, not seventy-seven',
+    );
+    assert.ok(!/sixty(-plus|\+)? (documented )?days/i.test(allHtml), '"sixty days" is a superseded figure');
   });
 
   test('the opinion number appears wherever the reversal is described', () => {

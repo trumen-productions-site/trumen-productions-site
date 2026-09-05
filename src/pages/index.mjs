@@ -67,9 +67,9 @@ const body = () => `
             unanimously.
           </p>
           <p>
-            Between those dates: three years and eleven months in prison, and seventy-seven
-            days held past the point the law allowed — the exact span between the opinion that
-            freed him and the version filed in its place.
+            Between those dates: three years and eleven months in prison, and ninety-three
+            days held past the point the law allowed — from the opinion that freed him to the
+            remittitur that finally returned his case to the trial court.
           </p>
           <p>
             <em>Clearly Established</em> is the memoir of what happened — the conviction, the

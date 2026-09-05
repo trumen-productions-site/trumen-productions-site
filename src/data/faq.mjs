@@ -43,9 +43,10 @@ export const faq = [
     q: 'What is “over-detention”?',
     a:
       'Being held in custody past the point at which the law permits it. Michael Martin ' +
-      'served three years and eleven months, seventy-seven days of it beyond ' +
-      'what the law allowed — and he was still incarcerated while the record of his ' +
-      'innocence was being rewritten.',
+      'served three years and eleven months, ninety-three days of it beyond ' +
+      'what the law allowed — from the opinion of March 27, 2000 that freed him to the ' +
+      'remittitur of June 28, 2000 that returned the case to the trial court. He was still ' +
+      'incarcerated while the record of his innocence was being rewritten.',
   },
   {
     q: 'Why does a film company publish legal books?',

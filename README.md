@@ -210,7 +210,8 @@ sitemap, and structured data at build time.
 `four-rules-reels/` is a separate deliverable in the same repository: three 60-second
 vertical reels for *Clearly Established*, built from a deterministic Python pipeline
 (Pillow → ffmpeg, no framework). It shares this project's brand tokens and its facts, and
-enforces them harder — `src/canon.py` derives the 77 days from the two filing dates and
+enforces them harder — `src/canon.py` derives the 77 days of the erasure and the 93 days of
+over-detention from the dates on the opinion, the refiled opinion and the remittitur, and
 fails the build on a contradiction, a banned phrase, or an unrecognised number.
 
 ```bash

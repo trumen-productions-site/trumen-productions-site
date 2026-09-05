@@ -149,13 +149,19 @@ export const facts = {
   refiled: {
     value: 'June 12, 2000',
     label: 'Withdrawn and refiled',
-    detail: 'The same opinion, with the language explaining his innocence deleted.',
+    detail: 'The same opinion, seventy-seven days later, with the language explaining his innocence deleted.',
+  },
+  remittitur: {
+    value: 'June 28, 2000',
+    label: 'Remittitur issued',
+    detail: 'The Supreme Court returns the case to the trial court — ninety-three days after the opinion that freed him.',
   },
   incarcerated: { value: '3 yrs 11 mos', label: 'Incarcerated', detail: 'Three years and eleven months.' },
   overDetention: {
-    value: '77 days',
+    value: '93 days',
     label: 'Held past what the law allowed',
-    detail: 'Seventy-seven days of over-detention — the exact span between the opinion that freed him and the version filed in its place.',
+    detail:
+      'Ninety-three days of over-detention — from the opinion of March 27, 2000 that freed him to the remittitur of June 28, 2000 that finally returned the case to the trial court.',
   },
   opinion: { value: 'Op. No. 25093', label: 'State v. Martin', detail: 'Supreme Court of South Carolina.' },
   memoirWords: { value: '~99,000', label: 'Words, memoir', detail: 'Manuscript complete.' },
@@ -172,19 +178,23 @@ export const quotes = {
   prosecutor: {
     text: 'We will probably never know which one of these defendants actually did the killing.',
     attribution: 'Deputy Solicitor Mark Moyer, in open court',
-    source:
-      'Solicitor’s closing argument, Record on Appeal p. 349, lines 10–14, as quoted in the ' +
-      'Final Brief of Appellant (Argument III). Speaker identified as “Mr. Moyer” in the ' +
-      'transcript (ROA p. 356) and as L. Mark Moyer, Deputy Solicitor, Pickens County, in his ' +
-      'acceptance of service of the Notice of Intent to Appeal, November 5, 1997 (case file).',
+    // `source` is printed beneath the attribution; `note` is the verification trail.
+    source: 'Closing argument. Record on Appeal, p. 349, lines 10–14.',
+    note:
+      'Quoted with the citation in the Final Brief of Appellant (Argument III). The transcript ' +
+      'names the speaker “Mr. Moyer” (ROA p. 356); his acceptance of service of the Notice of ' +
+      'Intent to Appeal, November 5, 1997, in the Supreme Court case file, gives L. Mark Moyer, ' +
+      'Deputy Solicitor, Pickens County. The memoir refers to him by a pseudonym; Michael ' +
+      'confirmed on September 5, 2026 that the site names him.',
     verify: false,
   },
   judge: {
     text: 'You don’t know if either one of them did.',
     attribution: 'Judge Henry Floyd',
-    source:
-      'To the solicitor, in colloquy on the renewed directed-verdict motion, Record on Appeal ' +
-      'p. 358, lines 9–15, as quoted in the Final Brief of Appellant (Argument III).',
+    source: 'To the solicitor, on the renewed motion for a directed verdict. Record on Appeal, p. 358, lines 9–15.',
+    note:
+      'Quoted with the citation in the Final Brief of Appellant (Argument III). An earlier draft ' +
+      'of the site had “either of them”; the record says “either one of them”.',
     verify: false,
   },
   court: {
@@ -195,11 +205,15 @@ export const quotes = {
       'to the jury.',
     attribution: 'Supreme Court of South Carolina, Opinion No. 25093',
     source:
-      'Opinion as filed March 27, 2000 (case file, Toal, A.J., all justices concurring). The ' +
-      'first sentence is from the third paragraph of the Law/Analysis, which the order of ' +
-      'June 12, 2000 says was “modified”; the second is the closing sentence of the three ' +
-      'paragraphs that order says were “deleted”. The refiled opinion keeps the solicitor’s ' +
-      'admissions and drops the Court’s conclusion from them.',
+      'The opinion as filed March 27, 2000. The first sentence was “modified” and the second ' +
+      'was among the paragraphs “deleted” by the order of June 12, 2000.',
+    note:
+      'From the original opinion in the Supreme Court case file (Toal, A.J.; Finney, C.J., ' +
+      'Moore, Waller and Burnett, JJ., concurring). The June 12 order: “The third paragraph of ' +
+      'the Law/Analysis section in the initial opinion has been modified. Furthermore, the last ' +
+      'three paragraphs of that section have been deleted.” The refiled opinion keeps the ' +
+      'solicitor’s admissions and drops the Court’s conclusion from them. “[the] murder” stands ' +
+      'for “Victim’s murder”.',
     verify: false,
   },
   directors: {

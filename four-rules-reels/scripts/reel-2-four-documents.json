@@ -43,9 +43,9 @@
       "n": 4,
       "t_start": 27.0,
       "t_end": 32.0,
-      "vo": "Document four: my release record. Dated seventy-seven days after the reversal.",
-      "onscreen": "My release record.",
-      "card": { "label": "RELEASE", "line": "77 DAYS AFTER" }
+      "vo": "Document four: the remittitur. The order sending my case back to the trial court. Dated ninety-three days after the reversal.",
+      "onscreen": "The order sending my case\nback to the trial court.",
+      "card": { "label": "REMITTITUR", "line": "6/28/2000 · 93 DAYS AFTER" }
     },
     {
       "type": "turn",

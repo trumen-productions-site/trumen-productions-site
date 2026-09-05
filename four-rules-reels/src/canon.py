@@ -24,11 +24,17 @@ CANON = {
     "conviction_year": 1997,
     "reversal_date": "2000-03-27",
     "refiled_date": "2000-06-12",
+    # The remittitur is the Supreme Court's letter returning the case to the
+    # trial court. It is in the case file, dated June 28, 2000.
+    "remittitur_date": "2000-06-28",
     "days_between_filings": 77,
+    "days_to_remittitur": 93,
     "incarceration": "three years and eleven months",
     "court_vote": "unanimous",
-    # LOCKED 2026-09-04 by Michael. Equals days_between_filings.
-    "over_detention_days": 77,
+    # LOCKED 2026-09-05 by Michael: the over-detention is the span from the
+    # opinion that freed him to the remittitur. Equals days_to_remittitur.
+    # (Superseded 2026-09-04 lock: 77, the span between the two filings.)
+    "over_detention_days": 93,
     "appellate_counsel": "Dan Stacey",
     "counsel_instruction": "get those words into a record nobody can edit",
 }
@@ -64,19 +70,26 @@ class CanonError(AssertionError):
 
 
 def check_arithmetic() -> None:
-    """The 77 days are derived, not asserted — so they cannot drift."""
+    """Both day counts are derived from the dates, not asserted — so they cannot drift."""
     reversal = date.fromisoformat(CANON["reversal_date"])
     refiled = date.fromisoformat(CANON["refiled_date"])
-    actual = (refiled - reversal).days
-    if actual != CANON["days_between_filings"]:
+    remittitur = date.fromisoformat(CANON["remittitur_date"])
+    between = (refiled - reversal).days
+    if between != CANON["days_between_filings"]:
         raise CanonError(
-            f"{CANON['reversal_date']} to {CANON['refiled_date']} is {actual} days, "
+            f"{CANON['reversal_date']} to {CANON['refiled_date']} is {between} days, "
             f"but CANON says {CANON['days_between_filings']}"
         )
-    if CANON["over_detention_days"] != CANON["days_between_filings"]:
+    to_remit = (remittitur - reversal).days
+    if to_remit != CANON["days_to_remittitur"]:
         raise CanonError(
-            "over_detention_days and days_between_filings must be equal "
-            f"({CANON['over_detention_days']} vs {CANON['days_between_filings']})"
+            f"{CANON['reversal_date']} to {CANON['remittitur_date']} is {to_remit} days, "
+            f"but CANON says {CANON['days_to_remittitur']}"
+        )
+    if CANON["over_detention_days"] != CANON["days_to_remittitur"]:
+        raise CanonError(
+            "over_detention_days and days_to_remittitur must be equal "
+            f"({CANON['over_detention_days']} vs {CANON['days_to_remittitur']})"
         )
 
 
@@ -89,7 +102,7 @@ def check_banned(text: str, where: str) -> None:
 
 def check_numbers(text: str, where: str) -> None:
     """
-    Every 77 on screen or in the voiceover must be one of the record's 77s.
+    Every number on screen or in the voiceover must be one of the record's.
 
     Written as a whitelist rather than a blacklist: a number that is not in the
     record has no business in a reel, so anything unrecognised fails loudly.
@@ -99,6 +112,7 @@ def check_numbers(text: str, where: str) -> None:
         str(CANON["arrest_year"]),
         str(CANON["conviction_year"]),
         str(CANON["days_between_filings"]),
+        str(CANON["days_to_remittitur"]),
         "2000",
         "25093",
         "3",
@@ -107,6 +121,7 @@ def check_numbers(text: str, where: str) -> None:
         "0",
         "27",
         "12",
+        "28",
         "6",
         "1",
         "2",
@@ -116,8 +131,14 @@ def check_numbers(text: str, where: str) -> None:
         if token not in allowed:
             raise CanonError(f"unrecognised number {token!r} in {where}: {text[:90]!r}")
 
-    if "seventy-seven" in text.lower() and CANON["days_between_filings"] != 77:
+    lowered = text.lower()
+    if "seventy-seven" in lowered and CANON["days_between_filings"] != 77:
         raise CanonError(f"'seventy-seven' written out in {where} but CANON says otherwise")
+    if "ninety-three" in lowered and CANON["days_to_remittitur"] != 93:
+        raise CanonError(f"'ninety-three' written out in {where} but CANON says otherwise")
+    # Seventy-seven is the erasure, never the detention. The detention is ninety-three.
+    if re.search(r"seventy-seven\b.{0,80}?\b(locked up|held|kept me|detention|after that order)", lowered):
+        raise CanonError(f"seventy-seven presented as the over-detention in {where}: {text[:90]!r}")
 
 
 def check_finding(reel: dict) -> None:
@@ -153,11 +174,13 @@ def verify(reel: dict) -> None:
 def summary() -> str:
     reversal = date.fromisoformat(CANON["reversal_date"])
     refiled = date.fromisoformat(CANON["refiled_date"])
+    remittitur = date.fromisoformat(CANON["remittitur_date"])
     return (
         f"{CANON['case']} · arrested {CANON['arrest_year']} at {CANON['age_at_arrest']} · "
         f"convicted {CANON['conviction_year']} · reversed {reversal:%B %-d, %Y} "
-        f"({CANON['court_vote']}) · refiled {refiled:%B %-d, %Y} · "
-        f"{(refiled - reversal).days} days"
+        f"({CANON['court_vote']}) · refiled {refiled:%B %-d, %Y} "
+        f"({(refiled - reversal).days} days) · remittitur {remittitur:%B %-d, %Y} "
+        f"({(remittitur - reversal).days} days)"
     )
 
 

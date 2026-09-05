@@ -43,16 +43,16 @@
       "n": 4,
       "t_start": 26.0,
       "t_end": 32.0,
-      "vo": "Seventy-seven. The days the State kept me locked up after that order.",
+      "vo": "Ninety-three. The days the State kept me locked up after that order.",
       "onscreen": "The days the State kept me\nlocked up after that order.",
-      "number": { "value": "77", "count_from": 0 }
+      "number": { "value": "93", "count_from": 0 }
     },
     {
       "type": "turn",
       "t_start": 32.0,
       "t_end": 44.0,
       "music_in": true,
-      "vo": "Seventy-seven is also the number of days between the opinion that freed me and the version they filed in its place. Withdrawn. Refiled. Language deleted.",
+      "vo": "Seventy-seven of those days went by before they withdrew the opinion that freed me and filed another in its place. Withdrawn. Refiled. Language deleted.",
       "onscreen": "Withdrawn. Refiled.\nLanguage deleted.",
       "hold_number": "77",
       "span": "3/27/2000 → 6/12/2000"

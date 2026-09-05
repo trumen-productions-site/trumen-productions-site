@@ -55,7 +55,7 @@ export const film = {
         'verdict of acquittal. The judge admits on the record, “I got heartburn over it” — then ' +
         'denies the motion and sends it to the jury anyway. Michael is convicted in 1997 and ' +
         'sentenced to natural life without parole. He serves three years and eleven months, ' +
-        'seventy-seven days of it past the point the law allowed.',
+        'ninety-three days of it past the point the law allowed.',
       'In 2000 the South Carolina Supreme Court reverses, finding the conviction impossible ' +
         'under the State’s own theory. Then it withdraws the opinion and deletes the ' +
         'paragraphs that said so. Years later — a mentor’s dying instruction in hand — ' +
@@ -103,7 +103,7 @@ export const film = {
       ],
       punch: [
         { text: 'Three years, eleven months in prison.', tone: 'ink' },
-        { text: 'Seventy-seven days of it past what the law allowed.', tone: 'red' },
+        { text: 'Ninety-three days of it past what the law allowed.', tone: 'red' },
       ],
     },
     {

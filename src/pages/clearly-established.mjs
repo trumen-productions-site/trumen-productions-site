@@ -46,6 +46,8 @@ ${pageHeader({
         { value: facts.convicted.value, label: facts.convicted.label, detail: facts.convicted.detail },
         { value: facts.reversed.value, label: facts.reversed.label, detail: facts.reversed.detail },
         { value: facts.refiled.value, label: facts.refiled.label, detail: facts.refiled.detail },
+        { value: facts.remittitur.value, label: facts.remittitur.label, detail: facts.remittitur.detail },
+        { value: facts.overDetention.value, label: facts.overDetention.label, detail: facts.overDetention.detail },
       ],
       { tone: 'ink' },
     )}

@@ -71,9 +71,10 @@ table is ordered worst to best.
 | `vo_engine` | What it is | Needs |
 | --- | --- | --- |
 | `espeak` | Formant synthesis. Plainly a computer. | `espeak-ng` (in `make install`) |
-| `mbrola-us2`, `mbrola-us3` | MBROLA diphone voices, male; `us3` is lower. | `apt install mbrola mbrola-us2 mbrola-us3` |
+| `mbrola-us1`, `mbrola-us2`, `mbrola-us3` | MBROLA diphone voices; `us1` is female, `us2` and `us3` male, `us3` lower. | `apt install mbrola mbrola-us1 mbrola-us2 mbrola-us3` |
 | `flite-awb` | CMU Flite clustergen, male, lighter. | `apt install flite` |
-| `flite-rms` | CMU Flite clustergen, male, deep. The best of the offline set. | `apt install flite` |
+| `flite-rms` | CMU Flite clustergen, male, deep. The best male of the offline set. | `apt install flite` |
+| `flite-slt` | CMU Flite clustergen, female. **The current placeholder**, chosen by Michael on September 5, 2026 until he records. | `apt install flite` |
 | `piper:<file>.onnx` | Neural. A real step up from everything above. | `pip install piper-tts` and a voice file in `audio/vo/voices/` |
 
 Piper voices (`en_US-ryan-high` is a good male read, about 115 MB with its
@@ -98,7 +99,7 @@ mistaken for the finished read.
 
 | Thing | Status |
 | --- | --- |
-| **Voiceover** | Synthesis, engine named in the report (`audio.vo_engine`; espeak-ng by default). Replace per above. |
+| **Voiceover** | Synthesis, engine named in the report (`audio.vo_engine`; currently `flite-slt`, a female clustergen voice). Replace per above. |
 | **Music bed** | Synthesised pad — a sustained low drone with a slow swell. No CC0 bed can be fetched offline. See `audio/bed/LICENCE.txt`: it is an original work with nothing to clear, and it is still a placeholder. |
 | **Body serif** | Georgia is a Microsoft core font and is not licensable here, so the handoff’s own named fallback is used: **EB Garamond**. Never a sans. |
 
@@ -167,9 +168,12 @@ There is a test for this.
 `src/canon.py` is the single source of truth, and it is enforced, not just
 documented. Every script is verified before rendering:
 
-- **The 77 days are derived, never asserted.** `check_arithmetic()` computes
-  March 27 → June 12, 2000 and fails the build if it is not 77, and fails again
-  if `over_detention_days` and `days_between_filings` ever stop being equal.
+- **The day counts are derived, never asserted.** `check_arithmetic()` computes
+  March 27 → June 12, 2000 (the erasure, 77 days) and March 27 → June 28, 2000
+  (the remittitur, 93 days) and fails the build if either is off, and fails
+  again if `over_detention_days` ever stops equalling `days_to_remittitur`.
+  A script that presents seventy-seven as the detention fails too: seventy-seven
+  is how long the erasure took, ninety-three is how long he was held.
 - **Twelve banned phrases** fail the build in voiceover *or* on-screen text.
   They are the ones that supply a motive the record does not establish
   (“quietly”, “in order to”, “they knew”) or state a legal conclusion no court
@@ -194,8 +198,8 @@ cannot be performed is reported as **SKIP** with its reason — never as a pass.
    the script's own string
 3. Every on-screen element inside the safe area
 4. No two text elements overlap, and nothing runs into the caption band
-5. Canon: the 77-day arithmetic, the number whitelist, the banned phrases, the
-   finding present
+5. Canon: the 77- and 93-day arithmetic, the number whitelist, the banned
+   phrases, the finding present
 6. Loudness at −14 LUFS, true peak under −1 dBTP, no clipping
 7. Music silent before the turn, present after
 8. End card holds ≥3s and carries §, scales and the mark

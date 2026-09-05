@@ -26,15 +26,26 @@ REELS = (1, 2, 3)
 # ── The record ────────────────────────────────────────────────────────────
 
 
-def test_seventy_seven_is_derived_not_asserted():
+def test_day_counts_are_derived_not_asserted():
     reversal = date.fromisoformat(canon.CANON["reversal_date"])
     refiled = date.fromisoformat(canon.CANON["refiled_date"])
+    remittitur = date.fromisoformat(canon.CANON["remittitur_date"])
     assert (refiled - reversal).days == 77
+    assert (remittitur - reversal).days == 93
     canon.check_arithmetic()
 
 
-def test_over_detention_equals_days_between_filings():
-    assert canon.CANON["over_detention_days"] == canon.CANON["days_between_filings"] == 77
+def test_over_detention_equals_days_to_remittitur():
+    assert canon.CANON["over_detention_days"] == canon.CANON["days_to_remittitur"] == 93
+    assert canon.CANON["days_between_filings"] == 77
+
+
+def test_canon_rejects_seventy_seven_as_the_detention():
+    with pytest.raises(canon.CanonError):
+        canon.check_numbers("Seventy-seven. The days the State kept me locked up.", "test")
+    # …but seventy-seven as the erasure is the record.
+    canon.check_numbers("Seventy-seven days later they withdrew the opinion.", "test")
+    canon.check_numbers("Ninety-three. The days the State kept me locked up after that order.", "test")
 
 
 def test_canon_rejects_a_banned_phrase():
