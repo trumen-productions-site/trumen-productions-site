@@ -31,7 +31,7 @@ const TRANSCRIPT = {
     <p class="lead">01 · The prevarication</p>
     <p>A murder the State admitted it could not prove.</p>
     <p>“We will probably never know which one of these defendants actually did the killing.” — prosecutor Mark Moyer, in open court.</p>
-    <p>“You don’t know if either of them did.” — Judge Henry Floyd.</p>
+    <p>“You don’t know if either one of them did.” — Judge Henry Floyd.</p>
     <p>Arrested in 1996 at twenty-six. Convicted in 1997 — sentenced to natural life without parole.</p>
     <p><strong>Three years, eleven months in prison. Seventy-seven days of it past what the law allowed.</strong></p>`,
   Reversal: `

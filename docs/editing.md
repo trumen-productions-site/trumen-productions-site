@@ -136,13 +136,26 @@ The site is about a record that was altered. Its own record has to be exact.
 Facts that appear on more than one page are defined once in `src/site.config.mjs` under
 `facts`, and quotations under `quotes`. Each quotation carries a `verify` flag.
 
-**Still to confirm against a primary document:**
+**Confirmed against the court record** (the *Final Brief of Appellant*, filed by Daniel T.
+Stacey in *State v. Martin*, which quotes the transcript with page and line citations):
+
+| Quotation | Source |
+| --- | --- |
+| “We will probably never know which one of these defendants actually did the killing.” | Solicitor’s closing argument, Record on Appeal p. 349, lines 10–14. The full sentence continues “…which one actually held Dwayne Cobb’s head under the pot of water, submerged his face into water.” |
+| “You don’t know if either one of them did.” | The court to the solicitor, in colloquy on the renewed directed-verdict motion, ROA p. 358, lines 9–15. An earlier draft of the site had “either of them”; the record says “either **one** of them”. |
+| “I got heartburn over it” | The court denying the directed verdict, ROA p. 344, lines 18–21: “Okay. Motion for DV is denied. But solicitor I got heartburn over it and I am not through thinking about it yet so let’s see what happens.” An earlier draft said “considerable heartburn”; that phrase is not in the record. |
+
+Two more lines from the same colloquy are verified and available if the site ever wants them:
+the solicitor’s “the whole point is we don’t know if they acted in concert” (ROA p. 361,
+lines 12–13) and the court’s “I will also have to admit that I have never had the state say
+they can’t prove who did what” (ROA p. 362, lines 18–19).
+
+**Still to confirm:**
 
 | Quotation | On the site as | To confirm |
 | --- | --- | --- |
-| “We will probably never know which one of these defendants actually did the killing.” | Prosecutor Mark Moyer, in open court | The speaker. It appears in the record of the case; the deck attributes it to Moyer, but the published opinion names Solicitor Robert M. Ariail as solicitor of record. Check the trial transcript. |
-| “You don’t know if either of them did.” | Judge Henry Floyd | Verbatim wording. Not verified against the transcript. |
-| “The State’s evidence did not place either defendant in the apartment … it is impossible to hold the individual defendants collectively guilty…” | Supreme Court of South Carolina, Op. No. 25093 | Wording against the opinion **as originally filed on March 27, 2000** — the version the site is about. |
+| The prosecutor’s line, above | Prosecutor **Mark** Moyer | The transcript names him only as “Mr. Moyer” (ROA p. 356). The solicitor of record is Robert M. Ariail, Thirteenth Circuit; Moyer tried the case. The first name is the authors’ recollection. The memoir refers to him by a pseudonym. |
+| “The State’s evidence did not place either defendant in the apartment … it is impossible to hold the individual defendants collectively guilty…” | Supreme Court of South Carolina, Op. No. 25093 | Wording against the opinion **as originally filed on March 27, 2000** — the version the site is about. The memoir’s epigraph gives the deleted sentence as: “…it is impossible to hold the individual defendants collectively guilty of [the] murder under the legal theories used by the State since neither conspiracy nor accomplice liability were charged to the jury.” |
 
 When one is confirmed, set its `verify` to `false` and note the source in its `source` line.
 `npm test` prints the outstanding list on every run so it cannot quietly become permanent.

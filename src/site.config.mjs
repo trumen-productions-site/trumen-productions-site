@@ -172,14 +172,19 @@ export const quotes = {
   prosecutor: {
     text: 'We will probably never know which one of these defendants actually did the killing.',
     attribution: 'Prosecutor Mark Moyer, in open court',
-    source: 'Quoted in the record of the case; reproduced in the Court’s opinion.',
-    verify: true, // TODO: confirm speaker attribution against the trial transcript.
+    source:
+      'Solicitor’s closing argument, Record on Appeal p. 349, lines 10–14, as quoted in the ' +
+      'Final Brief of Appellant (Argument III). The transcript names the solicitor only as ' +
+      '“Mr. Moyer” (ROA p. 356).',
+    verify: true, // TODO: the surname is confirmed by the record; the first name “Mark” is not in it.
   },
   judge: {
-    text: 'You don’t know if either of them did.',
+    text: 'You don’t know if either one of them did.',
     attribution: 'Judge Henry Floyd',
-    source: 'Trial court, Pickens County.',
-    verify: true, // TODO: confirm verbatim wording against the trial transcript.
+    source:
+      'To the solicitor, in colloquy on the renewed directed-verdict motion, Record on Appeal ' +
+      'p. 358, lines 9–15, as quoted in the Final Brief of Appellant (Argument III).',
+    verify: false,
   },
   court: {
     text:

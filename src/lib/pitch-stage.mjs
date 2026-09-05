@@ -151,7 +151,7 @@ function sceneCase() {
     — prosecutor Mark Moyer, in open court.
   </p>
   <p class="pk-note pk-note--case pk-note--ink pk-mt-22" data-enter="${t(T.case + 6.5)},1">
-    “You don’t know if either of them did.” — Judge Henry Floyd
+    “You don’t know if either one of them did.” — Judge Henry Floyd
   </p>
   <p class="pk-note pk-note--case pk-mt-22" data-enter="${t(T.case + 9)},1">
     Arrested in 1996 at twenty-six. Convicted in 1997 — sentenced to natural life without parole.

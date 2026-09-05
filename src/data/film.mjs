@@ -52,7 +52,7 @@ export const film = {
       'He passes the State’s own polygraph; no evidence ever places him at the scene. When ' +
         'the prosecutor concedes in open court he will “probably never know which one of ' +
         'these defendants actually did the killing,” Michael’s attorney moves for a directed ' +
-        'verdict of acquittal. The judge calls the case “considerable heartburn” — then ' +
+        'verdict of acquittal. The judge admits on the record, “I got heartburn over it” — then ' +
         'denies the motion and sends it to the jury anyway. Michael is convicted in 1997 and ' +
         'sentenced to natural life without parole. He serves three years and eleven months, ' +
         'seventy-seven days of it past the point the law allowed.',
