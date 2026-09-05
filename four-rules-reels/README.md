@@ -62,6 +62,34 @@ the factor applied. If you want the cuts to land on specific words rather than
 proportionally, record scene by scene into `audio/vo/_scenes/` and say so — the
 pipeline already works that way internally.
 
+### Choosing a better placeholder while you wait
+
+Until the real read exists, the placeholder engine is one token in
+`brand/tokens.json` — `audio.vo_engine`. Every option is offline and free; the
+table is ordered worst to best.
+
+| `vo_engine` | What it is | Needs |
+| --- | --- | --- |
+| `espeak` | Formant synthesis. Plainly a computer. | `espeak-ng` (in `make install`) |
+| `mbrola-us2`, `mbrola-us3` | MBROLA diphone voices, male; `us3` is lower. | `apt install mbrola mbrola-us2 mbrola-us3` |
+| `flite-awb` | CMU Flite clustergen, male, lighter. | `apt install flite` |
+| `flite-rms` | CMU Flite clustergen, male, deep. The best of the offline set. | `apt install flite` |
+| `piper:<file>.onnx` | Neural. A real step up from everything above. | `pip install piper-tts` and a voice file in `audio/vo/voices/` |
+
+Piper voices (`en_US-ryan-high` is a good male read, about 115 MB with its
+`.json`) are published at `huggingface.co/rhasspy/piper-voices`. They cannot be
+fetched from the render environment, so download the `.onnx` and its `.json` on
+a machine with a browser and drop both into `audio/vo/voices/`.
+
+Cloud voices — ElevenLabs, OpenAI, Google — are excluded from the render by the
+handoff (no paid APIs, no network at render time). If you want one for review
+copies, generate each script as a single WAV on your side and drop it in exactly
+as you would the real recording, above. The pipeline cannot tell the difference
+and does not need to.
+
+`QC_REPORT.md` names the engine used on every run, so a review copy can never be
+mistaken for the finished read.
+
 ---
 
 ## What is a placeholder in this build
@@ -70,7 +98,7 @@ pipeline already works that way internally.
 
 | Thing | Status |
 | --- | --- |
-| **Voiceover** | espeak-ng synthesis. Replace per above. |
+| **Voiceover** | Synthesis, engine named in the report (`audio.vo_engine`; espeak-ng by default). Replace per above. |
 | **Music bed** | Synthesised pad — a sustained low drone with a slow swell. No CC0 bed can be fetched offline. See `audio/bed/LICENCE.txt`: it is an original work with nothing to clear, and it is still a placeholder. |
 | **End-card lockup** | `brand/trumen-lockup.png` **was not supplied with this handoff.** A structural placeholder is drawn instead. |
 | **Body serif** | Georgia is a Microsoft core font and is not licensable here, so the handoff’s own named fallback is used: **EB Garamond**. Never a sans. |
