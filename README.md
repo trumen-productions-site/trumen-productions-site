@@ -205,6 +205,24 @@ sitemap, and structured data at build time.
 
 ---
 
+## The reel set
+
+`four-rules-reels/` is a separate deliverable in the same repository: three 60-second
+vertical reels for *Clearly Established*, built from a deterministic Python pipeline
+(Pillow → ffmpeg, no framework). It shares this project's brand tokens and its facts, and
+enforces them harder — `src/canon.py` derives the 77 days from the two filing dates and
+fails the build on a contradiction, a banned phrase, or an unrecognised number.
+
+```bash
+cd four-rules-reels
+make install     # ffmpeg, espeak-ng, tesseract, EB Garamond (once)
+make all         # three MP4s + SRTs + thumbnails + QC_REPORT.md
+```
+
+Nothing there is published. Output is inventory behind a legal gate — see its README.
+
+---
+
 ## Where the content came from
 
 The design and the copy come from a Claude Design handoff, preserved unchanged in
