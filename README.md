@@ -188,14 +188,17 @@ bug that flattened the pitch's spacing, and an invisible button on the dark hero
 
 `dist/` is a static directory. Anything that serves files will do.
 
-**Netlify** — build command `npm run build`, publish directory `dist`. The generated
-`_redirects` wires up the 404 page.
+**Netlify** — connect the repository; `netlify.toml` supplies the build command, the publish
+directory and the Node version. The generated `_redirects` wires up the 404 page.
 
 **Vercel** — build command `npm run build`, output directory `dist`.
 
 **GitHub Pages** — the workflow in `.github/workflows/pages.yml` builds and publishes on
 every push to `main`. Enable Pages → *Source: GitHub Actions* in repository settings. The
-build writes a `.nojekyll` so files beginning with `_` are served.
+build writes a `.nojekyll` so files beginning with `_` are served. The site uses
+root-relative paths, so it has to be served from the root of a host, not from a
+`/repository-name/` sub-path: either name the repository `<owner>.github.io`, or attach a
+custom domain under Pages → *Custom domain*.
 
 **Anything else** — `npm run build`, then copy `dist/` to the web root. Serve `404.html` for
 missing paths and you are done.
