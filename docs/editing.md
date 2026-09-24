@@ -101,7 +101,7 @@ answer able to stand on its own.
 
 `src/data/pitch.mjs`. Change a `dur`. Everything downstream — the cue each element animates
 from, the chapter buttons, the transcript timecodes — recalculates. `npm test` will tell you
-if the total is no longer 120 seconds, which is deliberate: it should be a decision, not an
+if the total is no longer 116 seconds, which is deliberate: it should be a decision, not an
 accident.
 
 ### Change a word on the animated pitch

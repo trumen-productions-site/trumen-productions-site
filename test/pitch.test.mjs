@@ -15,8 +15,8 @@ const pitchPage = pages.find((p) => p.sitePath === '/clearly-established/pitch/'
 const home = pages.find((p) => p.sitePath === '/');
 
 describe('composition timing', () => {
-  test('the authored runtime is still two minutes', () => {
-    assert.equal(totalDuration, 120, `scene durations now total ${totalDuration}s, not 120s`);
+  test('the runtime is 1:56 — the authored two minutes less the red-field hold', () => {
+    assert.equal(totalDuration, 116, `scene durations now total ${totalDuration}s, not 116s`);
   });
 
   test('the nine scenes are intact and in order', () => {
@@ -46,8 +46,11 @@ describe('composition timing', () => {
   });
 
   test('every scene is long enough to read', () => {
+    // The Question scene is two lines on a bare field; everything else carries
+    // a paragraph or a grid and needs its eight seconds.
     for (const scene of scenes) {
-      assert.ok(scene.dur >= 8, `${scene.name} is only ${scene.dur}s`);
+      const floor = scene.name === 'Question' ? 6 : 8;
+      assert.ok(scene.dur >= floor, `${scene.name} is only ${scene.dur}s`);
     }
   });
 });
@@ -117,6 +120,38 @@ describe('the stage markup', () => {
     }
     const seeks = [...pitchPage.html.matchAll(/data-seek="([\d.]+)"/g)].map((m) => Number(m[1]));
     assert.deepEqual(seeks, chapters().map((c) => c.start), 'chapter buttons do not match the cue list');
+  });
+});
+
+describe('the red field', () => {
+  // The authored cut held a static red frame for ~5.5s after both questions had
+  // landed. These keep the lines readable without letting that dead air return.
+  const field = () => {
+    const from = pitchPage.html.indexOf('<div class="pk-field"');
+    const to = pitchPage.html.indexOf('<section class="pk-shot pk-shot--wide"', from);
+    assert.ok(from >= 0 && to > from, 'no red field in the stage markup');
+    return [...pitchPage.html.slice(from, to).matchAll(/data-enter="([^"]*)"/g)].map((e) => e[1].split(',').map(Number));
+  };
+  const { start: qStart } = chapters().find((c) => c.name === 'Question');
+  const { start: themesStart } = chapters().find((c) => c.name === 'Themes');
+  const themesShot = () => {
+    const m = pitchPage.html.match(/<section class="pk-shot pk-shot--wide" data-shot="([\d.]+),/);
+    assert.ok(m, 'no Themes shot');
+    return Number(m[1]);
+  };
+
+  test('both questions are on screen within three seconds of the cut', () => {
+    const lines = field().filter(([at]) => at > qStart + 0.5); // the kicker is not a question
+    assert.equal(lines.length, 2, `expected two question lines, found ${lines.length}`);
+    for (const [at, dur] of lines) assert.ok(at + dur - qStart <= 3.2, `a question lands ${at + dur - qStart}s in`);
+  });
+
+  test('no more than three seconds of static red before the Themes cut', () => {
+    const landed = Math.max(...field().map(([at, dur]) => at + dur));
+    const hold = themesShot() - landed;
+    assert.ok(hold >= 1.5, `the last question gets only ${hold.toFixed(2)}s before the cut`);
+    assert.ok(hold <= 3, `the red field holds ${hold.toFixed(2)}s of dead air before Themes`);
+    assert.ok(themesShot() < themesStart, 'Themes should begin arriving before its cue');
   });
 });
 

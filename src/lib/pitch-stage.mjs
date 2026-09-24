@@ -200,8 +200,8 @@ function sceneQuestion() {
       ${kicker({ at: T.q + 0.4, text: 'Clearly Established', width: 1680, tone: 'invert' })}
     </div>
     <div class="pk-pos pk-pos--question" data-drift="${t(T.q)},${t(T.th)},0.02,20% 40%">
-      <h2 class="pk-display pk-display--q" data-enter="${t(T.q + 0.9)},1,36">${esc(film.questions.primary)}</h2>
-      <p class="pk-question-sub pk-mt-48" data-enter="${t(T.q + 3.5)},1">${esc(film.questions.secondary)}</p>
+      <h2 class="pk-display pk-display--q" data-enter="${t(T.q + 0.6)},0.9,36">${esc(film.questions.primary)}</h2>
+      <p class="pk-question-sub pk-mt-48" data-enter="${t(T.q + 2.2)},0.9">${esc(film.questions.secondary)}</p>
     </div>
   </div>
 </div>`;

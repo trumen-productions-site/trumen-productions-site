@@ -3,8 +3,12 @@
  *
  * These are the scene durations authored in Claude Design
  * (`project/Clearly Established Video.dc.html`, `window.OM_SCENES`). They are
- * the single source of truth for both the browser player and the tests, which
- * assert the total still comes to 120 seconds.
+ * the single source of truth for both the browser player and the tests.
+ *
+ * One deliberate departure from the authored cut: the Question scene ran 10s
+ * and held a static red frame for ~5.5s after both lines had landed, which
+ * played as dead air before "04 · What it's really about". It now runs 6s and
+ * its lines arrive sooner, so the runtime is 116s, not 120s.
  *
  * Changing a duration re-times the whole piece: every cue is derived from the
  * running total, exactly as the original composition did.
@@ -15,7 +19,7 @@ export const scenes = [
   { name: 'Case', dur: 16, desc: 'The conviction: a murder he was never placed at' },
   { name: 'Reversal', dur: 16, desc: 'The Supreme Court reverses, unanimously' },
   { name: 'Erasure', dur: 20, desc: 'The findings of innocence are struck from the record' },
-  { name: 'Question', dur: 10, desc: 'The central question on the red poster field' },
+  { name: 'Question', dur: 6, desc: 'The central question on the red poster field' },
   { name: 'Themes', dur: 14, desc: 'Three themes rule in one by one' },
   { name: 'Comparables', dur: 12, desc: 'The company the film keeps' },
   { name: 'Ask', dur: 14, desc: 'Financing, production home, lead attachment' },

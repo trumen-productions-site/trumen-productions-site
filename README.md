@@ -10,7 +10,7 @@ refuses to let it ship broken.
 | --- | --- |
 | `/` | The company: mark, featured project, the record, the three beats, the slate, the values, the latest |
 | `/clearly-established/` | The featured project in full — logline, synopsis, the case record, architecture, themes, characters, tone, director's vision, comparables, why now, scale, the ask |
-| `/clearly-established/pitch/` | The 120-second animated pitch, with transport controls, chapter jumps, timecode deep links, and a complete transcript |
+| `/clearly-established/pitch/` | The 116-second animated pitch, with transport controls, chapter jumps, timecode deep links, and a complete transcript |
 | `/our-story/` | The company, the spine (Provocation · Prevarication · Revocation), and the brothers |
 | `/projects/` | The slate: memoir, legal volume, feature, eighty-episode vertical series, documentary |
 | `/values/` | Veritas · Testimonium · Fraternitas · Ars |
@@ -149,7 +149,7 @@ can never drift from the site's version.
 
 To retime the piece, edit the scene durations in `src/data/pitch.mjs`. Everything else —
 cues, chapter buttons, transcript timecodes, the tests — follows. `npm test` asserts the
-total is still 120 seconds and that no moment of the timeline goes dark.
+total is still 116 seconds, that the red Question field never holds more than three seconds of dead air, and that no moment of the timeline goes dark.
 
 ### Deliberate omissions
 
