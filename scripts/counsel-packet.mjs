@@ -55,7 +55,6 @@ const decisions = [
   ['story.variant', 'Which approved story wording to use', 'A (conservative) renders. B adds “The Court said it should have been impossible to convict him.” and needs an approver.'],
   ['legal.verification', 'Accredited-verification sentence', ''],
   ['legal.retention', 'Record retention period for leads and consents', ''],
-  ['— the day counts', 'Seventy-seven vs. ninety-three', 'HANDOFF.md says “held seventy-seven days past the Court’s order”. This repository’s locked record (Sept 5, 2026) derives seventy-seven days between the two filings and ninety-three days from the order to the remittitur of June 28, 2000, and treats the latter as the over-detention. The page states both for what each is. Michael to confirm.'],
 ];
 
 const lines = [];
@@ -81,6 +80,10 @@ for (const [key, decision, notes] of decisions) {
   const pend = [...pendingByPath.entries()].find(([k]) => key.startsWith(k.split(' ')[0]) || k.startsWith(key.replace(/\[\]|\./g, '').split(' ')[0]));
   lines.push(`| \`${key}\` | ${decision} | ${pend ? `[[PENDING: ${pend[1]}]]` : 'decided'} | ${notes} |`);
 }
+
+h('## 2a. Reconciled: the day counts');
+p('HANDOFF.md phrases the detention as “held seventy-seven days past the Court’s order”. The record this repository locked on September 5, 2026 derives two numbers from dated documents in the case file: **seventy-seven days** between the two filings of the opinion (March 27 → June 12, 2000) and **ninety-three days** from the order to the remittitur of June 28, 2000 — the over-detention. The page states both for what each is and leads with the over-detention. Decided in `docs/invest/DECISIONS.md` D-04; recorded here as information. The two sentences as they render:');
+p(`> ${cfg.derived.storyVariant.logline.split('Then ')[1] ? `Then ${cfg.derived.storyVariant.logline.split('Then ')[1]}` : cfg.derived.storyVariant.logline}`);
 
 h('## 3. Every pending value, by config path');
 for (const x of cfg.derived.pending) lines.push(`- \`${x.path}\` — ${x.reason}`);

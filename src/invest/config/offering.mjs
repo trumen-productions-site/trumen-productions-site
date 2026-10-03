@@ -24,7 +24,8 @@ export const offering = {
     descriptor: 'an eleven-episode first block of a vertical drama series',
     formatLabel: 'Vertical series · Episodes 1–11',
     shootLocation: 'South Carolina',
-    shootWindow: pending('shoot window — owner to set (e.g. "Shooting spring 2027")'),
+    // Decided value reads in the hero as "{shootWindow}, South Carolina." — e.g. 'Shooting spring 2027'.
+    shootWindow: pending('shoot window'),
   },
 
   /** The single-purpose LLC that issues the interests. Not yet formed. */

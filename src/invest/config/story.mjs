@@ -15,9 +15,10 @@
  * between the two filings of the opinion (March 27 → June 12, 2000) and
  * ninety-three days from the opinion to the remittitur of June 28, 2000 —
  * the over-detention. The existing site tests refuse "seventy-seven days
- * past". The copy below states both numbers for what each one is, and the
- * question is carried into docs/invest/COUNSEL_REVIEW.md for Michael to
- * settle. See docs/invest/DECISIONS.md § D-04.
+ * past". DECIDED (docs/invest/DECISIONS.md § D-04): the later, document-
+ * derived lock governs. The copy below leads with the over-detention and
+ * states seventy-seven as the filing gap; the counsel packet records the
+ * reconciliation as information, not as an open question.
  */
 
 export const story = {

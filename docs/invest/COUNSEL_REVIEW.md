@@ -1,5 +1,5 @@
 # CLEARLY ESTABLISHED — Investor Page · Counsel Review Packet
-Generated 2026-10-03 from build `150723ca4bc6` (staging). Regenerate with `npm run counsel:packet`; do not edit by hand.
+Generated 2026-10-03 from build `12e0cdcc78a5` (staging). Regenerate with `npm run counsel:packet`; do not edit by hand.
 
 **Owner:** Michael Anthony Martin, Vice-President, Revelatory Productions, LLC · **Counsel of record:** Alexa Whiteside, Esq., WAM Entertainment Law
 
@@ -41,11 +41,17 @@ This packet is the whole page as staged, in plain text, with every undecided ter
 | `story.variant` | Which approved story wording to use | decided | A (conservative) renders. B adds “The Court said it should have been impossible to convict him.” and needs an approver. |
 | `legal.verification` | Accredited-verification sentence | [[PENDING: accredited-verification method and the third-party verifier — securities counsel]] |  |
 | `legal.retention` | Record retention period for leads and consents | [[PENDING: record retention period for leads and consents — counsel]] |  |
-| `— the day counts` | Seventy-seven vs. ninety-three | decided | HANDOFF.md says “held seventy-seven days past the Court’s order”. This repository’s locked record (Sept 5, 2026) derives seventy-seven days between the two filings and ninety-three days from the order to the remittitur of June 28, 2000, and treats the latter as the over-detention. The page states both for what each is. Michael to confirm. |
+
+## 2a. Reconciled: the day counts
+
+HANDOFF.md phrases the detention as “held seventy-seven days past the Court’s order”. The record this repository locked on September 5, 2026 derives two numbers from dated documents in the case file: **seventy-seven days** between the two filings of the opinion (March 27 → June 12, 2000) and **ninety-three days** from the order to the remittitur of June 28, 2000 — the over-detention. The page states both for what each is and leads with the over-detention. Decided in `docs/invest/DECISIONS.md` D-04; recorded here as information. The two sentences as they render:
+
+> Then the opinion that freed him was withdrawn and refiled seventy-seven days later, on June 12, 2000, with language removed — while the State held him ninety-three days past the Court’s order, until the remittitur of June 28, 2000.
+
 
 ## 3. Every pending value, by config path
 
-- `offering.production.shootWindow` — shoot window — owner to set (e.g. "Shooting spring 2027")
+- `offering.production.shootWindow` — shoot window
 - `offering.issuer` — issuer legal name and state of formation — securities counsel
 - `offering.exemption` — exemption — securities counsel (page copy assumes Rule 506(c))
 - `offering.totalRaise` — total raise
@@ -193,7 +199,7 @@ Facts the page states, exactly: arrested 1996 at twenty-six · convicted 1997 ·
 
 ### /invest/
 
-Staging — not an offering · build 150723ca4bc6 · 7 of 7 launch gates unsigned.
+Staging — not an offering · build 12e0cdcc78a5 · 7 of 7 launch gates unsigned.
 
 Skip to content Skip to the questionnaire .
 
@@ -211,7 +217,7 @@ Martin, the case in which a unanimous South Carolina Supreme Court reversed a wr
 
 The man it happened to is writing and producing it.
 
-[[PENDING: shoot window — owner to set (e.g. "Shooting spring 2027")]] , South Carolina. .
+[[PENDING: shoot window]] , South Carolina. .
 
 See if you qualify → How this offering works → .
 
@@ -561,7 +567,7 @@ See if you qualify → .
 
 ### /invest/confirmed/
 
-Staging — not an offering · build 150723ca4bc6 · 7 of 7 launch gates unsigned.
+Staging — not an offering · build 12e0cdcc78a5 · 7 of 7 launch gates unsigned.
 
 Skip to content .
 
@@ -635,7 +641,7 @@ Privacy . . . .
 
 ### /invest/received/
 
-Staging — not an offering · build 150723ca4bc6 · 7 of 7 launch gates unsigned.
+Staging — not an offering · build 12e0cdcc78a5 · 7 of 7 launch gates unsigned.
 
 Skip to content .
 
@@ -695,7 +701,7 @@ Privacy . . . .
 
 ### /invest/not-accredited/
 
-Staging — not an offering · build 150723ca4bc6 · 7 of 7 launch gates unsigned.
+Staging — not an offering · build 12e0cdcc78a5 · 7 of 7 launch gates unsigned.
 
 Skip to content .
 
@@ -751,7 +757,7 @@ Privacy . . . .
 
 ### /privacy/
 
-Staging — not an offering · build 150723ca4bc6 · 7 of 7 launch gates unsigned.
+Staging — not an offering · build 12e0cdcc78a5 · 7 of 7 launch gates unsigned.
 
 Skip to content .
 
@@ -853,7 +859,7 @@ Privacy . . . .
 
 ### /terms/
 
-Staging — not an offering · build 150723ca4bc6 · 7 of 7 launch gates unsigned.
+Staging — not an offering · build 12e0cdcc78a5 · 7 of 7 launch gates unsigned.
 
 Skip to content .
 
