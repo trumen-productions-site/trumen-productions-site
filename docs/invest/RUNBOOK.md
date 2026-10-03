@@ -37,6 +37,7 @@ npm run check:pending  # every undecided term, in config and on the built pages
 npm run check:forbidden
 npm run check:sources  # SRC-01, needs network
 npm run counsel:packet # regenerates docs/invest/COUNSEL_REVIEW.md from the build
+npm run demo           # invest-demo/: the pages with an in-page mock API, for showing the flow anywhere
 ```
 
 CI (`.github/workflows/pages.yml`) runs all of it on every push. The screenshots and Lighthouse report are kept as

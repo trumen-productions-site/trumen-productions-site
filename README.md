@@ -254,6 +254,11 @@ What is in the box:
 - **Documentation** in [`docs/invest/`](docs/invest/): `RUNBOOK.md`, `COMPLIANCE.md`,
   `CONTENT.md`, `ADS.md`, `DECISIONS.md`, and the generated `COUNSEL_REVIEW.md`.
 
+`npm run demo` writes `invest-demo/` — the investor pages with relative paths and an in-page shim
+that answers the API from the same mock calendar the tests use, so the whole six-step flow can be
+walked from disk or any static host with nothing saved anywhere. A presentation tool, not the
+staging deployment.
+
 Start with the runbook. Everything the brief did not decide, and every place the build departs
 from it, is in `DECISIONS.md`.
 

@@ -29,6 +29,7 @@
     "images": "node tools/make-images.mjs",
     "pitch": "node tools/make-standalone-pitch.mjs",
     "preview": "node tools/make-standalone-site.mjs",
-    "build:site": "node build.mjs --site-only"
+    "build:site": "node build.mjs --site-only",
+    "demo": "node tools/make-invest-demo.mjs"
   }
 }
