@@ -33,7 +33,7 @@ const PAGES = {
 };
 
 const ASSETS = [
-  'assets/css/site.css',
+  'assets/css/invest-base.css',
   'assets/css/invest.css',
   'assets/js/site.js',
   'assets/js/invest/flow.js',

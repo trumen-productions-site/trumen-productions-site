@@ -75,7 +75,8 @@ export default {
   sitemap: false,
   chrome: false,
   bodyClass: 'inv',
-  css: ['/assets/css/invest.css'],
+  baseCss: false, // the build cuts site.css down to what these pages use
+  css: ['/assets/css/invest-base.css', '/assets/css/invest.css'],
   frame: {
     before: `${ribbon(cfg)}\n${header(cfg)}`,
     after: footer(cfg, { includeStructure: false }),

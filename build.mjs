@@ -151,6 +151,10 @@ export async function build({ bust = '' } = {}) {
   }
 
   await cp(ASSETS, path.join(DIST, 'assets'), { recursive: true });
+
+  // The investor pages' share of site.css, cut at build time (src/invest/lib/css-subset.mjs).
+  const { subsetCss } = await import(pathToFileURL(path.join(SRC, 'invest/lib/css-subset.mjs')).href + bust);
+  await writeFile(path.join(DIST, 'assets/css/invest-base.css'), subsetCss(await readFile(path.join(ASSETS, 'css/site.css'), 'utf8')), 'utf8');
   await writeFile(path.join(DIST, 'sitemap.xml'), sitemap(pages, site.url), 'utf8');
   await writeFile(path.join(DIST, 'robots.txt'), robots(site.url), 'utf8');
   await writeFile(path.join(DIST, 'site.webmanifest'), manifest(site), 'utf8');

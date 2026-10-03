@@ -87,6 +87,7 @@ function head({
   ogImage = null,
   titleOverride = null,
   fonts = true,
+  baseCss = true,
 }) {
   const fullTitle = titleOverride || (path === '/' ? `${site.namePlain} — ${site.motto}` : `${title} · ${site.namePlain}`);
   const desc = clip(description || site.description, 300);
@@ -137,7 +138,7 @@ ${each(preload, (p) =>
     ? `<link rel="modulepreload" href="${esc(p.href)}">`
     : `<link rel="preload" href="${esc(p.href)}" as="${esc(p.as)}"${p.crossorigin ? ' crossorigin' : ''}>`,
 )}
-<link rel="stylesheet" href="/assets/css/site.css">
+${when(baseCss, '<link rel="stylesheet" href="/assets/css/site.css">')}
 ${each(css, (href) => `<link rel="stylesheet" href="${esc(href)}">`)}
 ${each(ld, (obj) => `<script type="application/ld+json">${JSON.stringify(obj)}</script>`)}
 `.trim();
@@ -278,6 +279,7 @@ function footer() {
  * @param {object}  [page.ogImage]  { src, width, height, alt } to replace the default card
  * @param {string}  [page.bodyAttrs] extra attributes for <body>
  * @param {boolean} [page.fonts]     set false to skip the web-font stylesheet (the investor pages)
+ * @param {boolean} [page.baseCss]   set false to skip site.css; the page lists its own base stylesheet in `css`
  */
 export function render(page) {
   const {
@@ -299,6 +301,7 @@ export function render(page) {
     frame = {},
     bodyAttrs = '',
     fonts = true,
+    baseCss = true,
   } = page;
 
   // Scripts may be plain paths or { src, module: true } for ES modules.
@@ -310,7 +313,7 @@ export function render(page) {
   return `<!doctype html>
 <html lang="${esc(site.lang)}">
 <head>
-${head({ title, description, path, ogType, jsonLd, css, preload, noindex, robots, ogImage, titleOverride, fonts })}
+${head({ title, description, path, ogType, jsonLd, css, preload, noindex, robots, ogImage, titleOverride, fonts, baseCss })}
 </head>
 <body class="${esc(bodyClass)}"${bodyAttrs ? ` ${bodyAttrs}` : ''}>
 ${chrome ? header(path) : frame.before || ''}

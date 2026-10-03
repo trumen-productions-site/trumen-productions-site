@@ -10,6 +10,13 @@
  *   npm run perf        (needs `npm install --no-save lighthouse`; uses the same Chromium as the E2E suite)
  *
  * Writes the full report to test/e2e/output/lighthouse-invest.html.
+ *
+ * Lighthouse's default throttling slows the CPU 4× on top of whatever machine
+ * it runs on, which is calibrated for a fast desktop (BenchmarkIndex ≈ 1300+).
+ * On a shared CI runner that reads several times slower than the same page on
+ * a laptop. Following Lighthouse's own variability guidance, the multiplier is
+ * scaled to the host's measured BenchmarkIndex, the audit runs three times,
+ * and the median performance score is the one judged.
  */
 
 import { writeFile, mkdir } from 'node:fs/promises';
@@ -60,8 +67,27 @@ async function main() {
   await new Promise((r) => setTimeout(r, 1500));
 
   try {
-    const result = await lighthouse(url, { port, output: ['html', 'json'], logLevel: 'error', onlyCategories: ['performance', 'accessibility', 'best-practices'], formFactor: 'mobile', screenEmulation: { mobile: true, width: 375, height: 812, deviceScaleFactor: 2, disabled: false }, throttlingMethod: 'simulate' });
+    const settings = (cpuSlowdownMultiplier) => ({
+      port,
+      output: ['html', 'json'],
+      logLevel: 'error',
+      onlyCategories: ['performance', 'accessibility', 'best-practices'],
+      formFactor: 'mobile',
+      screenEmulation: { mobile: true, width: 375, height: 812, deviceScaleFactor: 2, disabled: false },
+      throttlingMethod: 'simulate',
+      throttling: { rttMs: 150, throughputKbps: 1638.4, requestLatencyMs: 562.5, downloadThroughputKbps: 1474.56, uploadThroughputKbps: 675, cpuSlowdownMultiplier },
+    });
+
+    // First pass measures the host; its BenchmarkIndex sets the multiplier for the judged runs.
+    const probe = await lighthouse(url, settings(4));
+    const benchmarkIndex = probe.lhr.environment.benchmarkIndex;
+    const multiplier = Math.min(4, Math.max(1, Number(((4 * benchmarkIndex) / 1300).toFixed(1))));
+    const runs = [];
+    for (let i = 0; i < 3; i++) runs.push(await lighthouse(url, settings(multiplier)));
+    runs.sort((a, b) => (a.lhr.categories.performance.score ?? 0) - (b.lhr.categories.performance.score ?? 0));
+    const result = runs[1]; // the median performance run
     const lhr = result.lhr;
+    console.log(`\n  host BenchmarkIndex ${Math.round(benchmarkIndex)} → CPU slowdown ${multiplier}× (default 4× assumes ≈1300) · median of 3 runs (performance ${runs.map((r) => Math.round(r.lhr.categories.performance.score * 100)).join(' / ')})`);
     await mkdir(OUT, { recursive: true });
     await writeFile(path.join(OUT, 'lighthouse-invest.html'), result.report[0]);
     await writeFile(path.join(OUT, 'lighthouse-invest.json'), result.report[1]);

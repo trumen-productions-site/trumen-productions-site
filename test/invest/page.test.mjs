@@ -5,7 +5,11 @@
 import { test, describe } from 'node:test';
 import assert from 'node:assert/strict';
 
-import { builtPages, headings, ids } from '../helpers/dom.mjs';
+import { readFile } from 'node:fs/promises';
+import path from 'node:path';
+
+import { builtPages, headings, ids, DIST, SRC } from '../helpers/dom.mjs';
+import { subsetCss, classesUsed, classesDefined, parseBlocks } from '../../src/invest/lib/css-subset.mjs';
 import { loadConfig } from '../../src/invest/config/index.mjs';
 import { visibleText } from '../../src/invest/lib/lint.mjs';
 
@@ -172,6 +176,51 @@ describe('the investor page', () => {
   test('the word "guarantee" appears only inside the footer disclaimer', () => {
     const body = visibleText(html.replace(/<footer[\s\S]*?<\/footer>/i, ''));
     assert.ok(!/guarantee/i.test(body));
+  });
+});
+
+describe('the stylesheet subset', () => {
+  test('investor pages link the subset, never the whole company stylesheet', () => {
+    for (const p of pages.filter((x) => x.sitePath.startsWith('/invest') || ['/privacy/', '/terms/'].includes(x.sitePath))) {
+      assert.ok(!p.html.includes('/assets/css/site.css'), `${p.sitePath} links site.css`);
+      assert.ok(p.html.includes('/assets/css/invest-base.css'), `${p.sitePath} misses the subset`);
+      assert.ok(p.html.includes('/assets/css/invest.css'));
+    }
+  });
+
+  test('every class the investor pages use is defined in the subset or in invest.css', async () => {
+    const base = await readFile(path.join(DIST, 'assets/css/invest-base.css'), 'utf8');
+    const own = await readFile(path.join(DIST, 'assets/css/invest.css'), 'utf8');
+    const defined = new Set([...classesDefined(base), ...classesDefined(own)]);
+    // Classes that exist only as JavaScript hooks, state, or unstyled structure in the wordmark.
+    const hooks = new Set(['inv', 'is-in', 'js', 'wordmark__word']);
+    // A BEM block whose elements are styled (`.inv-confirm__title`) counts as defined even if the bare block is not.
+    const known = (c) => defined.has(c) || [...defined].some((d) => d.startsWith(`${c}__`) || d.startsWith(`${c}--`));
+    for (const p of pages.filter((x) => x.sitePath.startsWith('/invest') || ['/privacy/', '/terms/'].includes(x.sitePath))) {
+      for (const c of classesUsed(p.html)) {
+        if (hooks.has(c)) continue;
+        assert.ok(known(c), `${p.sitePath} uses .${c}, which no investor stylesheet defines`);
+      }
+    }
+  });
+
+  test('the subset is a strict cut of site.css: tokens kept, company chrome dropped', async () => {
+    const site = await readFile(path.join(SRC, 'assets/css/site.css'), 'utf8');
+    const sub = subsetCss(site);
+    assert.ok(sub.includes('--navy: #0b1f3a;'), 'tokens kept');
+    assert.ok(sub.includes('.btn--primary'), 'buttons kept');
+    assert.ok(sub.includes('@media (prefers-reduced-motion: reduce)'), 'reduced motion kept');
+    assert.ok(!sub.includes('.site-header'), 'company header dropped');
+    assert.ok(!sub.includes('.pitch'), 'pitch dropped');
+    assert.ok(!sub.includes('.newsletter'), 'newsletter dropped');
+    assert.ok(sub.length < site.length * 0.5, `the subset should be well under half of site.css (${sub.length} vs ${site.length})`);
+    // Every block in the subset is also a block in site.css, verbatim bodies.
+    const norm = (t) => t.replace(/\s+/g, ' ').trim();
+    const bodies = new Set(parseBlocks(site).flatMap((b) => (b.prelude.startsWith('@media') ? parseBlocks(b.body).map((x) => norm(x.body)) : [norm(b.body)])));
+    for (const b of parseBlocks(sub)) {
+      const inner = b.prelude.startsWith('@media') ? parseBlocks(b.body) : [b];
+      for (const x of inner) assert.ok(bodies.has(norm(x.body)) || b.prelude.startsWith('@'), `subset invented a rule: ${x.prelude}`);
+    }
   });
 });
 

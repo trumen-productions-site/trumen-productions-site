@@ -23,7 +23,8 @@ export default {
   sitemap: false,
   chrome: false,
   bodyClass: 'inv',
-  css: ['/assets/css/invest.css'],
+  baseCss: false, // the build cuts site.css down to what these pages use
+  css: ['/assets/css/invest-base.css', '/assets/css/invest.css'],
   js: [{ src: '/assets/js/invest/flow.js', module: true }],
   // The island's import graph, declared up front so the browser fetches it in one round trip.
   preload: ['machine', 'validators', 'utm'].map((m) => ({ href: `/assets/js/invest/${m}.js`, as: 'module' })),
