@@ -1,5 +1,5 @@
 # CLEARLY ESTABLISHED — Investor Page · Counsel Review Packet
-Generated 2026-10-03 from build `12e0cdcc78a5` (staging). Regenerate with `npm run counsel:packet`; do not edit by hand.
+Generated 2026-10-03 from build `2da3c056d99b` (staging). Regenerate with `npm run counsel:packet`; do not edit by hand.
 
 **Owner:** Michael Anthony Martin, Vice-President, Revelatory Productions, LLC · **Counsel of record:** Alexa Whiteside, Esq., WAM Entertainment Law
 
@@ -23,22 +23,22 @@ This packet is the whole page as staged, in plain text, with every undecided ter
 
 | Key | Decision | Current value | Notes |
 |---|---|---|---|
-| `offering.production` | Which production the raise finances | decided | Default placeholder: Block One of the vertical series (Episodes 1–11), South Carolina. One production per page. |
+| `offering.production` | Which production the raise finances, and its shoot window | [[PENDING: shoot window]] | Default placeholder: Block One of the vertical series (Episodes 1–11), South Carolina. One production per page. |
 | `offering.issuer` | Legal name and state of the single-purpose LLC | [[PENDING: issuer legal name and state of formation — securities counsel]] | Not yet formed. |
 | `offering.totalRaise` | Total raise | [[PENDING: total raise]] |  |
 | `offering.minimum` | Minimum investment | [[PENDING: minimum investment — interacts with the verification method]] | Interacts with the verification method; ask securities counsel. |
 | `offering.waterfall` | Recoupment % to investors first, then profit split | [[PENDING: waterfall — investor-first recoupment % and the profit split after it]] |  |
-| `offering.targetReturn` | Target multiple and the model behind it | decided | Optional. Tile hidden if unset. Requires a written basis on file. |
+| `offering.targetReturn` | Target multiple and the model behind it | set — see the draft on the page | Optional; currently unset, so the tile is hidden. Requires a written basis on file. |
 | `offering.exemption` | Exemption relied on | [[PENDING: exemption — securities counsel (page copy assumes Rule 506(c))]] | Page copy assumes Rule 506(c). 506(b) is refused by the build. |
-| `offering.escrow / collectionAccount` | Escrow; third-party collection account | [[PENDING: whether subscription funds are escrowed]] |  |
+| `offering.escrow / collectionAccount` | Escrow; third-party collection account | [[PENDING: whether subscription funds are escrowed]] [[PENDING: whether a third-party collection account is used]] |  |
 | `offering.useOfFunds` | Allocation percentages | [[PENDING: use-of-funds allocation — must sum to 100%]] | Must sum to 100. |
-| `perks[].level` | Which perks, at which levels | decided | EP-credit language needs review against guild and distributor practice. |
-| `team[]` | Exact credits and bullets | decided | Pending each person’s approval of the wording. |
-| `features.counselDisplay` | Whether counsel is named on the page | decided | Default off; requires her written consent. |
+| `perks[].level` | Which perks, at which levels | [[PENDING: perk level — owner]] | EP-credit language needs review against guild and distributor practice. |
+| `team[]` | Exact credits and bullets | set — see the draft on the page | Drafted; pending each person’s approval of the wording (gate G_COPY). |
+| `features.counselDisplay` | Whether counsel is named on the page | set — see the draft on the page | Off; requires her written consent. |
 | `site.booking.host` | Who takes the calls and which calendar | [[PENDING: booking host — who takes the calls and which calendar]] |  |
-| `site.contact.email` | Public contact address | decided | Currently michaelmartin@greenplanit.org; switch to the revelatoryproductions.com address when mail is restored. |
+| `site.contact.email` | Public contact address | set — see the draft on the page | Currently michaelmartin@greenplanit.org; switch to the revelatoryproductions.com address when mail is restored. |
 | `site.domain` | Production domain | [[PENDING: production domain — owner]] |  |
-| `story.variant` | Which approved story wording to use | decided | A (conservative) renders. B adds “The Court said it should have been impossible to convict him.” and needs an approver. |
+| `story.variant` | Which approved story wording to use | set — see the draft on the page | A (conservative) renders. B adds “The Court said it should have been impossible to convict him.” and needs an approver. |
 | `legal.verification` | Accredited-verification sentence | [[PENDING: accredited-verification method and the third-party verifier — securities counsel]] |  |
 | `legal.retention` | Record retention period for leads and consents | [[PENDING: record retention period for leads and consents — counsel]] |  |
 
@@ -199,7 +199,7 @@ Facts the page states, exactly: arrested 1996 at twenty-six · convicted 1997 ·
 
 ### /invest/
 
-Staging — not an offering · build 12e0cdcc78a5 · 7 of 7 launch gates unsigned.
+Staging — not an offering · build 2da3c056d99b · 7 of 7 launch gates unsigned.
 
 Skip to content Skip to the questionnaire .
 
@@ -567,7 +567,7 @@ See if you qualify → .
 
 ### /invest/confirmed/
 
-Staging — not an offering · build 12e0cdcc78a5 · 7 of 7 launch gates unsigned.
+Staging — not an offering · build 2da3c056d99b · 7 of 7 launch gates unsigned.
 
 Skip to content .
 
@@ -641,7 +641,7 @@ Privacy . . . .
 
 ### /invest/received/
 
-Staging — not an offering · build 12e0cdcc78a5 · 7 of 7 launch gates unsigned.
+Staging — not an offering · build 2da3c056d99b · 7 of 7 launch gates unsigned.
 
 Skip to content .
 
@@ -701,7 +701,7 @@ Privacy . . . .
 
 ### /invest/not-accredited/
 
-Staging — not an offering · build 12e0cdcc78a5 · 7 of 7 launch gates unsigned.
+Staging — not an offering · build 2da3c056d99b · 7 of 7 launch gates unsigned.
 
 Skip to content .
 
@@ -757,7 +757,7 @@ Privacy . . . .
 
 ### /privacy/
 
-Staging — not an offering · build 12e0cdcc78a5 · 7 of 7 launch gates unsigned.
+Staging — not an offering · build 2da3c056d99b · 7 of 7 launch gates unsigned.
 
 Skip to content .
 
@@ -859,7 +859,7 @@ Privacy . . . .
 
 ### /terms/
 
-Staging — not an offering · build 12e0cdcc78a5 · 7 of 7 launch gates unsigned.
+Staging — not an offering · build 2da3c056d99b · 7 of 7 launch gates unsigned.
 
 Skip to content .
 

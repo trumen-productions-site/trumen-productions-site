@@ -36,25 +36,26 @@ function pageCopy(html) {
     .join('\n\n');
 }
 
+// [key shown, decision, notes, config paths whose Pending state decides the "Current value" column]
 const decisions = [
-  ['offering.production', 'Which production the raise finances', 'Default placeholder: Block One of the vertical series (Episodes 1–11), South Carolina. One production per page.'],
-  ['offering.issuer', 'Legal name and state of the single-purpose LLC', 'Not yet formed.'],
-  ['offering.totalRaise', 'Total raise', ''],
-  ['offering.minimum', 'Minimum investment', 'Interacts with the verification method; ask securities counsel.'],
-  ['offering.waterfall', 'Recoupment % to investors first, then profit split', ''],
-  ['offering.targetReturn', 'Target multiple and the model behind it', 'Optional. Tile hidden if unset. Requires a written basis on file.'],
-  ['offering.exemption', 'Exemption relied on', 'Page copy assumes Rule 506(c). 506(b) is refused by the build.'],
-  ['offering.escrow / collectionAccount', 'Escrow; third-party collection account', ''],
-  ['offering.useOfFunds', 'Allocation percentages', 'Must sum to 100.'],
-  ['perks[].level', 'Which perks, at which levels', 'EP-credit language needs review against guild and distributor practice.'],
-  ['team[]', 'Exact credits and bullets', 'Pending each person’s approval of the wording.'],
-  ['features.counselDisplay', 'Whether counsel is named on the page', 'Default off; requires her written consent.'],
-  ['site.booking.host', 'Who takes the calls and which calendar', ''],
-  ['site.contact.email', 'Public contact address', `Currently ${cfg.investSite.contact.email}; switch to the revelatoryproductions.com address when mail is restored.`],
-  ['site.domain', 'Production domain', ''],
-  ['story.variant', 'Which approved story wording to use', 'A (conservative) renders. B adds “The Court said it should have been impossible to convict him.” and needs an approver.'],
-  ['legal.verification', 'Accredited-verification sentence', ''],
-  ['legal.retention', 'Record retention period for leads and consents', ''],
+  ['offering.production', 'Which production the raise finances, and its shoot window', 'Default placeholder: Block One of the vertical series (Episodes 1–11), South Carolina. One production per page.', ['offering.production', 'offering.production.shootWindow']],
+  ['offering.issuer', 'Legal name and state of the single-purpose LLC', 'Not yet formed.', ['offering.issuer']],
+  ['offering.totalRaise', 'Total raise', '', ['offering.totalRaise']],
+  ['offering.minimum', 'Minimum investment', 'Interacts with the verification method; ask securities counsel.', ['offering.minimum']],
+  ['offering.waterfall', 'Recoupment % to investors first, then profit split', '', ['offering.waterfall']],
+  ['offering.targetReturn', 'Target multiple and the model behind it', 'Optional; currently unset, so the tile is hidden. Requires a written basis on file.', []],
+  ['offering.exemption', 'Exemption relied on', 'Page copy assumes Rule 506(c). 506(b) is refused by the build.', ['offering.exemption']],
+  ['offering.escrow / collectionAccount', 'Escrow; third-party collection account', '', ['offering.escrow', 'offering.collectionAccount']],
+  ['offering.useOfFunds', 'Allocation percentages', 'Must sum to 100.', ['offering.useOfFunds']],
+  ['perks[].level', 'Which perks, at which levels', 'EP-credit language needs review against guild and distributor practice.', ['perks.0.level', 'perks.1.level', 'perks.2.level', 'perks.3.level', 'perks.4.level', 'perks.5.level']],
+  ['team[]', 'Exact credits and bullets', 'Drafted; pending each person’s approval of the wording (gate G_COPY).', []],
+  ['features.counselDisplay', 'Whether counsel is named on the page', 'Off; requires her written consent.', []],
+  ['site.booking.host', 'Who takes the calls and which calendar', '', ['site.booking.host']],
+  ['site.contact.email', 'Public contact address', `Currently ${cfg.investSite.contact.email}; switch to the revelatoryproductions.com address when mail is restored.`, []],
+  ['site.domain', 'Production domain', '', ['site.domain']],
+  ['story.variant', 'Which approved story wording to use', 'A (conservative) renders. B adds “The Court said it should have been impossible to convict him.” and needs an approver.', []],
+  ['legal.verification', 'Accredited-verification sentence', '', ['legal.verification']],
+  ['legal.retention', 'Record retention period for leads and consents', '', ['legal.retention']],
 ];
 
 const lines = [];
@@ -76,9 +77,10 @@ for (const [id, g] of Object.entries(cfg.gates)) {
 h('## 2. Open decisions');
 lines.push('| Key | Decision | Current value | Notes |', '|---|---|---|---|');
 const pendingByPath = new Map(cfg.derived.pending.map((x) => [x.path, x.reason]));
-for (const [key, decision, notes] of decisions) {
-  const pend = [...pendingByPath.entries()].find(([k]) => key.startsWith(k.split(' ')[0]) || k.startsWith(key.replace(/\[\]|\./g, '').split(' ')[0]));
-  lines.push(`| \`${key}\` | ${decision} | ${pend ? `[[PENDING: ${pend[1]}]]` : 'decided'} | ${notes} |`);
+for (const [key, decision, notes, paths] of decisions) {
+  const open = paths.filter((p) => pendingByPath.has(p));
+  const value = open.length ? [...new Set(open.map((p) => `[[PENDING: ${pendingByPath.get(p)}]]`))].join(' ') : 'set — see the draft on the page';
+  lines.push(`| \`${key}\` | ${decision} | ${value} | ${notes} |`);
 }
 
 h('## 2a. Reconciled: the day counts');
