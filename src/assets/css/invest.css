@@ -100,6 +100,10 @@
   }
 }
 
+.inv-hero__copy {
+  min-width: 0; /* a grid child may not grow past its track for a long unbroken token */
+}
+
 .inv-hero__title {
   font-family: var(--font-doc);
   font-weight: 400;
