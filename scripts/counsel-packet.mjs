@@ -26,13 +26,25 @@ const OUT = path.join(ROOT, 'docs', 'invest', 'COUNSEL_REVIEW.md');
 const cfg = loadConfig({ fresh: true });
 const today = new Date().toISOString().slice(0, 10);
 
-/** Break the page's visible text into readable paragraphs. */
+/**
+ * Break the page's visible text into readable paragraphs: drop the skip
+ * links and screen-reader-only text, collapse the sentence breaks that empty
+ * block elements leave behind, and never split inside "State v. Martin" or
+ * "Op. No. 25093".
+ */
 function pageCopy(html) {
-  return visibleText(html)
-    .split(/\.\s+(?=[A-Z\[§])/)
+  const cleaned = html
+    .replace(/<a class="skip-link"[^>]*>[\s\S]*?<\/a>/g, '')
+    .replace(/<span class="visually-hidden">[\s\S]*?<\/span>/g, '')
+    .replace(/<span class="fn-ref">[\s\S]*?<\/span>/g, '')
+    .replace(/<a class="fn-back"[\s\S]*?<\/a>/g, '');
+  return visibleText(cleaned)
+    .replace(/(?:\s*\.\s*){2,}/g, '. ')
+    .replace(/\s+([,;:])/g, '$1')
+    .split(/(?<!\bv|\bOp|\bNo|\bS\.C)\.\s+(?=[A-Z\[§])/)
     .map((s) => s.trim())
     .filter(Boolean)
-    .map((s) => (s.endsWith('.') ? s : `${s}.`))
+    .map((s) => (/[.!?…]$/.test(s) ? s : `${s}.`))
     .join('\n\n');
 }
 

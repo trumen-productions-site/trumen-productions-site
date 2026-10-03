@@ -1,5 +1,5 @@
 # CLEARLY ESTABLISHED — Investor Page · Counsel Review Packet
-Generated 2026-10-03 from build `2da3c056d99b` (staging). Regenerate with `npm run counsel:packet`; do not edit by hand.
+Generated 2026-10-03 from build `d7714d4d0fa4` (staging). Regenerate with `npm run counsel:packet`; do not edit by hand.
 
 **Owner:** Michael Anthony Martin, Vice-President, Revelatory Productions, LLC · **Counsel of record:** Alexa Whiteside, Esq., WAM Entertainment Law
 
@@ -199,71 +199,67 @@ Facts the page states, exactly: arrested 1996 at twenty-six · convicted 1997 ·
 
 ### /invest/
 
-Staging — not an offering · build 2da3c056d99b · 7 of 7 launch gates unsigned.
+Staging — not an offering · build d7714d4d0fa4 · 7 of 7 launch gates unsigned.
 
-Skip to content Skip to the questionnaire .
-
-TRU MEN Productions TruMen Productions.
-
-Accredited investors only. . . . . . .
-
-Private offering.
-
-Own a piece of the record ..
-
-CLEARLY ESTABLISHED is an eleven-episode first block of a vertical drama series, drawn from State v.
-
-Martin, the case in which a unanimous South Carolina Supreme Court reversed a wrongful conviction on March 27, 2000.
-
-The man it happened to is writing and producing it.
-
-[[PENDING: shoot window]] , South Carolina. .
-
-See if you qualify → How this offering works → .
+TRU MEN Productions.
 
 Accredited investors only.
 
-Not an offer of securities.. .
+Private offering.
 
-§ CLEARLY ESTABLISHED A true story from the public record TRU MEN . . . . . . .
+Own a piece of the record.
+
+CLEARLY ESTABLISHED is an eleven-episode first block of a vertical drama series, drawn from State v. Martin, the case in which a unanimous South Carolina Supreme Court reversed a wrongful conviction on March 27, 2000.
+
+The man it happened to is writing and producing it.
+
+[[PENDING: shoot window]], South Carolina.
+
+See if you qualify → How this offering works →.
+
+Accredited investors only.
+
+Not an offer of securities.
+
+§ CLEARLY ESTABLISHED A true story from the public record TRU MEN.
 
 Minimum investment.
 
-[[PENDING: minimum investment — interacts with the verification method]] . 1 . . . .
+[[PENDING: minimum investment — interacts with the verification method]] . 1.
 
 Investor-first payback.
 
-[[PENDING: waterfall — investor-first recoupment % and the profit split after it]] . 2 . . . .
+[[PENDING: waterfall — investor-first recoupment % and the profit split after it]] . 2.
 
 Total raise.
 
-[[PENDING: total raise]] . 3 . . . .
+[[PENDING: total raise]] . 3.
 
 Production.
 
-Vertical series · Episodes 1–11. 4 . . . . . .
+Vertical series · Episodes 1–11. 4.
 
 Minimum subscription per investor.
 
 The issuer may accept a smaller amount at its sole discretion.
 
-Terms are set out in full in the offering documents. ↩ .
+Terms are set out in full in the offering documents.
 
 Describes the order of distributions after expenses and reserves, as set out in the operating agreement of the issuer.
 
-Distributions are not assured; there may be none. ↩ .
+Distributions are not assured; there may be none.
 
 The maximum amount the issuer intends to accept.
 
-The offering may close below this amount, and the production budget would be adjusted accordingly. ↩ .
+The offering may close below this amount, and the production budget would be adjusted accordingly.
 
 Eleven scripted episodes of a serialized drama written for vertical, phone-first viewing.
 
-Episode count and running times are subject to the final production schedule. ↩ . . . . . . . . . .
+Episode count and running times are subject to the final production schedule.
 
 The story.
 
-The case. .
+The case.
 
 In 1996, a twenty-six-year-old Cadillac salesman was arrested in South Carolina.
 
@@ -271,139 +267,137 @@ In 1997 he was convicted.
 
 He served three years and eleven months before a unanimous South Carolina Supreme Court reversed the conviction on March 27, 2000.
 
-Then the opinion that freed him was withdrawn and refiled seventy-seven days later, on June 12, 2000, with language removed — while the State held him ninety-three days past the Court’s order, until the remittitur of June 28, 2000.. . . 1996 Arrested, at twenty-six . . 1997 Convicted .
+Then the opinion that freed him was withdrawn and refiled seventy-seven days later, on June 12, 2000, with language removed — while the State held him ninety-three days past the Court’s order, until the remittitur of June 28, 2000. 1996 Arrested, at twenty-six. 1997 Convicted.
 
 March 27, 2000 Reversed — unanimously.
 
-Op.
+Op. No. 25093.
 
-No. 25093 .
+June 12, 2000 Opinion withdrawn and refiled, language deleted.
 
-June 12, 2000 Opinion withdrawn and refiled, language deleted .
+June 28, 2000 Remittitur — ninety-three days after the order that freed him.
 
-June 28, 2000 Remittitur — ninety-three days after the order that freed him . .
-
-Why this travels. .
+Why this travels.
 
 A true story with a public record.
 
 Opinion No. 25093 is on file.
 
-The story stands on documents anyone can read..
+The story stands on documents anyone can read.
 
 Built for the phone first.
 
-Written for vertical viewing, where serialized drama is finding its audience..
+Written for vertical viewing, where serialized drama is finding its audience.
 
 Written by the people who lived it.
 
-Michael Anthony Martin and David Alexander Martin.. . . . . . . . .
+Michael Anthony Martin and David Alexander Martin.
 
 How it works.
 
 Why investors participate.
 
-Head, wallet, heart — in that order.. . . . . 01 · Structure.
+Head, wallet, heart — in that order. 01 · Structure.
 
-First-position payback. .
+First-position payback.
 
-[[PENDING: waterfall — investor-first recoupment % and the profit split after it]] . 2 . .. . . . . 02 · The work.
+[[PENDING: waterfall — investor-first recoupment % and the profit split after it]] . 2. 02 · The work.
 
-Material that exists. . .
+Material that exists.
 
-A completed memoir manuscript..
+A completed memoir manuscript.
 
-A locked feature screenplay..
+A locked feature screenplay.
 
-Episodes 1–11 of the series, scripted..
+Episodes 1–11 of the series, scripted.
 
-Rights held by Revelatory Productions, LLC under a written agreement.. . . . . . 03 · The experience.
+Rights held by Revelatory Productions, LLC under a written agreement. 03 · The experience.
 
-Inside the production. .
+Inside the production.
 
 Executive Producer credit · Set visit · Premiere · Festival run · Dinner with the authors · Insider updates.
 
-The perks in full. . . . . . .
+The perks in full.
 
 Describes the order of distributions after expenses and reserves, as set out in the operating agreement of the issuer.
 
-Distributions are not assured; there may be none. ↩ . . . . . . . . . .
+Distributions are not assured; there may be none.
 
 Start here.
 
-See if you qualify, then pick a time..
+See if you qualify, then pick a time.
 
 Six short steps.
 
-The last two book 30 minutes with the producer.. . .
+The last two book 30 minutes with the producer.
 
-Step 1 of 6 · About 30 seconds. . . . .
+Step 1 of 6 · About 30 seconds.
 
-Are you an accredited investor?.
+Are you an accredited investor?
 
 Yes.
 
-No, or I’m not sure. .
+No, or I’m not sure.
 
-What counts as accredited?. .
+What counts as accredited?
 
 Income over $200,000 in each of the last two years ($300,000 with a spouse or partner), with the same expected this year; or.
 
 Net worth over $1,000,000, alone or with a spouse or partner, not counting your primary residence; or.
 
-Certain professional licences in good standing (Series 7, 65 or 82), or an entity that meets its own tests.. .
+Certain professional licences in good standing (Series 7, 65 or 82), or an entity that meets its own tests.
 
 These are the general tests.
 
-The full definition is in Rule 501(a) of Regulation D; your status is verified before any subscription is accepted.. . . .
+The full definition is in Rule 501(a) of Regulation D; your status is verified before any subscription is accepted.
 
-Your name. . .
+Your name.
 
-Email. . .
+Email.
 
-Phone. . .
+Phone.
 
-Leave this field empty. .
+Leave this field empty.
 
 Without JavaScript we can’t show the calendar here.
 
-Send your details and we will reply by email within one business day with times to choose from..
+Send your details and we will reply by email within one business day with times to choose from.
 
-Send my details → . .
+Send my details →.
 
 Not confirmed yet.
 
-Your time is held only once you pick it..
+Your time is held only once you pick it.
 
-This questionnaire is not a subscription agreement and commits you to nothing.. . . . . . . . .
+This questionnaire is not a subscription agreement and commits you to nothing.
 
 The people.
 
-Written by the people who lived it. . . .
+Written by the people who lived it.
 
 Michael Anthony Martin.
 
-Writer · Producer · Subject. .
+Writer · Producer · Subject.
 
-Arrested in 1996 at twenty-six; convicted in 1997; conviction reversed unanimously by the South Carolina Supreme Court on March 27, 2000..
+Arrested in 1996 at twenty-six; convicted in 1997; conviction reversed unanimously by the South Carolina Supreme Court on March 27, 2000.
 
-Co-author of the memoir and the screenplay; the series is drawn from both..
+Co-author of the memoir and the screenplay; the series is drawn from both.
 
-Vice-President, Revelatory Productions, LLC.. . . .
+Vice-President, Revelatory Productions, LLC.
 
 David Alexander Martin.
 
-Writer · President, Revelatory Productions, LLC. .
+Writer · President, Revelatory Productions, LLC.
 
-Co-author of the memoir, the screenplay, and Episodes 1–11..
+Co-author of the memoir, the screenplay, and Episodes 1–11.
 
-Kept the visits, the files and the record through the years his brother was held..
+Kept the visits, the files and the record through the years his brother was held.
 
-President, Revelatory Productions, LLC — a fifty-fifty company, one name on the chain of title.. . . . . . . .
+President, Revelatory Productions, LLC — a fifty-fifty company, one name on the chain of title.
 
 Still reading? The fastest way through is 30 minutes with the producer.
 
-See if you qualify → . . . . . . .
+See if you qualify →.
 
 The plan.
 
@@ -411,99 +405,99 @@ The record is the campaign.
 
 A true story with a paper trail markets itself differently.
 
-The documents are the content.. . . .
+The documents are the content.
 
 Primary sources as content.
 
-The filed opinions and the trial record, presented on screen — the kind of material that gets shared because it can be checked.. . .
+The filed opinions and the trial record, presented on screen — the kind of material that gets shared because it can be checked.
 
 South Carolina premiere.
 
-A hometown premiere event for cast, investors and press, in the state where the story happened.. . .
+A hometown premiere event for cast, investors and press, in the state where the story happened.
 
 Owned audience.
 
-An email list built at release and converted with tickets and editions — a direct line that no platform can switch off.. . . . . . . . . .
+An email list built at release and converted with tickets and editions — a direct line that no platform can switch off.
 
 Perks.
 
-What investors are part of. . . .
+What investors are part of.
 
 Executive Producer credit.
 
-An on-screen credit on the production, in the form the distributor’s credit rules allow..
+An on-screen credit on the production, in the form the distributor’s credit rules allow.
 
-[[PENDING: perk level — owner]] . . .
+[[PENDING: perk level — owner]].
 
 Set visit.
 
-A day on set in South Carolina during principal photography, with the producers..
+A day on set in South Carolina during principal photography, with the producers.
 
-[[PENDING: perk level — owner]] . . .
+[[PENDING: perk level — owner]].
 
 Premiere.
 
-Two seats at the South Carolina premiere and the reception that follows..
+Two seats at the South Carolina premiere and the reception that follows.
 
-[[PENDING: perk level — owner]] . . .
+[[PENDING: perk level — owner]].
 
 Festival run.
 
-Invitations to festival screenings as the production travels..
+Invitations to festival screenings as the production travels.
 
-[[PENDING: perk level — owner]] . . .
+[[PENDING: perk level — owner]].
 
 Dinner with the authors.
 
-A private dinner with Michael and David Martin — the people who lived the story and wrote it..
+A private dinner with Michael and David Martin — the people who lived the story and wrote it.
 
-[[PENDING: perk level — owner]] . . .
+[[PENDING: perk level — owner]].
 
 Insider updates.
 
-Production updates, dailies where permitted, and first word on release..
+Production updates, dailies where permitted, and first word on release.
 
-[[PENDING: perk level — owner]] . . .
+[[PENDING: perk level — owner]].
 
 Perks vary by investment level.
 
-Details on your call.. . . . . . . .
+Details on your call.
 
 Where the money goes.
 
-Use of funds. .
+Use of funds.
 
-[[PENDING: use-of-funds allocation — must sum to 100%]] .
+[[PENDING: use-of-funds allocation — must sum to 100%]].
 
-Allocations are approximate and subject to the final budget.. . . . .
+Allocations are approximate and subject to the final budget.
 
-Seen enough?.
+Seen enough?
 
-See if you qualify → . . . . . . .
+See if you qualify →.
 
 Questions.
 
-Asked, answered. . . .
+Asked, answered.
 
-What is being offered? . .
+What is being offered?
 
-Membership interests in [[PENDING: issuer legal name and state of formation — securities counsel]] , a single-purpose company formed to produce Clearly Established.. . . .
+Membership interests in [[PENDING: issuer legal name and state of formation — securities counsel]], a single-purpose company formed to produce Clearly Established.
 
-What is the minimum? . .
+What is the minimum?
 
-[[PENDING: minimum investment — interacts with the verification method]] .. . . .
+[[PENDING: minimum investment — interacts with the verification method]].
 
-How are investors paid back? . .
+How are investors paid back?
 
-[[PENDING: waterfall — investor-first recoupment % and the profit split after it]] . . . .
+[[PENDING: waterfall — investor-first recoupment % and the profit split after it]].
 
-Who owns the underlying rights? . .
+Who owns the underlying rights?
 
 Revelatory Productions, LLC.
 
-The production company holds the rights it needs for this production under a written agreement.. . . .
+The production company holds the rights it needs for this production under a written agreement.
 
-What are the risks? . .
+What are the risks?
 
 This is a high-risk investment.
 
@@ -511,13 +505,13 @@ You could lose some or all of your money.
 
 Most independent productions do not return their budgets.
 
-Full risk factors are in the offering documents.. . . .
+Full risk factors are in the offering documents.
 
-How is accredited status verified? . .
+How is accredited status verified?
 
-[[PENDING: accredited-verification method and the third-party verifier — securities counsel]] . . . . . . . .
+[[PENDING: accredited-verification method and the third-party verifier — securities counsel]].
 
-Questions answered? Let’s talk.. . 30 minutes with the producer.
+Questions answered? Let’s talk. 30 minutes with the producer.
 
 Pick your time.
 
@@ -527,11 +521,11 @@ No commitment.
 
 No pressure.
 
-Just answers.. . . . . . .
+Just answers.
 
 The offering structure.
 
-[[PENDING: exemption — securities counsel (page copy assumes Rule 506(c))]] [[PENDING: whether subscription funds are escrowed]] [[PENDING: whether a third-party collection account is used]] . . .
+[[PENDING: exemption — securities counsel (page copy assumes Rule 506(c))]] [[PENDING: whether subscription funds are escrowed]] [[PENDING: whether a third-party collection account is used]].
 
 Not an offer.
 
@@ -539,123 +533,59 @@ This page is for information only.
 
 It is not an offer to sell or a solicitation of an offer to buy any security.
 
-Offers are made only through definitive offering documents, and only to investors whose accredited status has been verified..
+Offers are made only through definitive offering documents, and only to investors whose accredited status has been verified.
 
 Any targets, estimates or projections are the issuer’s own, rest on assumptions that may prove wrong, and are not a promise of performance.
 
-Nothing here is a guarantee of any outcome..
+Nothing here is a guarantee of any outcome.
 
 Investing in a film or television production is speculative and involves a high degree of risk, including the loss of your entire investment.
 
 Most independent productions do not return their budgets.
 
-Tax outcomes vary by investor and by jurisdiction.. . .
+Tax outcomes vary by investor and by jurisdiction.
 
 The story.
 
-Based on the public record of State v.
+Based on the public record of State v. Martin, Op. No. 25093 (S.C. 2000), and the recollections of the authors.
 
-Martin, Op.
+TRU MEN Productions Viri Veri . © 2026 Revelatory Productions, LLC. 4607 Charlotte Hwy, Suite 7, Lake Wylie, SC 29710. michaelmartin@greenplanit.org.
 
-No. 25093 (S.C. 2000), and the recollections of the authors.. .
-
-TRU MEN Productions Viri Veri . © 2026 Revelatory Productions, LLC. . 4607 Charlotte Hwy, Suite 7, Lake Wylie, SC 29710. . michaelmartin@greenplanit.org .
-
-Privacy . . . .
+Privacy.
 
 See if you qualify → .
 
 ### /invest/confirmed/
 
-Staging — not an offering · build 2da3c056d99b · 7 of 7 launch gates unsigned.
+Staging — not an offering · build d7714d4d0fa4 · 7 of 7 launch gates unsigned.
 
-Skip to content .
-
-TRU MEN Productions TruMen Productions.
-
-Accredited investors only. . . . . .
-
-Confirmed.
-
-Your time is booked.. .
-
-Loading your booking… . . 30 minutes with the producer . . .
-
-Add to your calendar → . .
-
-The booking details and calendar file need JavaScript to display here.
-
-They are also in the confirmation email we have just sent you..
-
-What to have ready. .
-
-Any questions about the production, the terms or the timeline..
-
-A sense of the range you are considering — nothing is decided on the call..
-
-Nothing to sign and nothing to bring.
-
-Verification, if you proceed, happens afterwards through a third party.. .
-
-Need to change the time? Reply to the confirmation email, or write to michaelmartin@greenplanit.org ..
+TRU MEN Productions.
 
 Accredited investors only.
 
-Not an offer of securities.
+Confirmed.
 
-This page is for information only.
+Your time is booked.
 
-It is not an offer to sell or a solicitation of an offer to buy any security.
+Loading your booking…. 30 minutes with the producer.
 
-Offers are made only through definitive offering documents, and only to investors whose accredited status has been verified.. . . . . . .
+Add to your calendar →.
 
-Not an offer.
+The booking details and calendar file need JavaScript to display here.
 
-This page is for information only.
+They are also in the confirmation email we have just sent you.
 
-It is not an offer to sell or a solicitation of an offer to buy any security.
+What to have ready.
 
-Offers are made only through definitive offering documents, and only to investors whose accredited status has been verified..
+Any questions about the production, the terms or the timeline.
 
-Any targets, estimates or projections are the issuer’s own, rest on assumptions that may prove wrong, and are not a promise of performance.
+A sense of the range you are considering — nothing is decided on the call.
 
-Nothing here is a guarantee of any outcome..
+Nothing to sign and nothing to bring.
 
-Investing in a film or television production is speculative and involves a high degree of risk, including the loss of your entire investment.
+Verification, if you proceed, happens afterwards through a third party.
 
-Most independent productions do not return their budgets.
-
-Tax outcomes vary by investor and by jurisdiction.. . .
-
-The story.
-
-Based on the public record of State v.
-
-Martin, Op.
-
-No. 25093 (S.C. 2000), and the recollections of the authors.. .
-
-TRU MEN Productions Viri Veri . © 2026 Revelatory Productions, LLC. . 4607 Charlotte Hwy, Suite 7, Lake Wylie, SC 29710. . michaelmartin@greenplanit.org .
-
-Privacy . . . .
-
-### /invest/received/
-
-Staging — not an offering · build 2da3c056d99b · 7 of 7 launch gates unsigned.
-
-Skip to content .
-
-TRU MEN Productions TruMen Productions.
-
-Accredited investors only. . . . . .
-
-Received.
-
-We have your details..
-
-We will reply by email within one business day with times to choose from for a 30-minute call with the producer..
-
-If you would rather not wait, write to michaelmartin@greenplanit.org ..
+Need to change the time? Reply to the confirmation email, or write to michaelmartin@greenplanit.org.
 
 Accredited investors only.
 
@@ -667,53 +597,47 @@ It is not an offer to sell or a solicitation of an offer to buy any security.
 
 Offers are made only through definitive offering documents, and only to investors whose accredited status has been verified.
 
-This questionnaire is not a subscription agreement and commits you to nothing.. . . . . . .
-
 Not an offer.
 
 This page is for information only.
 
 It is not an offer to sell or a solicitation of an offer to buy any security.
 
-Offers are made only through definitive offering documents, and only to investors whose accredited status has been verified..
+Offers are made only through definitive offering documents, and only to investors whose accredited status has been verified.
 
 Any targets, estimates or projections are the issuer’s own, rest on assumptions that may prove wrong, and are not a promise of performance.
 
-Nothing here is a guarantee of any outcome..
+Nothing here is a guarantee of any outcome.
 
 Investing in a film or television production is speculative and involves a high degree of risk, including the loss of your entire investment.
 
 Most independent productions do not return their budgets.
 
-Tax outcomes vary by investor and by jurisdiction.. . .
+Tax outcomes vary by investor and by jurisdiction.
 
 The story.
 
-Based on the public record of State v.
+Based on the public record of State v. Martin, Op. No. 25093 (S.C. 2000), and the recollections of the authors.
 
-Martin, Op.
+TRU MEN Productions Viri Veri . © 2026 Revelatory Productions, LLC. 4607 Charlotte Hwy, Suite 7, Lake Wylie, SC 29710. michaelmartin@greenplanit.org.
 
-No. 25093 (S.C. 2000), and the recollections of the authors.. .
+Privacy.
 
-TRU MEN Productions Viri Veri . © 2026 Revelatory Productions, LLC. . 4607 Charlotte Hwy, Suite 7, Lake Wylie, SC 29710. . michaelmartin@greenplanit.org .
+### /invest/received/
 
-Privacy . . . .
+Staging — not an offering · build d7714d4d0fa4 · 7 of 7 launch gates unsigned.
 
-### /invest/not-accredited/
+TRU MEN Productions.
 
-Staging — not an offering · build 2da3c056d99b · 7 of 7 launch gates unsigned.
+Accredited investors only.
 
-Skip to content .
+Received.
 
-TRU MEN Productions TruMen Productions.
+We have your details.
 
-Accredited investors only. . . . . .
+We will reply by email within one business day with times to choose from for a 30-minute call with the producer.
 
-Thank you.
-
-Thank you.
-
-This offering is limited by law to accredited investors, so we can’t share more here..
+If you would rather not wait, write to michaelmartin@greenplanit.org.
 
 Accredited investors only.
 
@@ -723,7 +647,9 @@ This page is for information only.
 
 It is not an offer to sell or a solicitation of an offer to buy any security.
 
-Offers are made only through definitive offering documents, and only to investors whose accredited status has been verified.. . . . . . .
+Offers are made only through definitive offering documents, and only to investors whose accredited status has been verified.
+
+This questionnaire is not a subscription agreement and commits you to nothing.
 
 Not an offer.
 
@@ -731,39 +657,83 @@ This page is for information only.
 
 It is not an offer to sell or a solicitation of an offer to buy any security.
 
-Offers are made only through definitive offering documents, and only to investors whose accredited status has been verified..
+Offers are made only through definitive offering documents, and only to investors whose accredited status has been verified.
 
 Any targets, estimates or projections are the issuer’s own, rest on assumptions that may prove wrong, and are not a promise of performance.
 
-Nothing here is a guarantee of any outcome..
+Nothing here is a guarantee of any outcome.
 
 Investing in a film or television production is speculative and involves a high degree of risk, including the loss of your entire investment.
 
 Most independent productions do not return their budgets.
 
-Tax outcomes vary by investor and by jurisdiction.. . .
+Tax outcomes vary by investor and by jurisdiction.
 
 The story.
 
-Based on the public record of State v.
+Based on the public record of State v. Martin, Op. No. 25093 (S.C. 2000), and the recollections of the authors.
 
-Martin, Op.
+TRU MEN Productions Viri Veri . © 2026 Revelatory Productions, LLC. 4607 Charlotte Hwy, Suite 7, Lake Wylie, SC 29710. michaelmartin@greenplanit.org.
 
-No. 25093 (S.C. 2000), and the recollections of the authors.. .
+Privacy.
 
-TRU MEN Productions Viri Veri . © 2026 Revelatory Productions, LLC. . 4607 Charlotte Hwy, Suite 7, Lake Wylie, SC 29710. . michaelmartin@greenplanit.org .
+### /invest/not-accredited/
 
-Privacy . . . .
+Staging — not an offering · build d7714d4d0fa4 · 7 of 7 launch gates unsigned.
+
+TRU MEN Productions.
+
+Accredited investors only.
+
+Thank you.
+
+Thank you.
+
+This offering is limited by law to accredited investors, so we can’t share more here.
+
+Accredited investors only.
+
+Not an offer of securities.
+
+This page is for information only.
+
+It is not an offer to sell or a solicitation of an offer to buy any security.
+
+Offers are made only through definitive offering documents, and only to investors whose accredited status has been verified.
+
+Not an offer.
+
+This page is for information only.
+
+It is not an offer to sell or a solicitation of an offer to buy any security.
+
+Offers are made only through definitive offering documents, and only to investors whose accredited status has been verified.
+
+Any targets, estimates or projections are the issuer’s own, rest on assumptions that may prove wrong, and are not a promise of performance.
+
+Nothing here is a guarantee of any outcome.
+
+Investing in a film or television production is speculative and involves a high degree of risk, including the loss of your entire investment.
+
+Most independent productions do not return their budgets.
+
+Tax outcomes vary by investor and by jurisdiction.
+
+The story.
+
+Based on the public record of State v. Martin, Op. No. 25093 (S.C. 2000), and the recollections of the authors.
+
+TRU MEN Productions Viri Veri . © 2026 Revelatory Productions, LLC. 4607 Charlotte Hwy, Suite 7, Lake Wylie, SC 29710. michaelmartin@greenplanit.org.
+
+Privacy.
 
 ### /privacy/
 
-Staging — not an offering · build 2da3c056d99b · 7 of 7 launch gates unsigned.
+Staging — not an offering · build d7714d4d0fa4 · 7 of 7 launch gates unsigned.
 
-Skip to content .
+TRU MEN Productions.
 
-TRU MEN Productions TruMen Productions.
-
-Accredited investors only. . . . . .
+Accredited investors only.
 
 Privacy.
 
@@ -771,49 +741,49 @@ Privacy policy.
 
 Applies to the investor page at /invest and its forms.
 
-Draft for counsel review..
+Draft for counsel review.
 
 What we collect.
 
-When you complete the questionnaire we store: your name, email address and phone number; your answers to the questions about accredited status, the range you are considering and what matters most to you; the timezone you chose; the time you booked; and, if you gave it, your consent to text messages, together with the exact words you agreed to..
+When you complete the questionnaire we store: your name, email address and phone number; your answers to the questions about accredited status, the range you are considering and what matters most to you; the timezone you chose; the time you booked; and, if you gave it, your consent to text messages, together with the exact words you agreed to.
 
-We also record how you reached the page — the advertising parameters in the link you clicked (such as utm_source and utm_campaign ), the page you landed on and the site that referred you — a one-way hash of your IP address (not the address itself), your browser’s user-agent string, and the version of this page you saw..
+We also record how you reached the page — the advertising parameters in the link you clicked (such as utm_source and utm_campaign ), the page you landed on and the site that referred you — a one-way hash of your IP address (not the address itself), your browser’s user-agent string, and the version of this page you saw.
 
 We do not collect, and the questionnaire never asks for, your Social Security number, financial statements or any verification documents.
 
-If you proceed, accredited-investor verification is carried out separately by a third party, and none of it passes through this website..
+If you proceed, accredited-investor verification is carried out separately by a third party, and none of it passes through this website.
 
-Why. .
+Why.
 
-To hold the call you booked and to send you its details..
+To hold the call you booked and to send you its details.
 
-To let the person taking the call prepare — your three answers are shown to them beforehand..
+To let the person taking the call prepare — your three answers are shown to them beforehand.
 
-To know which advertisement led to a conversation, so we spend less on the ones that don’t..
+To know which advertisement led to a conversation, so we spend less on the ones that don’t.
 
-To keep a record of what you were shown and what you agreed to, which the law governing private offerings requires of us.. .
+To keep a record of what you were shown and what you agreed to, which the law governing private offerings requires of us.
 
 Who else sees it.
 
-The service providers that run this page, each only for its own job:. .
+The service providers that run this page, each only for its own job:.
 
-Cloudflare hosts the page, runs the form handlers, stores the database, and screens the form for automated abuse (Turnstile)..
+Cloudflare hosts the page, runs the form handlers, stores the database, and screens the form for automated abuse (Turnstile).
 
-Cal.com provides the calendar availability and creates the booking on the host’s calendar..
+Cal.com provides the calendar availability and creates the booking on the host’s calendar.
 
-Resend sends the confirmation email to you and the notification to us.. .
+Resend sends the confirmation email to you and the notification to us.
 
-We do not sell your information, and we do not share it with anyone else except as the law requires..
+We do not sell your information, and we do not share it with anyone else except as the law requires.
 
 Cookies and storage.
 
 The page sets no advertising or analytics cookies by default.
 
-Your progress through the questionnaire and the link parameters are kept in your browser’s session storage and are gone when you close the tab..
+Your progress through the questionnaire and the link parameters are kept in your browser’s session storage and are gone when you close the tab.
 
 How long we keep it.
 
-[[PENDING: record retention period for leads and consents — counsel]] .
+[[PENDING: record retention period for leads and consents — counsel]].
 
 Your choices.
 
@@ -821,11 +791,11 @@ Write to michaelmartin@greenplanit.org to see what we hold about you, to correct
 
 We will confirm within thirty days.
 
-If you opted in to text messages, reply STOP to any message to end them..
+If you opted in to text messages, reply STOP to any message to end them.
 
 Who we are.
 
-Revelatory Productions, LLC, 4607 Charlotte Hwy, Suite 7, Lake Wylie, SC 29710.. . . . . . .
+Revelatory Productions, LLC, 4607 Charlotte Hwy, Suite 7, Lake Wylie, SC 29710.
 
 Not an offer.
 
@@ -833,39 +803,33 @@ This page is for information only.
 
 It is not an offer to sell or a solicitation of an offer to buy any security.
 
-Offers are made only through definitive offering documents, and only to investors whose accredited status has been verified..
+Offers are made only through definitive offering documents, and only to investors whose accredited status has been verified.
 
 Any targets, estimates or projections are the issuer’s own, rest on assumptions that may prove wrong, and are not a promise of performance.
 
-Nothing here is a guarantee of any outcome..
+Nothing here is a guarantee of any outcome.
 
 Investing in a film or television production is speculative and involves a high degree of risk, including the loss of your entire investment.
 
 Most independent productions do not return their budgets.
 
-Tax outcomes vary by investor and by jurisdiction.. . .
+Tax outcomes vary by investor and by jurisdiction.
 
 The story.
 
-Based on the public record of State v.
+Based on the public record of State v. Martin, Op. No. 25093 (S.C. 2000), and the recollections of the authors.
 
-Martin, Op.
+TRU MEN Productions Viri Veri . © 2026 Revelatory Productions, LLC. 4607 Charlotte Hwy, Suite 7, Lake Wylie, SC 29710. michaelmartin@greenplanit.org.
 
-No. 25093 (S.C. 2000), and the recollections of the authors.. .
-
-TRU MEN Productions Viri Veri . © 2026 Revelatory Productions, LLC. . 4607 Charlotte Hwy, Suite 7, Lake Wylie, SC 29710. . michaelmartin@greenplanit.org .
-
-Privacy . . . .
+Privacy.
 
 ### /terms/
 
-Staging — not an offering · build 2da3c056d99b · 7 of 7 launch gates unsigned.
+Staging — not an offering · build d7714d4d0fa4 · 7 of 7 launch gates unsigned.
 
-Skip to content .
+TRU MEN Productions.
 
-TRU MEN Productions TruMen Productions.
-
-Accredited investors only. . . . . .
+Accredited investors only.
 
 SMS Terms.
 
@@ -873,13 +837,13 @@ Text message terms.
 
 Applies to text messages about the CLEARLY ESTABLISHED private offering.
 
-Draft for counsel review..
+Draft for counsel review.
 
 The program.
 
 By checking the box on the questionnaire you agree to receive text messages from Revelatory Productions, LLC about this offering — the call you booked, a reminder before it, and a reply if you text us.
 
-Consent is not a condition of any purchase or investment..
+Consent is not a condition of any purchase or investment.
 
 The words you agreed to were: Yes, text me about this offering at the number above.
 
@@ -891,13 +855,13 @@ Reply STOP to opt out at any time and HELP for help.
 
 Consent is not a condition of any purchase.
 
-See our SMS Terms and Privacy Policy. .
+See our SMS Terms and Privacy Policy.
 
 Frequency and cost.
 
 Message frequency varies and is low — expect a handful of messages around your call.
 
-Message and data rates may apply according to your mobile plan..
+Message and data rates may apply according to your mobile plan.
 
 Stopping and help.
 
@@ -905,11 +869,11 @@ Reply STOP to any message to opt out.
 
 You will receive one confirmation and nothing further.
 
-Reply HELP for help, or write to michaelmartin@greenplanit.org ..
+Reply HELP for help, or write to michaelmartin@greenplanit.org.
 
 Carriers.
 
-Carriers are not liable for delayed or undelivered messages..
+Carriers are not liable for delayed or undelivered messages.
 
 Privacy.
 
@@ -917,7 +881,7 @@ Your number is used only for this program and is handled as described in our pri
 
 Accredited investors only.
 
-Not an offer of securities.. . . . . . .
+Not an offer of securities.
 
 Not an offer.
 
@@ -925,29 +889,25 @@ This page is for information only.
 
 It is not an offer to sell or a solicitation of an offer to buy any security.
 
-Offers are made only through definitive offering documents, and only to investors whose accredited status has been verified..
+Offers are made only through definitive offering documents, and only to investors whose accredited status has been verified.
 
 Any targets, estimates or projections are the issuer’s own, rest on assumptions that may prove wrong, and are not a promise of performance.
 
-Nothing here is a guarantee of any outcome..
+Nothing here is a guarantee of any outcome.
 
 Investing in a film or television production is speculative and involves a high degree of risk, including the loss of your entire investment.
 
 Most independent productions do not return their budgets.
 
-Tax outcomes vary by investor and by jurisdiction.. . .
+Tax outcomes vary by investor and by jurisdiction.
 
 The story.
 
-Based on the public record of State v.
+Based on the public record of State v. Martin, Op. No. 25093 (S.C. 2000), and the recollections of the authors.
 
-Martin, Op.
+TRU MEN Productions Viri Veri . © 2026 Revelatory Productions, LLC. 4607 Charlotte Hwy, Suite 7, Lake Wylie, SC 29710. michaelmartin@greenplanit.org.
 
-No. 25093 (S.C. 2000), and the recollections of the authors.. .
-
-TRU MEN Productions Viri Veri . © 2026 Revelatory Productions, LLC. . 4607 Charlotte Hwy, Suite 7, Lake Wylie, SC 29710. . michaelmartin@greenplanit.org .
-
-Privacy . . . .
+Privacy.
 
 
 ## 10. What the system stores
