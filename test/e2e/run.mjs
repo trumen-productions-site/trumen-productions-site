@@ -12,7 +12,8 @@
  *   E2E-05  Changing timezone re-renders the slots, across a DST boundary
  *   A11Y-01 axe: zero violations on every page and each flow step
  *   A11Y-02 The whole flow completed by keyboard only
- *   SNAP-01 Screenshots at 375, 768 and 1280 against committed baselines
+ *   SNAP-01 Layout assertions at 375, 768 and 1280 on every machine; pixel
+ *           comparison against committed baselines when the fonts match
  *
  * Runs against tools/dev-api.mjs in-process (SQLite in memory, the mock
  * scheduler, mock Turnstile, logged mail). Needs `playwright-core` and
@@ -354,58 +355,116 @@ async function main() {
   });
 
   /* SNAP-01 */
-  await check('SNAP-01', 'screenshots at 375, 768 and 1280 against the baselines', async () => {
+  await check('SNAP-01', 'layout at 375, 768 and 1280, and screenshots against the baselines', async () => {
     await mkdir(BASELINES, { recursive: true });
     const diffs = [];
+    const skipped = [];
     for (const width of [375, 768, 1280]) {
       const { page, context } = await newPage({ viewport: { width, height: 900 } });
       await page.goto(`${base}/invest/`);
       await page.waitForTimeout(150);
-      const shot = await page.screenshot({ fullPage: true });
-      const outFile = path.join(OUT, `invest-${width}.png`);
-      await writeFile(outFile, shot);
-      const baseFile = path.join(BASELINES, `invest-${width}.png`);
-      if (UPDATE || !existsSync(baseFile)) {
-        await writeFile(baseFile, shot);
-        console.log(`      wrote baseline invest-${width}.png`);
+
+      // Layout assertions hold on every machine, whatever fonts it has.
+      const layout = await page.evaluate(() => {
+        const box = (sel) => {
+          const el = document.querySelector(sel);
+          if (!el) return null;
+          const r = el.getBoundingClientRect();
+          return { top: r.top + scrollY, bottom: r.bottom + scrollY, left: r.left, right: r.right, width: r.width, height: r.height };
+        };
+        const tiles = [...document.querySelectorAll('.inv-stat')].map((el) => el.getBoundingClientRect().top + scrollY);
+        return {
+          scrollWidth: document.documentElement.scrollWidth,
+          innerWidth,
+          sections: ['#top', '#terms', '#the-case', '#why', '#start-section', '#team', '#cta-mid', '#marketing', '#perks', '#use-of-funds', '#cta-late', '#faq', '#final-title'].map((s) => ({ s, top: box(s)?.top ?? null })),
+          copy: box('.inv-hero__copy'),
+          art: box('.inv-hero__art'),
+          h1: box('#hero-title'),
+          container: box('.inv-hero .inv-container'),
+          tiles,
+          sticky: document.querySelector('[data-sticky]').hidden,
+          stage: box('#start'),
+        };
+      });
+      assert(layout.scrollWidth <= layout.innerWidth, `${width}px: horizontal overflow (${layout.scrollWidth} > ${layout.innerWidth})`);
+      for (let i = 1; i < layout.sections.length; i++) {
+        const a = layout.sections[i - 1];
+        const b = layout.sections[i];
+        assert(a.top !== null && b.top !== null && b.top > a.top, `${width}px: ${b.s} must follow ${a.s}`);
+      }
+      assert(layout.h1.right <= layout.container.right + 1, `${width}px: the headline overflows its container`);
+      assert(layout.sticky === true, `${width}px: sticky bar hidden on load`);
+      if (width >= 928) {
+        assert(layout.art.left >= layout.copy.right - 1, `${width}px: hero is two columns (art to the right of the copy)`);
+        assert(new Set(layout.tiles.map(Math.round)).size === 1, `${width}px: the stat tiles sit in one row`);
       } else {
-        const baseline = await readFile(baseFile);
-        const mismatch = await page.evaluate(
-          async ([a, b]) => {
-            const load = (src) => new Promise((res, rej) => {
-              const img = new Image();
-              img.onload = () => res(img);
-              img.onerror = rej;
-              img.src = src;
-            });
-            const [ia, ib] = await Promise.all([load(a), load(b)]);
-            const w = Math.max(ia.width, ib.width);
-            const h = Math.max(ia.height, ib.height);
-            const draw = (img) => {
-              const c = document.createElement('canvas');
-              c.width = w;
-              c.height = h;
-              const ctx = c.getContext('2d');
-              ctx.drawImage(img, 0, 0);
-              return ctx.getImageData(0, 0, w, h).data;
-            };
-            const da = draw(ia);
-            const db = draw(ib);
-            let bad = 0;
-            for (let i = 0; i < da.length; i += 4) {
-              if (Math.abs(da[i] - db[i]) + Math.abs(da[i + 1] - db[i + 1]) + Math.abs(da[i + 2] - db[i + 2]) > 48) bad++;
-            }
-            return { pct: (bad / (w * h)) * 100, sizeDiff: ia.width !== ib.width || ia.height !== ib.height };
-          },
-          [`data:image/png;base64,${shot.toString('base64')}`, `data:image/png;base64,${baseline.toString('base64')}`],
-        );
-        diffs.push({ width, ...mismatch });
+        assert(layout.art.top >= layout.copy.bottom - 1, `${width}px: hero stacks (art below the copy)`);
+        assert(Math.round(layout.tiles[0]) === Math.round(layout.tiles[1]) && layout.tiles[2] > layout.tiles[0], `${width}px: the stat tiles are two per row`);
+      }
+      assert(layout.stage.width <= layout.innerWidth - 32 + 1, `${width}px: the flow stage keeps a 16px gutter`);
+
+      // Pixel comparison, only against a baseline drawn with the same fonts.
+      const fingerprint = await page.evaluate(() => {
+        const c = document.createElement('canvas').getContext('2d');
+        const probe = 'The quick brown fox jumps over 0123456789 — TRU★MEN';
+        c.font = "16px Georgia, 'Iowan Old Style', 'Times New Roman', serif";
+        const serif = c.measureText(probe).width.toFixed(1);
+        c.font = "16px Poppins, 'Helvetica Neue', Arial, sans-serif";
+        const sans = c.measureText(probe).width.toFixed(1);
+        return `serif:${serif}|sans:${sans}`;
+      });
+      const shot = await page.screenshot({ fullPage: true });
+      await writeFile(path.join(OUT, `invest-${width}.png`), shot);
+      const baseFile = path.join(BASELINES, `invest-${width}.png`);
+      const metaFile = path.join(BASELINES, `invest-${width}.json`);
+      if (UPDATE || !existsSync(baseFile) || !existsSync(metaFile)) {
+        await writeFile(baseFile, shot);
+        await writeFile(metaFile, `${JSON.stringify({ width, fingerprint, recorded: new Date().toISOString().slice(0, 10) }, null, 2)}\n`);
+        console.log(`      wrote baseline invest-${width}.png (${fingerprint})`);
+      } else {
+        const meta = JSON.parse(await readFile(metaFile, 'utf8'));
+        if (meta.fingerprint !== fingerprint) {
+          skipped.push(`${width}px (baseline ${meta.fingerprint}, here ${fingerprint})`);
+        } else {
+          const baseline = await readFile(baseFile);
+          const mismatch = await page.evaluate(
+            async ([a, b]) => {
+              const load = (src) => new Promise((res, rej) => {
+                const img = new Image();
+                img.onload = () => res(img);
+                img.onerror = rej;
+                img.src = src;
+              });
+              const [ia, ib] = await Promise.all([load(a), load(b)]);
+              const w = Math.max(ia.width, ib.width);
+              const h = Math.max(ia.height, ib.height);
+              const draw = (img) => {
+                const cv = document.createElement('canvas');
+                cv.width = w;
+                cv.height = h;
+                const ctx = cv.getContext('2d');
+                ctx.drawImage(img, 0, 0);
+                return ctx.getImageData(0, 0, w, h).data;
+              };
+              const da = draw(ia);
+              const db = draw(ib);
+              let bad = 0;
+              for (let i = 0; i < da.length; i += 4) {
+                if (Math.abs(da[i] - db[i]) + Math.abs(da[i + 1] - db[i + 1]) + Math.abs(da[i + 2] - db[i + 2]) > 48) bad++;
+              }
+              return { pct: (bad / (w * h)) * 100, sizeDiff: ia.width !== ib.width || ia.height !== ib.height };
+            },
+            [`data:image/png;base64,${shot.toString('base64')}`, `data:image/png;base64,${baseline.toString('base64')}`],
+          );
+          diffs.push({ width, ...mismatch });
+        }
       }
       await context.close();
     }
     const over = diffs.filter((d) => d.pct > 2);
     assert(over.length === 0, `screenshot drift over 2%: ${over.map((d) => `${d.width}px ${d.pct.toFixed(2)}%${d.sizeDiff ? ' (size changed)' : ''}`).join(', ')} — review test/e2e/output/ and run npm run test:e2e:update if intended`);
     if (diffs.length) console.log(`      drift: ${diffs.map((d) => `${d.width}px ${d.pct.toFixed(2)}%`).join(' · ')}`);
+    if (skipped.length) console.log(`      pixel comparison skipped — this machine's fonts differ from the baseline's: ${skipped.join('; ')}. Layout assertions ran. Screenshots are in test/e2e/output/.`);
   });
 
   await browser.close();
