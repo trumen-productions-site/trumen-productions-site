@@ -1,6 +1,8 @@
 # Netlify build settings. Connect the repository and nothing else needs typing in.
+# `build:site` publishes the company site alone; the investor page deploys
+# only through .github/workflows/invest-deploy.yml.
 [build]
-  command = "npm run build"
+  command = "npm run build:site"
   publish = "dist"
 
 [build.environment]

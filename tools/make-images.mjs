@@ -1,7 +1,9 @@
 #!/usr/bin/env node
 /**
  * Generate the raster brand assets that a static site cannot express in SVG:
- * the Open Graph card (1200×630) and the Apple touch icon (180×180).
+ * the Open Graph card (1200×630), the Apple touch icon (180×180), and the
+ * investor page's Open Graph card, rendered from the typographic key art in
+ * src/invest/keyart.mjs so the two can never drift.
  *
  *   node tools/make-images.mjs
  *
@@ -23,6 +25,8 @@ import { promisify } from 'node:util';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 import os from 'node:os';
+
+import { keyArtCard } from '../src/invest/keyart.mjs';
 
 const run = promisify(execFile);
 const ROOT = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
@@ -92,9 +96,21 @@ const touchIcon = `<!doctype html>
 </style>
 ${STAR}`;
 
+/** The investor page's card: the key art, as the page draws it. */
+const investCard = `<!doctype html>
+<meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,500;1,700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; box-sizing: border-box; }
+  body { width: 1200px; height: 630px; background: #0b1f3a; }
+  svg { display: block; width: 1200px; height: 630px; }
+</style>
+${keyArtCard()}`;
+
 const TARGETS = [
   { name: 'og-default.png', html: ogCard, width: 1200, height: 630 },
   { name: 'apple-touch-icon.png', html: touchIcon, width: 180, height: 180 },
+  { name: 'invest-keyart.png', html: investCard, width: 1200, height: 630 },
 ];
 
 async function main() {

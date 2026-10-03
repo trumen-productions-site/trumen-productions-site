@@ -25,3 +25,9 @@ __pycache__/
 four-rules-reels/out/QC_REPORT.md
 four-rules-reels/out/*.srt
 four-rules-reels/out/thumbnails/
+
+# Investor page: local secrets, the local SQLite database, E2E output.
+.dev.vars
+.data/
+.wrangler/
+test/e2e/output/

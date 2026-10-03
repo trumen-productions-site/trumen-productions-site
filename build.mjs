@@ -14,6 +14,13 @@
  *   node build.mjs --serve    build, then serve dist/ on http://localhost:8080
  *   node build.mjs --watch    rebuild whenever a source file changes
  *   node build.mjs --quiet    only report errors
+ *   node build.mjs --prod     a production build of the investor pages: the
+ *                             launch gates, pending tokens and forbidden
+ *                             strings are checked and any failure aborts
+ *   node build.mjs --site-only  the company site alone — no investor pages.
+ *                             What Netlify and GitHub Pages publish, so the
+ *                             investor page only ever leaves the repository
+ *                             through its own gated deployment.
  */
 
 import { readdir, mkdir, writeFile, rm, cp, stat, readFile } from 'node:fs/promises';
@@ -26,10 +33,14 @@ const ROOT = path.dirname(fileURLToPath(import.meta.url));
 const SRC = path.join(ROOT, 'src');
 const PAGES = path.join(SRC, 'pages');
 const ASSETS = path.join(SRC, 'assets');
-const DIST = path.join(ROOT, 'dist');
+// DIST_DIR lets a test build into a scratch directory without touching dist/.
+const DIST = process.env.DIST_DIR ? path.resolve(process.env.DIST_DIR) : path.join(ROOT, 'dist');
 
 const args = new Set(process.argv.slice(2));
 const QUIET = args.has('--quiet');
+const PROD = args.has('--prod') || process.env.INVEST_ENV === 'production';
+if (PROD) process.env.INVEST_ENV = 'production';
+const SITE_ONLY = args.has('--site-only') || process.env.SITE_ONLY === '1';
 
 const log = (...m) => {
   if (!QUIET) console.log(...m);
@@ -126,7 +137,9 @@ export async function build({ bust = '' } = {}) {
   await rm(DIST, { recursive: true, force: true });
   await mkdir(DIST, { recursive: true });
 
-  const pages = await loadPages(bust);
+  const all = await loadPages(bust);
+  // Pages flagged `invest: true` ship dark: a --site-only build leaves them out.
+  const pages = SITE_ONLY ? all.filter((p) => !p.invest) : all;
   const written = [];
 
   for (const page of pages) {
@@ -145,12 +158,27 @@ export async function build({ bust = '' } = {}) {
   // Netlify/Vercel-style redirect for hosts that read it; harmless elsewhere.
   await writeFile(path.join(DIST, '_redirects'), '/*  /404.html  404\n', 'utf8');
 
+  // Security headers for the hosts that read a _headers file (Cloudflare
+  // Pages, Netlify). The investor pages' CSP is in src/invest/headers.mjs.
+  const { headersFile } = await import(pathToFileURL(path.join(SRC, 'invest/headers.mjs')).href + bust);
+  await writeFile(path.join(DIST, '_headers'), headersFile(), 'utf8');
+
+  // The investor pages ship dark. A production build must clear every gate.
+  if (PROD) {
+    const { productionChecks } = await import(pathToFileURL(path.join(SRC, 'invest/lib/checks.mjs')).href + bust);
+    const failures = await productionChecks({ dist: DIST });
+    if (failures.length) {
+      await rm(DIST, { recursive: true, force: true });
+      throw new Error(`Production build refused:\n  - ${failures.join('\n  - ')}`);
+    }
+  }
+
   const ms = Date.now() - started;
   if (!QUIET) {
     for (const w of written) {
       log(`  ${w.page.path.padEnd(34)} ${(w.bytes / 1024).toFixed(1).padStart(6)} kB  ${path.relative(ROOT, w.out)}`);
     }
-    log(`\n  ${written.length} pages · assets copied · sitemap, robots, manifest written · ${ms} ms\n`);
+    log(`\n  ${written.length} pages · assets copied · sitemap, robots, manifest, headers written · ${SITE_ONLY ? 'company site only' : PROD ? 'PRODUCTION' : 'staging'} · ${ms} ms\n`);
   }
   return { pages, written, ms };
 }
@@ -198,7 +226,12 @@ function serve(port = 8080) {
 const isMain = process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);
 
 if (isMain) {
-  await build();
+  try {
+    await build();
+  } catch (err) {
+    console.error(`\n  ${err.message}\n`);
+    process.exit(1);
+  }
 
   if (args.has('--serve') || args.has('--watch')) {
     if (args.has('--serve')) serve(Number(process.env.PORT) || 8080);

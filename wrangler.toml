@@ -1,0 +1,43 @@
+# Cloudflare Pages configuration for the investor page.
+#
+#   npx wrangler pages dev dist --d1 DB=ce_invest          # vendor's local runner
+#   npx wrangler d1 create ce_invest                        # once; paste the id below
+#   npx wrangler d1 migrations apply ce_invest --remote     # schema
+#   npx wrangler pages deploy dist --project-name trumen-invest --branch staging
+#
+# Secrets (never in this file): npx wrangler pages secret put <NAME>
+#   TURNSTILE_SECRET  RESEND_API_KEY  CALCOM_API_KEY  IP_SALT  CRON_SECRET  META_CAPI_TOKEN
+#
+# The staging deployment is protected by Cloudflare Access (an email
+# allowlist) — docs/invest/RUNBOOK.md § Staging. Production is a separate
+# Pages project that only `npm run build:prod` may feed.
+
+name = "trumen-invest"
+pages_build_output_dir = "dist"
+compatibility_date = "2026-09-01"
+compatibility_flags = ["nodejs_compat"]
+
+[[d1_databases]]
+binding = "DB"
+database_name = "ce_invest"
+database_id = "REPLACE_WITH_THE_ID_FROM_wrangler_d1_create"
+migrations_dir = "db/migrations"
+
+# Non-secret variables. Staging values; production overrides them in the
+# Pages project's settings, and sets SCHEDULER=calcom and no TURNSTILE_MODE.
+[vars]
+SCHEDULER = "mock"
+TURNSTILE_MODE = "mock"
+HOST_TITLE = "the producer"
+HOST_NAME = "Michael Anthony Martin"
+HOST_TIMEZONE = "America/New_York"
+BOOKING_DURATION_MINUTES = "30"
+BOOKING_LEAD_TIME_HOURS = "4"
+BOOKING_HORIZON_DAYS = "60"
+ABANDON_MINUTES = "30"
+PRODUCER_EMAIL = "michaelmartin@greenplanit.org"
+CONTACT_EMAIL = "michaelmartin@greenplanit.org"
+MAIL_FROM = "TRU★MEN Productions <invest@example.invalid>"
+FEATURE_SMS = "false"
+FEATURE_FOLLOW_LIST = "false"
+SITE_URL = "https://trumen-invest.pages.dev"

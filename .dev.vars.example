@@ -1,0 +1,48 @@
+# Local environment for the investor page's Pages Functions.
+# Copy to .dev.vars (gitignored) and fill in what you have. Everything has a
+# safe local default — the defaults run the whole flow with no accounts.
+# Production values are Wrangler secrets, never files: see docs/invest/RUNBOOK.md.
+
+# Scheduler: 'mock' (deterministic, local) or 'calcom'
+SCHEDULER=mock
+CALCOM_API_KEY=
+CALCOM_EVENT_TYPE_ID=
+CALCOM_BASE_URL=https://api.cal.com
+
+# Turnstile: 'mock' locally; unset (live) in production with the real secret
+TURNSTILE_MODE=mock
+TURNSTILE_SECRET=
+
+# Email: leave RESEND_API_KEY empty to log mail to the console instead of sending
+RESEND_API_KEY=
+MAIL_FROM="TRU★MEN Productions <invest@example.invalid>"
+PRODUCER_EMAIL=michaelmartin@greenplanit.org
+CONTACT_EMAIL=michaelmartin@greenplanit.org
+
+# The call
+HOST_TITLE=the producer
+HOST_NAME=Michael Anthony Martin
+HOST_TIMEZONE=America/New_York
+BOOKING_DURATION_MINUTES=30
+BOOKING_LEAD_TIME_HOURS=4
+BOOKING_HORIZON_DAYS=60
+ABANDON_MINUTES=30
+
+# Privacy and security
+IP_SALT=change-me-to-a-long-random-string
+CRON_SECRET=change-me-too
+
+# Feature flags mirrored from src/invest/config/features.mjs
+FEATURE_SMS=false
+FEATURE_FOLLOW_LIST=false
+
+# Meta Conversions API (only with features.metaPixel)
+META_PIXEL_ID=
+META_CAPI_TOKEN=
+
+# Where the page lives (used in emails and the .ics)
+SITE_URL=http://localhost:8788
+
+# Local SQLite file for tools/dev-api.mjs (':memory:' for a throwaway)
+DB_FILE=.data/invest.sqlite
+DEBUG=true

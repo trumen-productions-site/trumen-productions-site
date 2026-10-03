@@ -24,20 +24,56 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '22'
 
       # No `npm ci` — the project has no dependencies on purpose.
+      # (node:sqlite, used by the investor page's API tests, needs Node 22.13+.)
       - name: Build and run the suite
         run: npm test
 
-      - name: Prepare the artefact
+      - name: Investor page — compliance scripts
+        run: |
+          node scripts/check-forbidden.mjs dist
+          node scripts/check-pending.mjs dist || true   # staging is allowed to carry pending tokens; the report is the point
+
+      # GitHub Pages publishes the company site alone. The investor page ships
+      # dark and only leaves the repository through invest-deploy.yml.
+      - name: Prepare the artefact (company site only)
         if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
-        run: touch dist/.nojekyll
+        run: npm run build:site && touch dist/.nojekyll
 
       - uses: actions/upload-pages-artifact@v3
         if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
         with:
           path: dist
+
+  e2e:
+    name: Investor page — end-to-end, accessibility, performance
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      # The only install in the repository, and only for the browser suite.
+      - name: Install the browser tooling (not saved to package.json)
+        run: |
+          npm install --no-save --no-audit --no-fund playwright-core axe-core lighthouse
+          npx --yes playwright@1 install --with-deps chromium
+
+      - name: E2E-01…05 · A11Y-01/02 · SNAP-01
+        run: npm run test:e2e
+
+      - name: PERF-01 Lighthouse budgets
+        run: npm run perf
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: invest-e2e-output
+          path: test/e2e/output
+          if-no-files-found: ignore
 
   deploy:
     name: Publish to GitHub Pages

@@ -2,19 +2,33 @@
   "name": "trumen-productions-site",
   "version": "1.0.0",
   "private": true,
-  "description": "TRU★MEN Productions — the company website. Static, zero-dependency, built with Node.",
+  "description": "TRU\u2605MEN Productions \u2014 the company website. Static, zero-dependency, built with Node.",
   "type": "module",
   "engines": {
-    "node": ">=20"
+    "node": ">=22.13"
   },
   "scripts": {
     "build": "node build.mjs",
+    "build:prod": "node build.mjs --prod",
     "dev": "node build.mjs --serve --watch",
+    "dev:invest": "node build.mjs --quiet && node tools/dev-api.mjs",
     "serve": "node build.mjs --serve",
-    "test": "node build.mjs --quiet && node --test test/a11y.test.mjs test/build.test.mjs test/content.test.mjs test/html.test.mjs test/links.test.mjs test/lib.test.mjs test/pitch.test.mjs",
-    "check": "npm run build && npm test",
+    "test": "node build.mjs --quiet && node --test test/*.test.mjs test/invest/*.test.mjs",
+    "test:site": "node build.mjs --quiet && node --test test/*.test.mjs",
+    "test:invest": "node build.mjs --quiet && node --test test/invest/*.test.mjs",
+    "test:e2e": "node build.mjs --quiet && node test/e2e/run.mjs",
+    "test:e2e:update": "node build.mjs --quiet && node test/e2e/run.mjs --update-snapshots",
+    "perf": "node build.mjs --quiet && node test/e2e/lighthouse.mjs",
+    "check": "npm test && npm run test:e2e",
+    "check:gates": "node scripts/check-gates.mjs",
+    "check:pending": "node build.mjs --quiet && node scripts/check-pending.mjs",
+    "check:forbidden": "node build.mjs --quiet && node scripts/check-forbidden.mjs",
+    "check:sources": "node scripts/check-sources.mjs",
+    "counsel:packet": "node build.mjs --quiet && node scripts/counsel-packet.mjs",
+    "leads:export": "node scripts/export-leads.mjs",
     "images": "node tools/make-images.mjs",
     "pitch": "node tools/make-standalone-pitch.mjs",
-    "preview": "node tools/make-standalone-site.mjs"
+    "preview": "node tools/make-standalone-site.mjs",
+    "build:site": "node build.mjs --site-only"
   }
 }
