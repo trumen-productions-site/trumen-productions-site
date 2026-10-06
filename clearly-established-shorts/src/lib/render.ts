@@ -21,7 +21,8 @@ export async function bundleProject(quiet = true): Promise<string> {
 
 function browserOptions() {
   const browserExecutable = findLocalBrowser();
-  return { browserExecutable: browserExecutable ?? undefined };
+  // logLevel "error" also silences Remotion's cgroup memory notice, which repeats once per frame batch on some hosts.
+  return { browserExecutable: browserExecutable ?? undefined, logLevel: 'error' as const };
 }
 
 export async function renderMaster(

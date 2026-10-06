@@ -227,6 +227,30 @@ Nothing there is published. Output is inventory behind a legal gate — see its 
 
 ---
 
+## The animated shorts engine
+
+`clearly-established-shorts/` is the third deliverable in this repository: a production
+engine, plus six pilot episodes, for *CLEARLY ESTABLISHED: STATEMENTS*, an animated
+vertical-shorts series. One episode spec plus one human-recorded take in; a captioned,
+brand-correct 9:16 video out for YouTube Shorts, Snapchat Spotlight, Instagram Reels and
+TikTok, each export probed. Remotion renders it; ffmpeg finishes it; zod and a canon
+linter refuse anything that contradicts the record. It shares the locked palette and the
+dates with this site and the reel set, and a test in each keeps them in agreement.
+
+```bash
+cd clearly-established-shorts
+npm install
+npm test                      # unit suites, then a real render of the fixture episode
+npm run render -- --all       # 24 INTERNAL exports with captions, sidecars, posters, manifests
+```
+
+Nothing there publishes. Every render carries an INTERNAL REVIEW COPY slate and watermark
+until counsel opens the gate in `config/gate.json`, which no code can touch. Michael's
+lines and voice are not in the build yet; the pilots render on scratch tracks and re-time
+themselves when a take is dropped in. See its README and `docs/COUNSEL_PACKET.md`.
+
+---
+
 ## Where the content came from
 
 The design and the copy come from a Claude Design handoff, preserved unchanged in

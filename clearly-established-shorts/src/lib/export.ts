@@ -10,6 +10,7 @@ import {
   mkdirSync,
   readdirSync,
   readFileSync,
+  rmSync,
   writeFileSync,
 } from 'node:fs';
 import path from 'node:path';
@@ -35,17 +36,25 @@ function run(cmd: string, args: string[], what: string): string {
   return r.stdout + r.stderr;
 }
 
-export interface LoudnormMeasurement {
-  input_i: string;
-  input_tp: string;
-  input_lra: string;
-  input_thresh: string;
-  target_offset: string;
+export interface LoudnessResult {
+  /** Integrated loudness of the source, before normalisation (LUFS). */
+  inputLufs: number;
+  /** Integrated loudness and true peak of the delivered track. */
+  outputLufs: number;
+  outputTruePeakDbtp: number;
+  passes: number;
 }
 
 /**
  * The episode's audio: slate silence, then the take (or scratch), padded to the
- * end card, normalised in two passes to the target loudness and true peak.
+ * end card, then normalised to the target integrated loudness under the true-peak
+ * ceiling.
+ *
+ * Normalisation is linear gain plus a peak limiter, measured with ebur128 (the
+ * same meter the probe uses) and corrected until the integrated loudness sits
+ * inside the tolerance. A single linear gain cannot reach -14 LUFS on peaky
+ * speech without breaking the -1 dBTP ceiling, so the limiter is what makes the
+ * target reachable; the correction pass recovers the loudness the limiter takes.
  */
 export function buildAudio(
   audioFile: string,
@@ -53,50 +62,69 @@ export function buildAudio(
   totalSeconds: number,
   outWav: string,
   audio: AllConfig['platforms']['audio'],
-): LoudnormMeasurement {
+): LoudnessResult {
   mkdirSync(path.dirname(outWav), { recursive: true });
   const delayMs = Math.round(slateSeconds * 1000);
   const base = `adelay=${delayMs}|${delayMs},apad=whole_dur=${totalSeconds.toFixed(3)},atrim=0:${totalSeconds.toFixed(3)}`;
-  const target = `I=${audio.targetLufs}:TP=${audio.truePeakDbtp}:LRA=11`;
-  const pass1 = run(
-    'ffmpeg',
-    [
-      '-v',
-      'info',
-      '-i',
-      audioFile,
-      '-af',
-      `${base},loudnorm=${target}:print_format=json`,
-      '-f',
-      'null',
-      '-',
-    ],
-    'loudness measurement',
-  );
-  const jsonText = pass1.slice(pass1.lastIndexOf('{'), pass1.lastIndexOf('}') + 1);
-  const m = JSON.parse(jsonText) as LoudnormMeasurement;
-  const measured = `measured_I=${m.input_i}:measured_TP=${m.input_tp}:measured_LRA=${m.input_lra}:measured_thresh=${m.input_thresh}:offset=${m.target_offset}:linear=true`;
+  const fmt = ['-ar', String(audio.sampleRate), '-ac', String(audio.channels), '-c:a', 'pcm_s24le'];
+  const stage = (n: number) => path.join(path.dirname(outWav), `.loudness-${n}.wav`);
   run(
     'ffmpeg',
-    [
-      '-v',
-      'error',
-      '-y',
-      '-i',
-      audioFile,
-      '-af',
-      `${base},loudnorm=${target}:${measured}`,
-      '-ar',
-      String(audio.sampleRate),
-      '-ac',
-      String(audio.channels),
-      '-c:a',
-      'pcm_s16le',
-      outWav,
-    ],
-    'loudness normalisation',
+    ['-v', 'error', '-y', '-i', audioFile, '-af', base, ...fmt, stage(0)],
+    'audio assembly',
   );
-  return m;
+  // Sample-peak ceiling for the limiter, 1 dB under the true-peak ceiling to leave room for inter-sample peaks.
+  const limitLinear = Math.pow(10, (audio.truePeakDbtp - 1) / 20).toFixed(4);
+  const input = measureLoudnessWav(stage(0));
+  let current = input;
+  let passes = 0;
+  for (; passes < 4; passes++) {
+    const gain = audio.targetLufs - current.integratedLufs;
+    const peakHeadroom = audio.truePeakDbtp - current.truePeakDbtp;
+    if (Math.abs(gain) <= audio.loudnessToleranceLu * 0.4 && peakHeadroom >= 0) break;
+    const boundedGain = Math.max(-40, Math.min(40, gain));
+    run(
+      'ffmpeg',
+      [
+        '-v',
+        'error',
+        '-y',
+        '-i',
+        stage(passes),
+        '-af',
+        `volume=${boundedGain.toFixed(3)}dB,alimiter=limit=${limitLinear}:attack=3:release=80:level=false`,
+        ...fmt,
+        stage(passes + 1),
+      ],
+      `loudness pass ${passes + 1}`,
+    );
+    current = measureLoudnessWav(stage(passes + 1));
+  }
+  run(
+    'ffmpeg',
+    ['-v', 'error', '-y', '-i', stage(passes), '-c:a', 'pcm_s16le', outWav],
+    'audio finalisation',
+  );
+  for (let i = 0; i <= passes; i++) rmSync(stage(i), { force: true });
+  return {
+    inputLufs: input.integratedLufs,
+    outputLufs: current.integratedLufs,
+    outputTruePeakDbtp: current.truePeakDbtp,
+    passes,
+  };
+}
+
+function measureLoudnessWav(file: string): { integratedLufs: number; truePeakDbtp: number } {
+  const r = spawnSync(
+    'ffmpeg',
+    ['-v', 'info', '-i', file, '-af', 'ebur128=peak=true', '-f', 'null', '-'],
+    { encoding: 'utf8', maxBuffer: 1 << 28 },
+  );
+  const text = r.stderr.slice(r.stderr.lastIndexOf('Summary:'));
+  const i = /I:\s+(-?[\d.]+) LUFS/.exec(text);
+  const tp = /Peak:\s+(-?[\d.]+) dBFS/.exec(text);
+  if (!i || !tp) throw new ExportError(`could not read loudness from ffmpeg for ${file}`);
+  return { integratedLufs: Number.parseFloat(i[1]!), truePeakDbtp: Number.parseFloat(tp[1]!) };
 }
 
 export function encodeFinal(

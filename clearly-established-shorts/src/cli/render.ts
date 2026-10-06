@@ -79,7 +79,7 @@ for (const t of targets) {
     config.platforms.audio,
   );
   log(
-    `  audio normalised (input ${measured.input_i} LUFS → ${config.platforms.audio.targetLufs} LUFS)`,
+    `  audio normalised: ${measured.inputLufs.toFixed(1)} → ${measured.outputLufs.toFixed(1)} LUFS, true peak ${measured.outputTruePeakDbtp.toFixed(1)} dBTP, ${measured.passes} pass${measured.passes === 1 ? '' : 'es'}`,
   );
 
   const presetsToWrite =

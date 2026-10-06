@@ -1,0 +1,32 @@
+name: Shorts engine
+
+on:
+  push:
+    branches: [main]
+    paths: ['clearly-established-shorts/**', '.github/workflows/shorts.yml']
+  pull_request:
+    paths: ['clearly-established-shorts/**', '.github/workflows/shorts.yml']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: Typecheck, lint and test
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: clearly-established-shorts
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+          cache-dependency-path: clearly-established-shorts/package-lock.json
+      - name: Install ffmpeg
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+      - run: npm ci
+      # Remotion fetches a headless Chromium on first use when none is installed.
+      - run: npm run check

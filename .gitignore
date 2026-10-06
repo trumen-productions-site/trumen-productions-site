@@ -28,3 +28,11 @@ four-rules-reels/out/thumbnails/
 
 # The shorts engine has real dependencies; its lockfile is committed on purpose.
 !clearly-established-shorts/package-lock.json
+
+# Shorts engine: synced from assets/ by the prepare step; renders and caches.
+clearly-established-shorts/public/
+clearly-established-shorts/out/
+clearly-established-shorts/.cache/
+clearly-established-shorts/tools/rhubarb/
+clearly-established-shorts/tools/whisper/
+clearly-established-shorts/episodes/*/audio/scratch.wav
