@@ -1,0 +1,53 @@
+{
+  "_comment": "Hand-built in the shape of `whisper-cli -ojf -ml 1 -sow` output (transcription[].tokens[] with millisecond offsets). The model host was unreachable from the build machine, so this fixture exercises the aligner's parsing and sequence matching; see docs/CHANGELOG.md. Deliberately imperfect: 'fixture' is recognised as 'fix sure', 'suite' as 'sweet', and one word is missing.",
+  "transcription": [
+    {
+      "text": " This is a fix sure take for the test sweet.",
+      "offsets": { "from": 400, "to": 3100 },
+      "tokens": [
+        { "text": "[_BEG_]", "offsets": { "from": 400, "to": 400 }, "p": 1.0 },
+        { "text": " This", "offsets": { "from": 400, "to": 620 }, "p": 0.9 },
+        { "text": " is", "offsets": { "from": 620, "to": 760 }, "p": 0.9 },
+        { "text": " a", "offsets": { "from": 760, "to": 840 }, "p": 0.9 },
+        { "text": " fix", "offsets": { "from": 840, "to": 1120 }, "p": 0.6 },
+        { "text": " sure", "offsets": { "from": 1120, "to": 1400 }, "p": 0.5 },
+        { "text": " take", "offsets": { "from": 1400, "to": 1700 }, "p": 0.9 },
+        { "text": " for", "offsets": { "from": 1700, "to": 1900 }, "p": 0.9 },
+        { "text": " the", "offsets": { "from": 1900, "to": 2050 }, "p": 0.9 },
+        { "text": " test", "offsets": { "from": 2050, "to": 2500 }, "p": 0.9 },
+        { "text": " sweet", "offsets": { "from": 2500, "to": 3000 }, "p": 0.5 },
+        { "text": ".", "offsets": { "from": 3000, "to": 3100 }, "p": 0.9 }
+      ]
+    },
+    {
+      "text": " It has three lines spoken with a pause between each.",
+      "offsets": { "from": 4000, "to": 7600 },
+      "tokens": [
+        { "text": " It", "offsets": { "from": 4000, "to": 4200 }, "p": 0.9 },
+        { "text": " has", "offsets": { "from": 4200, "to": 4450 }, "p": 0.9 },
+        { "text": " three", "offsets": { "from": 4450, "to": 4800 }, "p": 0.9 },
+        { "text": " lines", "offsets": { "from": 4800, "to": 5250 }, "p": 0.9 },
+        { "text": " spoken", "offsets": { "from": 5250, "to": 5700 }, "p": 0.9 },
+        { "text": " with", "offsets": { "from": 5700, "to": 5900 }, "p": 0.9 },
+        { "text": " a", "offsets": { "from": 5900, "to": 5980 }, "p": 0.9 },
+        { "text": " pause", "offsets": { "from": 5980, "to": 6400 }, "p": 0.9 },
+        { "text": " between", "offsets": { "from": 6400, "to": 6900 }, "p": 0.9 },
+        { "text": " each", "offsets": { "from": 6900, "to": 7400 }, "p": 0.9 },
+        { "text": ".", "offsets": { "from": 7400, "to": 7600 }, "p": 0.9 }
+      ]
+    },
+    {
+      "text": " Nothing here is approved script.",
+      "offsets": { "from": 8500, "to": 11200 },
+      "tokens": [
+        { "text": " Nothing", "offsets": { "from": 8500, "to": 8950 }, "p": 0.9 },
+        { "text": " here", "offsets": { "from": 8950, "to": 9250 }, "p": 0.9 },
+        { "text": " is", "offsets": { "from": 9250, "to": 9400 }, "p": 0.9 },
+        { "text": " appro", "offsets": { "from": 9900, "to": 10300 }, "p": 0.8 },
+        { "text": "ved", "offsets": { "from": 10300, "to": 10500 }, "p": 0.8 },
+        { "text": " script", "offsets": { "from": 10500, "to": 11100 }, "p": 0.9 },
+        { "text": ".", "offsets": { "from": 11100, "to": 11200 }, "p": 0.9 }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "id": "004",
+  "slug": "ninety-three-days",
+  "title": "Ninety-Three Days",
+  "targetSeconds": 45,
+  "set": "cell-calendar",
+  "cast": [
+    {
+      "rig": "michael-present",
+      "role": "lead",
+      "position": "left"
+    }
+  ],
+  "audio": {
+    "take": "audio/take.wav",
+    "scratch": "audio/scratch.wav"
+  },
+  "script": "script.approved.txt",
+  "scratchLines": [3.0, 3.4, 3.4, 3.0, 2.8],
+  "beats": [
+    {
+      "id": "hook",
+      "at": "0.0",
+      "action": "lead_enters",
+      "expression": "weary"
+    },
+    {
+      "id": "declaration",
+      "at": "line:2",
+      "action": "lead_steps_forward",
+      "camera": "drift",
+      "expression": "level"
+    },
+    {
+      "id": "count",
+      "at": "line:4",
+      "action": "lead_turns_to_room",
+      "expression": "hard"
+    },
+    {
+      "id": "reaction",
+      "at": "line:5",
+      "action": "room_reacts",
+      "variant": "lights_down"
+    },
+    {
+      "id": "button",
+      "at": "end-3.0",
+      "action": "hold_on_lead",
+      "expression": "level"
+    }
+  ],
+  "cards": [
+    {
+      "at": "end-2.5",
+      "type": "fact",
+      "text": "Ordered freed March 27, 2000. Held ninety-three more days.",
+      "canonKey": "overDetention"
+    },
+    {
+      "at": "end-1.5",
+      "type": "title"
+    }
+  ],
+  "notes": "The order was dated March 27. He was still inside. Count the days. Canon: overDetention, reversal. TITLE DEVIATES FROM THE HANDOFF: the handoff titled this 'Seventy-Seven Days'; this repository's record (locked by Michael, September 5, 2026, against the case file) derives ninety-three days from the opinion to the remittitur of June 28, 2000. Seventy-seven is the erasure (episode 005). See docs/COUNSEL_PACKET.md. All officials silhouettes (none appear).",
+  "openItems": [
+    "Confirm the title and the day count with Michael and counsel: ninety-three (this repository) vs seventy-seven (the handoff)."
+  ]
+}

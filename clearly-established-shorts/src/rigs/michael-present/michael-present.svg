@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 1000" width="600" height="1000">
+  <!--
+    michael-present — MACHINE-DRAFTED PLACEHOLDER. Not a likeness.
+    Cut-paper style: flat fills, hard offset shadows, no gradients.
+    Group names are the contract with the engine; shapes are free to change.
+    Mouth children are the Rhubarb viseme set: mouth-A … mouth-H, mouth-X.
+  -->
+  <defs>
+    <clipPath id="face-clip"><ellipse cx="300" cy="235" rx="92" ry="112"/></clipPath>
+  </defs>
+
+  <!-- ground shadow -->
+  <ellipse cx="300" cy="972" rx="170" ry="16" fill="#0A0A0A" opacity="0.35"/>
+
+  <!-- legs -->
+  <g id="legs">
+    <rect x="212" y="700" width="78" height="250" fill="#071426"/>
+    <rect x="310" y="700" width="78" height="250" fill="#0B1F3A"/>
+    <rect x="200" y="935" width="104" height="30" rx="4" fill="#0A0A0A"/>
+    <rect x="300" y="935" width="104" height="30" rx="4" fill="#0A0A0A"/>
+  </g>
+
+  <!-- torso -->
+  <g id="torso">
+    <!-- hard shadow -->
+    <path d="M160 426 L448 426 L470 730 L162 730 Z" fill="#071426"/>
+    <!-- jacket -->
+    <path d="M150 414 L300 388 L450 414 L440 720 L160 720 Z" fill="#0B1F3A"/>
+    <!-- lapels and shirt -->
+    <path d="M258 400 L300 388 L342 400 L318 560 L300 600 L282 560 Z" fill="#F3EBDD"/>
+    <path d="M300 404 L314 428 L300 540 L286 428 Z" fill="#B08D57"/>
+    <!-- lapel lines -->
+    <path d="M258 400 L282 560 L300 600" fill="none" stroke="#0A0A0A" stroke-width="3"/>
+    <path d="M342 400 L318 560 L300 600" fill="none" stroke="#0A0A0A" stroke-width="3"/>
+    <!-- lapel pin: the star, brass, never smaller than it needs to be -->
+    <polygon points="366,436 370,447 382,447 372,454 376,465 366,458 356,465 360,454 350,447 362,447" fill="#B08D57"/>
+  </g>
+
+  <!-- left arm (viewer's left) -->
+  <g id="arm_l">
+    <path d="M178 420 L140 575 L128 700 L172 704 L182 585 L212 440 Z" fill="#071426"/>
+    <path d="M178 414 L138 570 L126 694 L160 698 L170 580 L206 434 Z" fill="#0B1F3A"/>
+    <g id="hand_l">
+      <path d="M126 694 L116 740 L132 768 L158 760 L166 700 Z" fill="#7A5C44"/>
+      <path d="M132 700 L128 744 L140 764" fill="none" stroke="#5C4331" stroke-width="4"/>
+    </g>
+  </g>
+
+  <!-- right arm (viewer's right) -->
+  <g id="arm_r">
+    <path d="M422 420 L460 575 L472 700 L428 704 L418 585 L388 440 Z" fill="#071426"/>
+    <path d="M422 414 L462 570 L474 694 L440 698 L430 580 L394 434 Z" fill="#0B1F3A"/>
+    <g id="hand_r">
+      <path d="M474 694 L484 740 L468 768 L442 760 L434 700 Z" fill="#7A5C44"/>
+      <path d="M468 700 L472 744 L460 764" fill="none" stroke="#5C4331" stroke-width="4"/>
+    </g>
+  </g>
+
+  <!-- neck -->
+  <rect x="270" y="320" width="60" height="80" fill="#5C4331"/>
+
+  <!-- head -->
+  <g id="head">
+    <!-- shadow paper -->
+    <ellipse cx="308" cy="244" rx="92" ry="112" fill="#5C4331"/>
+    <!-- face -->
+    <ellipse cx="300" cy="235" rx="92" ry="112" fill="#7A5C44"/>
+    <!-- cheek highlight, cream, as the brand asks -->
+    <path d="M232 250 Q250 300 300 310 Q268 290 252 236 Z" fill="#F3EBDD" opacity="0.18"/>
+    <!-- ears -->
+    <ellipse cx="208" cy="240" rx="14" ry="22" fill="#5C4331"/>
+    <ellipse cx="392" cy="240" rx="14" ry="22" fill="#5C4331"/>
+    <!-- hair, close-cropped, with grey at the temples -->
+    <path d="M210 215 Q215 120 300 118 Q385 120 390 215 Q380 165 300 160 Q220 165 210 215 Z" fill="#0A0A0A"/>
+    <path d="M214 200 Q230 185 248 190 L240 214 Z" fill="#F3EBDD" opacity="0.5"/>
+    <path d="M386 200 Q370 185 352 190 L360 214 Z" fill="#F3EBDD" opacity="0.5"/>
+    <!-- brows -->
+    <g id="brow_l"><path d="M236 190 L288 184 L290 194 L238 200 Z" fill="#0A0A0A"/></g>
+    <g id="brow_r"><path d="M312 184 L364 190 L362 200 L310 194 Z" fill="#0A0A0A"/></g>
+    <!-- eyes -->
+    <g id="eye_l">
+      <ellipse cx="262" cy="222" rx="20" ry="11" fill="#F3EBDD"/>
+      <circle cx="265" cy="223" r="8" fill="#0A0A0A"/>
+    </g>
+    <g id="eye_r">
+      <ellipse cx="338" cy="222" rx="20" ry="11" fill="#F3EBDD"/>
+      <circle cx="341" cy="223" r="8" fill="#0A0A0A"/>
+    </g>
+    <!-- nose -->
+    <path d="M300 236 L286 282 L314 282 Z" fill="#5C4331"/>
+    <!-- mouth: nine visemes, the engine shows one -->
+    <g id="mouth">
+      <g id="mouth-X"><path d="M268 312 Q300 322 332 312" fill="none" stroke="#0A0A0A" stroke-width="5" stroke-linecap="round"/></g>
+      <g id="mouth-A"><path d="M266 312 Q300 318 334 312 Q300 326 266 312 Z" fill="#0A0A0A"/></g>
+      <g id="mouth-B"><path d="M268 306 Q300 300 332 306 Q300 330 268 306 Z" fill="#0A0A0A"/><rect x="280" y="308" width="40" height="7" fill="#F3EBDD"/></g>
+      <g id="mouth-C"><ellipse cx="300" cy="316" rx="30" ry="16" fill="#0A0A0A"/><rect x="282" y="303" width="36" height="7" fill="#F3EBDD"/></g>
+      <g id="mouth-D"><ellipse cx="300" cy="320" rx="34" ry="24" fill="#0A0A0A"/><rect x="278" y="300" width="44" height="8" fill="#F3EBDD"/><ellipse cx="300" cy="336" rx="18" ry="8" fill="#5C4331"/></g>
+      <g id="mouth-E"><ellipse cx="300" cy="316" rx="22" ry="17" fill="#0A0A0A"/></g>
+      <g id="mouth-F"><ellipse cx="300" cy="314" rx="13" ry="12" fill="#0A0A0A"/><path d="M280 312 Q300 300 320 312" fill="none" stroke="#0A0A0A" stroke-width="4"/></g>
+      <g id="mouth-G"><path d="M270 308 Q300 304 330 308 L326 318 Q300 326 274 318 Z" fill="#0A0A0A"/><rect x="280" y="306" width="40" height="8" fill="#F3EBDD"/></g>
+      <g id="mouth-H"><ellipse cx="300" cy="318" rx="28" ry="18" fill="#0A0A0A"/><ellipse cx="300" cy="312" rx="12" ry="9" fill="#5C4331"/></g>
+    </g>
+  </g>
+</svg>

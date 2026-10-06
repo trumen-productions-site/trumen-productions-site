@@ -1,0 +1,66 @@
+{
+  "id": "005",
+  "slug": "a-record-nobody-can-edit",
+  "title": "A Record Nobody Can Edit",
+  "targetSeconds": 45,
+  "set": "telephone-split",
+  "cast": [
+    {
+      "rig": "michael-present",
+      "role": "lead",
+      "position": "split-left"
+    },
+    {
+      "rig": "silhouette-figure",
+      "role": "support",
+      "position": "split-right",
+      "label": "Dan Stacey"
+    }
+  ],
+  "audio": {
+    "take": "audio/take.wav",
+    "scratch": "audio/scratch.wav"
+  },
+  "script": "script.approved.txt",
+  "scratchLines": [3.0, 3.2, 3.8, 3.2, 2.8],
+  "beats": [
+    {
+      "id": "hook",
+      "at": "0.0",
+      "action": "lead_lifts_receiver",
+      "expression": "quiet"
+    },
+    {
+      "id": "declaration",
+      "at": "line:3",
+      "action": "lead_steps_forward",
+      "camera": "push",
+      "expression": "resolve"
+    },
+    {
+      "id": "reaction",
+      "at": "line:4",
+      "action": "room_reacts",
+      "variant": "turn"
+    },
+    {
+      "id": "button",
+      "at": "end-3.0",
+      "action": "hold_on_lead",
+      "expression": "warm"
+    }
+  ],
+  "cards": [
+    {
+      "at": "end-2.5",
+      "type": "fact",
+      "text": "“Get those words into a record nobody can edit.”",
+      "canonKey": "dansInstruction"
+    },
+    {
+      "at": "end-1.5",
+      "type": "title"
+    }
+  ],
+  "notes": "Dan Stacey is honoured through the record. Silhouette only, never voiced, no invented words beyond the canon line; Michael reports the words. Canon: dansInstruction, erasure."
+}

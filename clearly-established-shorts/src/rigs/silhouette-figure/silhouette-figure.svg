@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 1000" width="600" height="1000">
+  <!-- silhouette-figure: a standing official, faceless, flat navy paper with an ink shadow. Role label is set by the engine. -->
+  <ellipse cx="300" cy="972" rx="160" ry="14" fill="#0A0A0A" opacity="0.3"/>
+  <g id="legs">
+    <rect x="218" y="690" width="72" height="262" fill="#071426"/>
+    <rect x="310" y="690" width="72" height="262" fill="#0B1F3A"/>
+  </g>
+  <g id="torso">
+    <path d="M166 430 L448 430 L466 720 L166 720 Z" fill="#071426"/>
+    <path d="M156 420 L300 396 L444 420 L436 712 L164 712 Z" fill="#0B1F3A"/>
+  </g>
+  <g id="arm_l"><path d="M178 420 L136 580 L128 700 L164 702 L172 585 L210 440 Z" fill="#0B1F3A"/><g id="hand_l"><path d="M128 700 L120 748 L150 760 L166 702 Z" fill="#071426"/></g></g>
+  <g id="arm_r"><path d="M422 420 L464 580 L472 700 L436 702 L428 585 L390 440 Z" fill="#0B1F3A"/><g id="hand_r"><path d="M472 700 L480 748 L450 760 L434 702 Z" fill="#071426"/></g></g>
+  <rect x="272" y="330" width="56" height="80" fill="#071426"/>
+  <g id="head">
+    <ellipse cx="306" cy="246" rx="90" ry="110" fill="#071426"/>
+    <ellipse cx="300" cy="238" rx="90" ry="110" fill="#0B1F3A"/>
+    <path d="M212 236 Q214 126 300 124 Q386 126 388 236 Q376 176 300 170 Q224 176 212 236 Z" fill="#071426"/>
+  </g>
+</svg>

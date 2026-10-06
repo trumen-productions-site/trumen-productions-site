@@ -1,0 +1,5 @@
+# FIXTURE EPISODE — exists only for the test suite. Not a pilot. Not dialogue.
+# Three lines, synthesised with espeak-ng, with a clear pause between each.
+This is a fixture take for the test suite.
+It has three lines, spoken with a pause between each.
+Nothing here is an approved script.

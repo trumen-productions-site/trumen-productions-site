@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 1000" width="600" height="1000">
+  <!-- silhouette-seated: head and shoulders of a seated official, faceless, seen from the front. For the car. -->
+  <g id="torso">
+    <path d="M60 1000 L60 620 Q300 540 540 620 L540 1000 Z" fill="#071426"/>
+    <path d="M48 1000 L48 612 Q300 528 552 612 L552 1000 Z" fill="#0B1F3A"/>
+  </g>
+  <rect x="262" y="440" width="76" height="140" fill="#071426"/>
+  <g id="head">
+    <ellipse cx="308" cy="356" rx="112" ry="134" fill="#071426"/>
+    <ellipse cx="300" cy="348" rx="112" ry="134" fill="#0B1F3A"/>
+    <path d="M190 348 Q192 212 300 208 Q408 212 410 348 Q396 270 300 262 Q204 270 190 348 Z" fill="#071426"/>
+  </g>
+</svg>

@@ -1,0 +1,78 @@
+{
+  "name": "silhouette-figure",
+  "provenance": "silhouette",
+  "likeness": "none — a faceless silhouette figure with a role label, as the likeness rule requires for every real person other than Michael, David, Pops and Uncle JP",
+  "description": "A standing official. Faceless. Labelled by role (\"the detective\", \"the judge\") by the engine.",
+  "svg": "silhouette-figure.svg",
+  "viewBox": {
+    "width": 600,
+    "height": 1000
+  },
+  "pivots": {
+    "head": {
+      "x": 300,
+      "y": 360
+    },
+    "brow_l": {
+      "x": 262,
+      "y": 190
+    },
+    "brow_r": {
+      "x": 338,
+      "y": 190
+    },
+    "arm_l": {
+      "x": 178,
+      "y": 420
+    },
+    "arm_r": {
+      "x": 422,
+      "y": 420
+    },
+    "hand_l": {
+      "x": 150,
+      "y": 700
+    },
+    "hand_r": {
+      "x": 450,
+      "y": 700
+    }
+  },
+  "poses": {
+    "rest": {
+      "arm_l": 0,
+      "arm_r": 0,
+      "hand_l": 0,
+      "hand_r": 0,
+      "head": 0,
+      "torsoLean": 0
+    },
+    "turned": {
+      "arm_l": 0,
+      "arm_r": 0,
+      "hand_l": 0,
+      "hand_r": 0,
+      "head": 14,
+      "torsoLean": 3
+    },
+    "away": {
+      "arm_l": 0,
+      "arm_r": 0,
+      "hand_l": 0,
+      "hand_r": 0,
+      "head": -12,
+      "torsoLean": -2
+    }
+  },
+  "expressions": {
+    "level": {
+      "brow_l": 0,
+      "brow_r": 0,
+      "eyeOpen": 1
+    }
+  },
+  "blink": {
+    "everySeconds": 1000,
+    "durationSeconds": 0.1
+  }
+}

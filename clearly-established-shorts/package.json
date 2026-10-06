@@ -11,7 +11,7 @@
     "new": "tsx src/cli/new-episode.ts",
     "validate": "tsx src/cli/validate.ts",
     "prepare-episodes": "tsx src/cli/prepare.ts",
-    "preview": "tsx src/cli/prepare.ts --all && remotion studio src/index.ts",
+    "preview": "tsx src/cli/preview.ts",
     "render": "tsx src/cli/render.ts",
     "probe": "tsx src/cli/probe.ts",
     "scratch": "tsx src/cli/scratch.ts",

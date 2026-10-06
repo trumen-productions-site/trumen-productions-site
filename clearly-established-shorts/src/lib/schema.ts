@@ -51,6 +51,7 @@ export const EXPRESSIONS = ['level', 'resolve', 'quiet', 'weary', 'warm', 'hard'
 
 export const CAMERAS = ['hold', 'push', 'pull', 'drift'] as const;
 
+export type SetName = (typeof SETS)[number];
 export const SETS = [
   'cadillac-showroom',
   'car-back-seat',

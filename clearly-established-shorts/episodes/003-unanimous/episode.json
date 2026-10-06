@@ -1,0 +1,64 @@
+{
+  "id": "003",
+  "slug": "unanimous",
+  "title": "Unanimous",
+  "targetSeconds": 45,
+  "set": "courtroom-gallery",
+  "cast": [
+    {
+      "rig": "michael-present",
+      "role": "lead",
+      "position": "center"
+    },
+    {
+      "rig": "silhouette-crowd",
+      "role": "room",
+      "position": "background"
+    }
+  ],
+  "audio": {
+    "take": "audio/take.wav",
+    "scratch": "audio/scratch.wav"
+  },
+  "script": "script.approved.txt",
+  "scratchLines": [3.0, 3.8, 3.4, 3.0, 2.6],
+  "beats": [
+    {
+      "id": "hook",
+      "at": "0.0",
+      "action": "lead_enters",
+      "expression": "level"
+    },
+    {
+      "id": "declaration",
+      "at": "line:3",
+      "action": "lead_steps_forward",
+      "camera": "push",
+      "expression": "resolve"
+    },
+    {
+      "id": "reaction",
+      "at": "line:5",
+      "action": "room_reacts",
+      "variant": "stillness"
+    },
+    {
+      "id": "button",
+      "at": "end-3.0",
+      "action": "hold_on_lead"
+    }
+  ],
+  "cards": [
+    {
+      "at": "end-2.5",
+      "type": "fact",
+      "text": "March 27, 2000. Unanimous.",
+      "canonKey": "reversal"
+    },
+    {
+      "at": "end-1.5",
+      "type": "title"
+    }
+  ],
+  "notes": "The direct analog to the reference: he tells the room what the Court said. Canon: reversal, framing. Complete innocence; never a technicality."
+}

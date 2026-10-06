@@ -1,0 +1,47 @@
+{
+  "name": "michael-present",
+  "provenance": "machine-drafted",
+  "likeness": "placeholder — a generic lead figure in the paper palette. Not drawn from reference photos. Replace the SVG with a rig drawn from the photos Michael supplies (present day); keep the group names and this file renders it unchanged.",
+  "description": "Michael, present day. Dark suit, cream shirt, brass tie. Faces the room and says one true thing.",
+  "svg": "michael-present.svg",
+  "viewBox": { "width": 600, "height": 1000 },
+  "pivots": {
+    "head": { "x": 300, "y": 360 },
+    "brow_l": { "x": 262, "y": 190 },
+    "brow_r": { "x": 338, "y": 190 },
+    "arm_l": { "x": 178, "y": 420 },
+    "arm_r": { "x": 422, "y": 420 },
+    "hand_l": { "x": 150, "y": 700 },
+    "hand_r": { "x": 450, "y": 700 }
+  },
+  "poses": {
+    "rest": { "arm_l": 0, "arm_r": 0, "hand_l": 0, "hand_r": 0, "head": 0, "torsoLean": 0 },
+    "address": {
+      "arm_l": 8,
+      "arm_r": -22,
+      "hand_l": 4,
+      "hand_r": -30,
+      "head": -2,
+      "torsoLean": 1.5
+    },
+    "open": { "arm_l": 18, "arm_r": -18, "hand_l": 20, "hand_r": -20, "head": 0, "torsoLean": 0 },
+    "hands_down": { "arm_l": -2, "arm_r": 2, "hand_l": 0, "hand_r": 0, "head": 3, "torsoLean": -1 },
+    "receiver": {
+      "arm_l": 0,
+      "arm_r": -118,
+      "hand_l": 0,
+      "hand_r": -40,
+      "head": -6,
+      "torsoLean": 0
+    }
+  },
+  "expressions": {
+    "level": { "brow_l": 0, "brow_r": 0, "browTilt": 0, "eyeOpen": 1, "headTilt": 0 },
+    "resolve": { "brow_l": 4, "brow_r": 4, "browTilt": 6, "eyeOpen": 0.82, "headTilt": -1.5 },
+    "quiet": { "brow_l": 2, "brow_r": 2, "browTilt": -4, "eyeOpen": 0.7, "headTilt": 2 },
+    "weary": { "brow_l": 3, "brow_r": 3, "browTilt": -8, "eyeOpen": 0.55, "headTilt": 3.5 },
+    "warm": { "brow_l": -3, "brow_r": -3, "browTilt": -2, "eyeOpen": 0.78, "headTilt": -2 },
+    "hard": { "brow_l": 7, "brow_r": 7, "browTilt": 10, "eyeOpen": 0.75, "headTilt": 0 }
+  },
+  "blink": { "everySeconds": 4.2, "durationSeconds": 0.14 }
+}
