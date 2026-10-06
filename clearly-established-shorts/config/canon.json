@@ -1,0 +1,253 @@
+{
+  "_comment": "The record. Every on-screen fact traces to a key here, and the text on a fact card must be one of that key's approved forms, verbatim. Day counts are derived from the three dates and the lint fails if the stated numbers disagree with the arithmetic. Edited by humans only.",
+  "dates": {
+    "reversal": "2000-03-27",
+    "refiled": "2000-06-12",
+    "remittitur": "2000-06-28"
+  },
+  "facts": {
+    "case": {
+      "statement": "State v. Martin, Op. No. 25093 (S.C. 2000)",
+      "forms": [
+        "State v. Martin, Op. No. 25093 (S.C. 2000)",
+        "State v. Martin, Op. No. 25093",
+        "Op. No. 25093"
+      ]
+    },
+    "arrest": {
+      "statement": "Arrested in 1996, at age twenty-six.",
+      "forms": ["1996. Twenty-six years old.", "Arrested 1996, at twenty-six.", "Twenty-six."]
+    },
+    "conviction": {
+      "statement": "Convicted in 1997.",
+      "forms": ["Convicted 1997.", "1997."]
+    },
+    "trialCourt": {
+      "statement": "Pickens County; Judge Henry F. Floyd presiding.",
+      "forms": ["Pickens County, South Carolina."],
+      "realNames": ["Henry F. Floyd", "Floyd"]
+    },
+    "trialCounsel": {
+      "statement": "Trial counsel: Bill Godfrey.",
+      "forms": [],
+      "realNames": ["Bill Godfrey", "Godfrey"]
+    },
+    "appellateCounsel": {
+      "statement": "Appellate counsel: Dan Stacey. Appellate only; never in trial-era scenes. Deceased; never voiced by an impersonator.",
+      "forms": ["Dan Stacey, appellate counsel."],
+      "realNames": ["Dan Stacey", "Stacey"],
+      "note": "Dan Stacey is a permitted name on screen because he is honoured through the record (episode 005); he is still never voiced."
+    },
+    "reversal": {
+      "statement": "Reversed March 27, 2000, unanimously, by the South Carolina Supreme Court.",
+      "forms": [
+        "March 27, 2000. Unanimous.",
+        "March 27, 2000.",
+        "Unanimous.",
+        "Reversed. March 27, 2000. Unanimous."
+      ]
+    },
+    "framing": {
+      "statement": "Complete innocence. The Court said it should have been impossible to convict him. Never a technicality, never a procedural win.",
+      "forms": [
+        "The Court said it should have been impossible to convict him.",
+        "It should have been impossible to convict him."
+      ]
+    },
+    "erasure": {
+      "statement": "The original opinion was withdrawn and refiled June 12, 2000, with language deleted, while the State was still holding him past the March 27 order. Seventy-seven days after the opinion.",
+      "forms": [
+        "Withdrawn and refiled June 12, 2000. Language deleted.",
+        "June 12, 2000. Refiled. Language deleted.",
+        "Seventy-seven days later, the opinion was refiled with language deleted."
+      ],
+      "derivedDays": "erasureDays"
+    },
+    "timeIncarcerated": {
+      "statement": "Three years and eleven months.",
+      "forms": ["Three years and eleven months.", "Three years, eleven months."]
+    },
+    "overDetention": {
+      "statement": "Held ninety-three days past the March 27, 2000 order that freed him, until the remittitur of June 28, 2000.",
+      "forms": [
+        "Ordered freed March 27, 2000. Held ninety-three more days.",
+        "Ninety-three days.",
+        "March 27, 2000. Ordered freed. Released June 28."
+      ],
+      "derivedDays": "overDetentionDays",
+      "note": "The handoff of October 6, 2026 carried seventy-seven here. This repository's record, locked by Michael on September 5, 2026 against the case file, derives ninety-three from the remittitur date. Seventy-seven is the erasure. See docs/COUNSEL_PACKET.md."
+    },
+    "cadillac": {
+      "statement": "He was the number one Cadillac salesman at twenty-six.",
+      "forms": [
+        "Number one Cadillac salesman. Twenty-six.",
+        "Number one on the board. Twenty-six years old.",
+        "Number one. Twenty-six."
+      ]
+    },
+    "driveThru": {
+      "statement": "The detective driving, the chief in the passenger seat, Michael in the back seat.",
+      "forms": [
+        "The detective drove. The chief rode beside him. Michael sat in the back.",
+        "Detective. Chief. Back seat."
+      ]
+    },
+    "dansInstruction": {
+      "statement": "“Get those words into a record nobody can edit.” Given by Dan directly, over the telephone.",
+      "forms": [
+        "“Get those words into a record nobody can edit.”",
+        "Get those words into a record nobody can edit."
+      ]
+    },
+    "releaseDay": {
+      "statement": "A stretch limousine, with Pops and Uncle JP.",
+      "forms": ["A stretch limousine. Pops and Uncle JP.", "Release day. A stretch limousine."]
+    },
+    "birthplace": {
+      "statement": "Born in California.",
+      "forms": ["Born in California."]
+    },
+    "familyLand": {
+      "statement": "Neriah Fennell’s 860-acre Recovery estate, Decatur County, Georgia. Never a bare number, always framed. Out of scope for the six pilots.",
+      "forms": [],
+      "outOfScope": true
+    }
+  },
+  "derived": {
+    "_comment": "Computed from dates by the lint; these are the values the record expects. A mismatch fails the build.",
+    "erasureDays": 77,
+    "overDetentionDays": 93
+  },
+  "numberWords": {
+    "_comment": "Number words that, when they appear in a script or card, must be consistent with the record.",
+    "seventy-seven": {
+      "meaning": "the erasure: opinion to refiled opinion",
+      "neverNear": ["held", "detention", "locked", "kept", "inside", "past the order", "more days"]
+    },
+    "ninety-three": { "meaning": "the over-detention: opinion to remittitur" },
+    "twenty-six": { "meaning": "age at arrest; the Cadillac board" }
+  },
+  "bannedTerms": [
+    "Swanson Plantation",
+    "sixty-plus days",
+    "60+ days",
+    "Loyd",
+    "Eve Stacey",
+    "technicality",
+    "TRU*MEN",
+    "TRUMAN Productions",
+    "Lisa Davis",
+    "Frankfurt Kurnit",
+    "Ancestry.com",
+    "Summerville",
+    "Palmetto Rose",
+    "550 acres",
+    "Barnwell"
+  ],
+  "proximityRules": [
+    {
+      "term": "nineteen",
+      "near": "Cadillac",
+      "withinWords": 10,
+      "reason": "He was twenty-six on the Cadillac floor, not nineteen."
+    }
+  ],
+  "motiveTerms": {
+    "_comment": "Warnings, not failures. Each supplies a motive the record does not establish or states a legal conclusion no court reached. Carried over from the reel set's record. The deletion is stated; it is never motivated.",
+    "terms": [
+      "quietly",
+      "secretly",
+      "conveniently",
+      "suspiciously",
+      "conspired",
+      "they knew",
+      "in order to",
+      "so that",
+      "illegally detained",
+      "stolen land",
+      "nineteen years old"
+    ]
+  },
+  "names": {
+    "_comment": "Role labels only on screen until counsel clears real names. realNamesCleared is empty by default and edited by humans only. A name that appears in knownRealNames and is not in realNamesCleared or permitted fails the lint. Titles followed by a capitalised word (Judge X, Detective X) fail unless the name is cleared.",
+    "permitted": [
+      "Michael",
+      "Michael Anthony Martin",
+      "Michael Martin",
+      "David",
+      "David Alexander Martin",
+      "Pops",
+      "Uncle JP",
+      "Dan Stacey",
+      "Dan",
+      "Martin"
+    ],
+    "realNamesCleared": [],
+    "knownRealNames": ["Henry F. Floyd", "Henry Floyd", "Floyd", "Bill Godfrey", "Godfrey"],
+    "roleLabels": [
+      "the detective",
+      "the chief",
+      "the judge",
+      "the solicitor",
+      "the officer",
+      "the clerk",
+      "the guard",
+      "the classmates",
+      "the room"
+    ],
+    "titleWords": [
+      "Judge",
+      "Detective",
+      "Chief",
+      "Officer",
+      "Solicitor",
+      "Deputy",
+      "Sergeant",
+      "Sheriff",
+      "Mr.",
+      "Mrs.",
+      "Ms.",
+      "Dr."
+    ]
+  },
+  "factualSignals": {
+    "_comment": "Card text containing any of these without a canonKey is untagged factual text and fails validation.",
+    "terms": [
+      "unanimous",
+      "Supreme Court",
+      "Cadillac",
+      "salesman",
+      "detective",
+      "chief",
+      "judge",
+      "jury",
+      "convicted",
+      "conviction",
+      "arrested",
+      "arrest",
+      "reversed",
+      "reversal",
+      "opinion",
+      "refiled",
+      "withdrawn",
+      "deleted",
+      "remittitur",
+      "limousine",
+      "limo",
+      "released",
+      "release",
+      "innocen",
+      "days",
+      "years",
+      "months",
+      "record",
+      "telephone",
+      "phone",
+      "California",
+      "Georgia",
+      "acre",
+      "Pickens",
+      "South Carolina"
+    ]
+  }
+}

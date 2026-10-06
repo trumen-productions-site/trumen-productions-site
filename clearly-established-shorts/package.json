@@ -1,0 +1,49 @@
+{
+  "name": "clearly-established-shorts",
+  "version": "0.1.0",
+  "private": true,
+  "description": "CLEARLY ESTABLISHED: STATEMENTS — production engine for the animated vertical shorts. Renders to disk. Publishes nothing.",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "new": "tsx src/cli/new-episode.ts",
+    "validate": "tsx src/cli/validate.ts",
+    "prepare-episodes": "tsx src/cli/prepare.ts",
+    "preview": "tsx src/cli/prepare.ts --all && remotion studio src/index.ts",
+    "render": "tsx src/cli/render.ts",
+    "probe": "tsx src/cli/probe.ts",
+    "scratch": "tsx src/cli/scratch.ts",
+    "setup:rhubarb": "tsx src/cli/setup-tools.ts rhubarb",
+    "setup:whisper": "tsx src/cli/setup-tools.ts whisper",
+    "test": "vitest run",
+    "test:renders": "vitest run --config vitest.renders.config.ts",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint . && prettier --check .",
+    "format": "prettier --write .",
+    "check": "npm run typecheck && npm run lint && npm test"
+  },
+  "dependencies": {
+    "@remotion/bundler": "4.0.533",
+    "@remotion/cli": "4.0.533",
+    "@remotion/fonts": "4.0.533",
+    "@remotion/install-whisper-cpp": "^4.0.533",
+    "@remotion/renderer": "4.0.533",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "remotion": "4.0.533",
+    "tsx": "4.23.15",
+    "zod": "4.6.5"
+  },
+  "devDependencies": {
+    "@remotion/eslint-config-flat": "4.0.533",
+    "@types/node": "26.6.4",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "eslint": "9.39.5",
+    "prettier": "3.9.9",
+    "typescript": "5.9.3",
+    "vitest": "5.0.3"
+  }
+}

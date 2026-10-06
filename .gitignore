@@ -25,3 +25,6 @@ __pycache__/
 four-rules-reels/out/QC_REPORT.md
 four-rules-reels/out/*.srt
 four-rules-reels/out/thumbnails/
+
+# The shorts engine has real dependencies; its lockfile is committed on purpose.
+!clearly-established-shorts/package-lock.json

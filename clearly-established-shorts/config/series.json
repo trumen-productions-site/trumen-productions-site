@@ -1,0 +1,18 @@
+{
+  "_comment": "Series-level identity. The title is a WORKING TITLE; change it here and nowhere else. Credits and the company line are rendered on every end card in this order: fact card, title lockup, written-by, company mark with motto.",
+  "workingTitle": "CLEARLY ESTABLISHED: STATEMENTS",
+  "sourceWork": "CLEARLY ESTABLISHED",
+  "writtenBy": "Written by Michael Anthony Martin & David Alexander Martin",
+  "company": "TRU★MEN Productions",
+  "motto": "VIRI VERI",
+  "owner": "Revelatory Productions, LLC d/b/a TRU★MEN Productions",
+  "counsel": "Alexa Whiteside, Esq.",
+  "endCard": {
+    "_comment": "Seconds. The take ends at T. Cards anchored in the spec may begin before T (e.g. end-2.5). After T the engine holds the title lockup for titleHoldSeconds, then written-by, then the company mark. Episode length = T + titleHoldSeconds + writtenBySeconds + companySeconds.",
+    "titleHoldSeconds": 1.5,
+    "writtenBySeconds": 2.0,
+    "companySeconds": 2.5
+  },
+  "hookDeadlineSeconds": 2.0,
+  "lineGapSeconds": 0.8
+}

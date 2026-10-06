@@ -1,0 +1,44 @@
+{
+  "_comment": "Export presets. Working defaults from the handoff of October 6, 2026. Each platform's published spec was checked before the first render; the date and source of each check is recorded in docs/CHANGELOG.md. Safe-zone margins are fractions of the canvas; captions and cards are laid out inside the UNION of all four (the largest margin on each side) so a single layout is inside every preset's safe zone, as the handoff requires.",
+  "canvas": { "width": 1080, "height": 1920, "fps": 30 },
+  "video": {
+    "codec": "h264",
+    "profile": "high",
+    "pixelFormat": "yuv420p",
+    "bitrateKbps": 12000,
+    "maxrateKbps": 14000,
+    "bufsizeKbps": 24000,
+    "gopSeconds": 2
+  },
+  "audio": {
+    "codec": "aac",
+    "sampleRate": 48000,
+    "channels": 2,
+    "bitrateKbps": 192,
+    "targetLufs": -14.0,
+    "truePeakDbtp": -1.0,
+    "loudnessToleranceLu": 0.5
+  },
+  "presets": {
+    "youtube-shorts": {
+      "label": "YouTube Shorts",
+      "maxSeconds": 180,
+      "safeZone": { "top": 0.1, "bottom": 0.2, "left": 0.06, "right": 0.12 }
+    },
+    "snap-spotlight": {
+      "label": "Snapchat Spotlight",
+      "maxSeconds": 60,
+      "safeZone": { "top": 0.12, "bottom": 0.22, "left": 0.06, "right": 0.12 }
+    },
+    "ig-reels": {
+      "label": "Instagram Reels",
+      "maxSeconds": 90,
+      "safeZone": { "top": 0.12, "bottom": 0.22, "left": 0.06, "right": 0.12 }
+    },
+    "tiktok": {
+      "label": "TikTok",
+      "maxSeconds": 180,
+      "safeZone": { "top": 0.1, "bottom": 0.22, "left": 0.06, "right": 0.14 }
+    }
+  }
+}

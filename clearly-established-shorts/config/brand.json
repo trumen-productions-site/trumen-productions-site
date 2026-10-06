@@ -1,0 +1,65 @@
+{
+  "_comment": "TRU★MEN brand for the shorts. Palette is the LOCKED July 12, 2026 sheet, which already lives in this repository (../four-rules-reels/brand/tokens.json and the site CSS); the handoff's provisional values were superseded on adoption — see docs/CHANGELOG.md. A test asserts the three copies agree.",
+  "paletteSource": "Locked brand sheet, July 12, 2026",
+  "palette": {
+    "navy": "#0B1F3A",
+    "cream": "#F3EBDD",
+    "brass": "#B08D57",
+    "sectionGreen": "#2E6B4F",
+    "gold": "#D4AF37",
+    "ink": "#0A0A0A"
+  },
+  "paletteUse": {
+    "navy": "grounds, night, authority",
+    "cream": "paper, light, skin highlights, caption plates",
+    "brass": "rules, accents, the star; sparingly",
+    "sectionGreen": "the § mark only",
+    "gold": "the star facets in the supplied lockup only",
+    "ink": "line work, caption text"
+  },
+  "type": {
+    "_comment": "Georgia is used for titles and captions when it is licensed and installed on the render machine; otherwise Gelasio (metric-compatible, SIL OFL, vendored under assets/fonts). Poppins Bold Italic is for the TRU★MEN wordmark only. The typeface actually in force is recorded in every manifest.",
+    "titlesPreferred": "Georgia",
+    "titlesFallback": "Gelasio",
+    "wordmark": "Poppins",
+    "wordmarkWeight": 700,
+    "wordmarkStyle": "italic"
+  },
+  "captions": {
+    "wordsPerPlateMin": 2,
+    "wordsPerPlateMax": 3,
+    "plateColor": "cream",
+    "textColor": "ink",
+    "activeWordColor": "brass",
+    "fontSizePx": 62,
+    "platePaddingPx": 22,
+    "plateRadiusPx": 6,
+    "maxPlateWidthFraction": 0.86
+  },
+  "titleLockup": {
+    "_comment": "Green § above the title, scales beneath, per the locked identity.",
+    "sectionMark": "§",
+    "sectionMarkColor": "sectionGreen",
+    "scalesBeneath": true,
+    "titleColor": "cream",
+    "ground": "navy"
+  },
+  "companyMark": {
+    "_comment": "The supplied lockup (TRU★MEN PRODUCTIONS · VIRI VERI on navy, 2400×1131) is used as-is. The star is never smaller than the letters. If the file is missing the engine typesets a placeholder in Poppins Bold Italic and says so in the manifest.",
+    "lockupFile": "assets/marks/trumen-lockup.png",
+    "lockupWidthPx": 820,
+    "placeholderFont": "Poppins"
+  },
+  "look": {
+    "style": "limited-palette cut-paper: flat shapes, visible grain, hard shadows, brass used sparingly. A court exhibit that learned to move.",
+    "grainOpacity": 0.07,
+    "grainSeed": 12,
+    "shadowOffsetPx": 14
+  },
+  "gateMarking": {
+    "slateText": "INTERNAL REVIEW COPY — NOT FOR RELEASE",
+    "slateSeconds": 2.0,
+    "watermarkText": "INTERNAL REVIEW COPY — NOT FOR RELEASE",
+    "filenamePrefix": "INTERNAL_"
+  }
+}

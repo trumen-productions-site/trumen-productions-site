@@ -1,0 +1,10 @@
+node_modules
+out
+.cache
+tools/rhubarb
+tools/whisper
+assets
+episodes/*/audio
+tests/snapshots
+tests/fixtures/*.json
+package-lock.json
