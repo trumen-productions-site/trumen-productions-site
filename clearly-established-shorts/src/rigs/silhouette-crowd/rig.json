@@ -5,13 +5,13 @@
   "description": "The gallery: three receding rows of seated, faceless figures.",
   "svg": "silhouette-crowd.svg",
   "viewBox": {
-    "width": 600,
+    "width": 1800,
     "height": 1000
   },
   "pivots": {
     "head": {
-      "x": 300,
-      "y": 360
+      "x": 900,
+      "y": 900
     },
     "brow_l": {
       "x": 262,

@@ -202,7 +202,7 @@ export function placement(member: CastMember, width: number, height: number): Pl
         labelY: height * 0.88,
       };
     case 'background':
-      return { x: cx, bottom: height * 0.66, heightPx: 760, facing: 1, z: 1 };
+      return { x: cx, bottom: height * 0.7, heightPx: 700, facing: 1, z: 1 };
     case 'split-left':
       return { x: width * 0.26, bottom: height * 0.84, heightPx: 1080, facing: 1, z: 5 };
     case 'split-right':
