@@ -13,7 +13,7 @@ package-lock.json
 
 # Generated on demand by `npm run pitch`.
 clearly-established-pitch.html
-trumen-site-preview.html
+viri-veri-site-preview.html
 
 # Reel renders — regenerate with `cd four-rules-reels && make all`.
 four-rules-reels/out/*.mp4

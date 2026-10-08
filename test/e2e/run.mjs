@@ -406,7 +406,7 @@ async function main() {
       // Pixel comparison, only against a baseline drawn with the same fonts.
       const fingerprint = await page.evaluate(() => {
         const c = document.createElement('canvas').getContext('2d');
-        const probe = 'The quick brown fox jumps over 0123456789 — TRU★MEN';
+        const probe = 'The quick brown fox jumps over 0123456789 — VIRI VERI';
         c.font = "16px Georgia, 'Iowan Old Style', 'Times New Roman', serif";
         const serif = c.measureText(probe).width.toFixed(1);
         c.font = "16px Poppins, 'Helvetica Neue', Arial, sans-serif";

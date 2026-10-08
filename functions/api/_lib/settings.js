@@ -5,7 +5,7 @@
 
 export function settings(env) {
   return {
-    siteUrl: (env.SITE_URL || 'https://trumen-productions.netlify.app').replace(/\/$/, ''),
+    siteUrl: (env.SITE_URL || 'https://viri-veri-productions.netlify.app').replace(/\/$/, ''),
     producerEmail: env.PRODUCER_EMAIL || 'michaelmartin@greenplanit.org',
     contactEmail: env.CONTACT_EMAIL || 'michaelmartin@greenplanit.org',
     hostTitle: env.HOST_TITLE || 'the producer',

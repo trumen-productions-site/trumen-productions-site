@@ -92,8 +92,8 @@ person's case, studio, platform, agent, manager or sponsor is ever named on this
 ## Words to avoid
 
 The lint will tell you. In short: nothing that promises an outcome (`guarantee`, `risk-free`, `safe`), nothing
-from another company or project, nothing superseded in the canon, and the mark always with the star glyph:
-`TRU★MEN Productions`.
+from another company or project, nothing superseded in the canon, nothing in the retired `TRU★MEN` mark, and the name always written
+`VIRI VERI Productions` (the star is drawn in the lockup, never typed).
 
 ## The emails
 

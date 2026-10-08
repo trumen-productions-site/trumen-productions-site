@@ -22,7 +22,7 @@ describe('the investor page', () => {
   test('is built, dark, and carries the brief’s metadata', () => {
     assert.ok(page);
     assert.ok(html.includes('<meta name="robots" content="noindex, nofollow">'));
-    assert.ok(html.includes('<title>Invest in CLEARLY ESTABLISHED · TruMen Productions</title>'));
+    assert.ok(html.includes('<title>Invest in CLEARLY ESTABLISHED · Viri Veri Productions</title>'));
     assert.ok(html.includes('og:image" content="https://'));
     assert.ok(html.includes('/assets/img/invest-keyart.png'));
     assert.ok(!html.includes('site-nav'), 'the company navigation must not appear');
@@ -113,7 +113,11 @@ describe('the investor page', () => {
   test('no comparables section, no casting, no photographs, no third-party art', () => {
     assert.ok(!html.includes('id="comparables"'), 'comps are off until verified');
     assert.ok(!html.includes('not attached'));
-    assert.equal((html.match(/<img\b/g) || []).length, 0, 'the page has no raster images at all');
+    const imgs = html.match(/<img\b[^>]*>/g) || [];
+    for (const img of imgs) {
+      assert.match(img, /src="\/assets\/img\/viri-veri-lockup-(navy|transparent)\.svg"/, `the only <img> allowed is the lockup: ${img}`);
+    }
+    assert.equal(imgs.length, 2, 'the lockup appears exactly twice: header and footer');
   });
 
   test('the team is the two authors, and no one else', () => {
@@ -167,10 +171,11 @@ describe('the investor page', () => {
     assert.ok(!html.includes('challenges.cloudflare.com/turnstile'), 'Turnstile is loaded by the island on demand, not by the page');
   });
 
-  test('the visible copy uses the star glyph, never an asterisk, and never types the plain name in body copy', () => {
-    const main = html.split('<main')[1].split('</main>')[0];
-    assert.ok(!main.includes('TRU*MEN'));
-    assert.ok(!/\bTruMen\b/.test(main.replace(/<span class="visually-hidden">[\s\S]*?<\/span>/g, '')));
+  test('the header carries the supplied lockup with a spoken name, and the retired mark is gone', () => {
+    const header = html.split('</header>')[0];
+    assert.ok(header.includes('src="/assets/img/viri-veri-lockup-navy.svg"'));
+    assert.ok(header.includes('<span class="visually-hidden">Viri Veri Productions</span>'));
+    for (const old of ['TRU★MEN', 'TruMen', 'TRU*MEN']) assert.ok(!html.includes(old), `still carries ${old}`);
   });
 
   test('the word "guarantee" appears only inside the footer disclaimer', () => {

@@ -1,5 +1,5 @@
 # CLEARLY ESTABLISHED — Investor Page · Counsel Review Packet
-Generated 2026-10-03 from build `d7714d4d0fa4` (staging). Regenerate with `npm run counsel:packet`; do not edit by hand.
+Generated 2026-10-08 from build `add9fcdb6f15` (staging). Regenerate with `npm run counsel:packet`; do not edit by hand.
 
 **Owner:** Michael Anthony Martin, Vice-President, Revelatory Productions, LLC · **Counsel of record:** Alexa Whiteside, Esq., WAM Entertainment Law
 
@@ -12,7 +12,7 @@ This packet is the whole page as staged, in plain text, with every undecided ter
 |---|---|---|---|---|
 | `G_TRADEMARK` | Class 41 ITU filed for the mark (Gate G) | Alexa Whiteside | unsigned | _______________________ |
 | `G_COPYRIGHT` | Copyright applications filed for the works named on the page | Alexa Whiteside | unsigned | _______________________ |
-| `G_DBA` | TRU★MEN Productions name cleared and DBA registered, or footer set to legal name only | Alexa Whiteside | unsigned | _______________________ |
+| `G_DBA` | VIRI VERI Productions name cleared and DBA registered, or footer set to legal name only | Alexa Whiteside | unsigned | _______________________ |
 | `G_SECURITIES` | Securities counsel approved structure, issuer, documents, Form D and state notice plan, verification method | Securities counsel (via Alexa Whiteside) | unsigned | _______________________ |
 | `G_COPY` | Every word on the page approved, including story claims and names | Alexa Whiteside | unsigned | _______________________ |
 | `G_TAX` | Tax language approved — only required if features.taxSection is true (not required unless the tax section is on) | CPA / tax counsel | unsigned | _______________________ |
@@ -199,9 +199,7 @@ Facts the page states, exactly: arrested 1996 at twenty-six · convicted 1997 ·
 
 ### /invest/
 
-Staging — not an offering · build d7714d4d0fa4 · 7 of 7 launch gates unsigned.
-
-TRU MEN Productions.
+Staging — not an offering · build add9fcdb6f15 · 7 of 7 launch gates unsigned.
 
 Accredited investors only.
 
@@ -221,7 +219,7 @@ Accredited investors only.
 
 Not an offer of securities.
 
-§ CLEARLY ESTABLISHED A true story from the public record TRU MEN.
+§ CLEARLY ESTABLISHED A true story from the public record.
 
 Minimum investment.
 
@@ -549,7 +547,7 @@ The story.
 
 Based on the public record of State v. Martin, Op. No. 25093 (S.C. 2000), and the recollections of the authors.
 
-TRU MEN Productions Viri Veri . © 2026 Revelatory Productions, LLC. 4607 Charlotte Hwy, Suite 7, Lake Wylie, SC 29710. michaelmartin@greenplanit.org.
+Men of truth . © 2026 Revelatory Productions, LLC. 4607 Charlotte Hwy, Suite 7, Lake Wylie, SC 29710. michaelmartin@greenplanit.org.
 
 Privacy.
 
@@ -557,9 +555,7 @@ See if you qualify → .
 
 ### /invest/confirmed/
 
-Staging — not an offering · build d7714d4d0fa4 · 7 of 7 launch gates unsigned.
-
-TRU MEN Productions.
+Staging — not an offering · build add9fcdb6f15 · 7 of 7 launch gates unsigned.
 
 Accredited investors only.
 
@@ -619,15 +615,13 @@ The story.
 
 Based on the public record of State v. Martin, Op. No. 25093 (S.C. 2000), and the recollections of the authors.
 
-TRU MEN Productions Viri Veri . © 2026 Revelatory Productions, LLC. 4607 Charlotte Hwy, Suite 7, Lake Wylie, SC 29710. michaelmartin@greenplanit.org.
+Men of truth . © 2026 Revelatory Productions, LLC. 4607 Charlotte Hwy, Suite 7, Lake Wylie, SC 29710. michaelmartin@greenplanit.org.
 
 Privacy.
 
 ### /invest/received/
 
-Staging — not an offering · build d7714d4d0fa4 · 7 of 7 launch gates unsigned.
-
-TRU MEN Productions.
+Staging — not an offering · build add9fcdb6f15 · 7 of 7 launch gates unsigned.
 
 Accredited investors only.
 
@@ -673,15 +667,13 @@ The story.
 
 Based on the public record of State v. Martin, Op. No. 25093 (S.C. 2000), and the recollections of the authors.
 
-TRU MEN Productions Viri Veri . © 2026 Revelatory Productions, LLC. 4607 Charlotte Hwy, Suite 7, Lake Wylie, SC 29710. michaelmartin@greenplanit.org.
+Men of truth . © 2026 Revelatory Productions, LLC. 4607 Charlotte Hwy, Suite 7, Lake Wylie, SC 29710. michaelmartin@greenplanit.org.
 
 Privacy.
 
 ### /invest/not-accredited/
 
-Staging — not an offering · build d7714d4d0fa4 · 7 of 7 launch gates unsigned.
-
-TRU MEN Productions.
+Staging — not an offering · build add9fcdb6f15 · 7 of 7 launch gates unsigned.
 
 Accredited investors only.
 
@@ -723,15 +715,13 @@ The story.
 
 Based on the public record of State v. Martin, Op. No. 25093 (S.C. 2000), and the recollections of the authors.
 
-TRU MEN Productions Viri Veri . © 2026 Revelatory Productions, LLC. 4607 Charlotte Hwy, Suite 7, Lake Wylie, SC 29710. michaelmartin@greenplanit.org.
+Men of truth . © 2026 Revelatory Productions, LLC. 4607 Charlotte Hwy, Suite 7, Lake Wylie, SC 29710. michaelmartin@greenplanit.org.
 
 Privacy.
 
 ### /privacy/
 
-Staging — not an offering · build d7714d4d0fa4 · 7 of 7 launch gates unsigned.
-
-TRU MEN Productions.
+Staging — not an offering · build add9fcdb6f15 · 7 of 7 launch gates unsigned.
 
 Accredited investors only.
 
@@ -819,15 +809,13 @@ The story.
 
 Based on the public record of State v. Martin, Op. No. 25093 (S.C. 2000), and the recollections of the authors.
 
-TRU MEN Productions Viri Veri . © 2026 Revelatory Productions, LLC. 4607 Charlotte Hwy, Suite 7, Lake Wylie, SC 29710. michaelmartin@greenplanit.org.
+Men of truth . © 2026 Revelatory Productions, LLC. 4607 Charlotte Hwy, Suite 7, Lake Wylie, SC 29710. michaelmartin@greenplanit.org.
 
 Privacy.
 
 ### /terms/
 
-Staging — not an offering · build d7714d4d0fa4 · 7 of 7 launch gates unsigned.
-
-TRU MEN Productions.
+Staging — not an offering · build add9fcdb6f15 · 7 of 7 launch gates unsigned.
 
 Accredited investors only.
 
@@ -905,7 +893,7 @@ The story.
 
 Based on the public record of State v. Martin, Op. No. 25093 (S.C. 2000), and the recollections of the authors.
 
-TRU MEN Productions Viri Veri . © 2026 Revelatory Productions, LLC. 4607 Charlotte Hwy, Suite 7, Lake Wylie, SC 29710. michaelmartin@greenplanit.org.
+Men of truth . © 2026 Revelatory Productions, LLC. 4607 Charlotte Hwy, Suite 7, Lake Wylie, SC 29710. michaelmartin@greenplanit.org.
 
 Privacy.
 

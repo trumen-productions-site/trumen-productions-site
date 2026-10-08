@@ -1,6 +1,6 @@
-# TRU★MEN Productions — website
+# VIRI VERI Productions — website
 
-The company site for TRU★MEN Productions (Revelatory Productions, LLC) — *Viri Veri*.
+The company site for VIRI VERI Productions (Revelatory Productions, LLC) — *men of truth*. Until October 7, 2026 the company traded as TRU★MEN Productions; the pivot to the VIRI VERI name and the supplied star lockup, per counsel, is recorded in `docs/invest/DECISIONS.md` (D-26).
 Seven pages, a two-minute animated pitch for *Clearly Established*, a gated investor page
 for the *Clearly Established* private offering, and a test suite that refuses to let any of
 it ship broken.
@@ -40,7 +40,7 @@ npm run build:site   # the company site alone — what Netlify and GitHub Pages 
 npm run build:prod   # the investor page for production: refused until every launch gate is signed
 npm test             # build, then run the full suite (690 assertions)
 npm run dev:invest   # the investor page with its API, locally, no accounts needed
-npm run preview      # write trumen-site-preview.html — the whole site as one file
+npm run preview      # write viri-veri-site-preview.html — the whole site as one file
 npm run pitch        # write clearly-established-pitch.html — the pitch as one file
 npm run images       # regenerate the social cards and touch icon (needs a Chromium)
 ```
@@ -55,7 +55,7 @@ gitignored — regenerate rather than commit.
 
 | Command | Output | What it's for |
 | --- | --- | --- |
-| `npm run preview` | `trumen-site-preview.html` (~183 kB) | All nine pages in one file, with working navigation. Open it on a laptop, email it for sign-off, take it into a meeting with no wifi. |
+| `npm run preview` | `viri-veri-site-preview.html` (~200 kB) | All nine pages in one file, with working navigation. Open it on a laptop, email it for sign-off, take it into a meeting with no wifi. |
 | `npm run pitch` | `clearly-established-pitch.html` (~92 kB) | The animated pitch alone, with its transcript. The one to attach to an email. |
 
 The preview turns internal links into in-page routing (`/faq/` becomes `#/faq/`, and
@@ -290,8 +290,9 @@ The design and the copy come from a Claude Design handoff, preserved unchanged i
 
 - `project/Clearly Established Video.dc.html` and `project/clearly-film.jsx` — the animated
   pitch, ported to `src/lib/pitch-stage.mjs` and `src/assets/js/pitch.js`
-- `project/uploads/index.pdf` — a print of the earlier TRU★MEN site; the source for the
-  brand (Poppins bold italic wordmark with the star, Georgia for prose), the three-beat
+- `project/uploads/index.pdf` — a print of the earlier site under the retired TRU★MEN mark; the source for the
+  three-beat spine, the four values, and the corrected facts (the wordmark it shows is retired — the
+  mark is now the supplied VIRI VERI lockup in `src/assets/img/`), the three-beat
   spine, the four values, and the corrected facts
 - `project/uploads/Clearly_Established_Screenplay pitch deck.pptx` — the film pitch
 - `chats/chat1.md` — the conversation the copy was settled in
@@ -302,6 +303,6 @@ one that mattered: time served is **three years and eleven months**, not the ear
 
 ---
 
-© 2026 Revelatory Productions, LLC, doing business as TRU★MEN Productions.
-TRU★MEN and the star mark are trademarks of Revelatory Productions, LLC; registration
+© 2026 Revelatory Productions, LLC, doing business as VIRI VERI Productions.
+VIRI VERI and the star mark are trademarks of Revelatory Productions, LLC; registration
 pending.

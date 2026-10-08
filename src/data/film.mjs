@@ -2,7 +2,7 @@
  * Clearly Established — the feature film pitch, as it appears on the site.
  *
  * Sourced from the authors' pitch deck (Clearly_Established_Screenplay pitch
- * deck.pptx) and the TRU★MEN site PDF. Where the two disagreed on a number,
+ * deck.pptx) and the earlier company site PDF. Where the two disagreed on a number,
  * the site PDF wins: it is the later, more precise document. Specifically,
  * the time served is "three years and eleven months" — an earlier draft of
  * the deck said "four and a half years."

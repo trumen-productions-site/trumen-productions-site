@@ -106,8 +106,8 @@ mistaken for the finished read.
 ### The lockup
 
 The brand rules say the end-card lockup is supplied, must be used as-is, and
-must **never be rebuilt from type**. It is: `brand/trumen-lockup.png` is the
-2400×1131 reference lockup from the brand folder (“TRU★MEN PRODUCTIONS · VIRI
+must **never be rebuilt from type**. It is: `brand/viri-veri-lockup.png` is the
+2400×914 lockup rendered from the supplied `brand/viri-veri-lockup.svg` (“VIRI★VERI
 VERI on navy”), whose field is the exact brand navy `#0B1F3A`, so it sits on
 the end card without a seam. It is scaled to 820px wide and centred.
 

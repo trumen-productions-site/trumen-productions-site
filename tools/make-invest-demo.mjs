@@ -43,6 +43,8 @@ const ASSETS = [
   'assets/js/invest/confirmed.js',
   'assets/img/favicon.svg',
   'assets/img/invest-keyart.png',
+  'assets/img/viri-veri-lockup-navy.svg',
+  'assets/img/viri-veri-lockup-transparent.svg',
 ];
 
 /** Answers /api/* inside the page. Mirrors functions/api/_lib/scheduler.js MockAdapter. */

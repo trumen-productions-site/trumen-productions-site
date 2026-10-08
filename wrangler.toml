@@ -3,7 +3,7 @@
 #   npx wrangler pages dev dist --d1 DB=ce_invest          # vendor's local runner
 #   npx wrangler d1 create ce_invest                        # once; paste the id below
 #   npx wrangler d1 migrations apply ce_invest --remote     # schema
-#   npx wrangler pages deploy dist --project-name trumen-invest --branch staging
+#   npx wrangler pages deploy dist --project-name viri-veri-invest --branch staging
 #
 # Secrets (never in this file): npx wrangler pages secret put <NAME>
 #   TURNSTILE_SECRET  RESEND_API_KEY  CALCOM_API_KEY  IP_SALT  CRON_SECRET  META_CAPI_TOKEN
@@ -12,7 +12,7 @@
 # allowlist) — docs/invest/RUNBOOK.md § Staging. Production is a separate
 # Pages project that only `npm run build:prod` may feed.
 
-name = "trumen-invest"
+name = "viri-veri-invest"
 pages_build_output_dir = "dist"
 compatibility_date = "2026-09-01"
 compatibility_flags = ["nodejs_compat"]
@@ -37,7 +37,7 @@ BOOKING_HORIZON_DAYS = "60"
 ABANDON_MINUTES = "30"
 PRODUCER_EMAIL = "michaelmartin@greenplanit.org"
 CONTACT_EMAIL = "michaelmartin@greenplanit.org"
-MAIL_FROM = "TRU★MEN Productions <invest@example.invalid>"
+MAIL_FROM = "VIRI VERI Productions <invest@example.invalid>"
 FEATURE_SMS = "false"
 FEATURE_FOLLOW_LIST = "false"
-SITE_URL = "https://trumen-invest.pages.dev"
+SITE_URL = "https://viri-veri-invest.pages.dev"

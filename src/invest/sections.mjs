@@ -32,7 +32,7 @@ export function header(cfg, { questionnaire = false } = {}) {
 ${when(questionnaire, '<a class="skip-link" href="#start">Skip to the questionnaire</a>')}
 <header class="inv-header">
   <div class="inv-container inv-header__inner">
-    <span class="inv-header__brand">${wordmark({ size: 'sm', productions: true })}<span class="visually-hidden">TruMen Productions</span></span>
+    <span class="inv-header__brand">${wordmark({ size: 'sm', tone: 'dark' })}<span class="visually-hidden">Viri Veri Productions</span></span>
     <p class="inv-header__qualifier">${esc(cfg.legal.qualifier.replace(/\.$/, ''))}</p>
   </div>
 </header>`.trim();
@@ -70,7 +70,7 @@ export function footer(cfg, { includeStructure = true } = {}) {
       <p>${esc(legal.storyNotice)}</p>
     </section>
     <div class="inv-footer__entity">
-      ${wordmark({ size: 'md', productions: true, motto: true })}
+      ${wordmark({ size: 'md', tone: 'dark', motto: true })}
       <p class="inv-footer__legal">© ${year} ${esc(offering.sponsor.legalName)}${when(cfg.derived.showBrandInFooter, ` d/b/a ${esc(offering.sponsor.brand)}`)}</p>
       <p class="inv-footer__legal">${esc(investSite.entity.address)}</p>
       <p class="inv-footer__legal"><a href="${esc(mailto(investSite.contact.email, investSite.contact.subject))}">${esc(investSite.contact.email)}</a></p>

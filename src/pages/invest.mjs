@@ -32,7 +32,7 @@ export default {
     src: '/assets/img/invest-keyart.png',
     width: 1200,
     height: 630,
-    alt: 'Invest in Clearly Established — a private offering from TRU★MEN Productions',
+    alt: 'Invest in Clearly Established — a private offering from VIRI VERI Productions',
   },
   frame: {
     before: `${ribbon(cfg)}\n${header(cfg, { questionnaire: true })}`,

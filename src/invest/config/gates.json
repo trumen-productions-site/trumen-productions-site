@@ -2,7 +2,7 @@
   "_comment": "Launch gates. `npm run build:prod` fails unless every required gate is signed. Staging builds ignore them and show the STAGING ribbon. Sign a gate by filling in `by` and `date` (YYYY-MM-DD) and setting `signed` to true. G_TAX is required only when features.taxSection is true. Do not sign a gate on behalf of the person named in docs/invest/COMPLIANCE.md.",
   "G_TRADEMARK": { "signed": false, "by": "", "date": "", "note": "Class 41 ITU filed for the mark (Gate G)" },
   "G_COPYRIGHT": { "signed": false, "by": "", "date": "", "note": "Copyright applications filed for the works named on the page" },
-  "G_DBA": { "signed": false, "by": "", "date": "", "note": "TRU★MEN Productions name cleared and DBA registered, or footer set to legal name only" },
+  "G_DBA": { "signed": false, "by": "", "date": "", "note": "VIRI VERI Productions name cleared and DBA registered, or footer set to legal name only" },
   "G_SECURITIES": { "signed": false, "by": "", "date": "", "note": "Securities counsel approved structure, issuer, documents, Form D and state notice plan, verification method" },
   "G_COPY": { "signed": false, "by": "", "date": "", "note": "Every word on the page approved, including story claims and names" },
   "G_TAX": { "signed": false, "by": "", "date": "", "note": "Tax language approved — only required if features.taxSection is true" },

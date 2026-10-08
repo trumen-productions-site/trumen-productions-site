@@ -111,26 +111,30 @@ describe('text helpers', () => {
 });
 
 describe('components', () => {
-  test('the star is drawn as an SVG path, not a glyph', () => {
+  test('the star is the faceted mark traced from the lockup, drawn as SVG, not a glyph', () => {
     const svg = star();
     assert.match(svg, /<svg[^>]*viewBox="0 0 24 24"/);
-    assert.match(svg, /<path d="M12 1\.6/);
+    assert.equal((svg.match(/<polygon /g) || []).length, 10, 'ten facets');
+    for (const gold of ['#E9C24A', '#C9A03A', '#8A6A22']) assert.ok(svg.includes(gold), `facet gold ${gold}`);
     assert.match(svg, /aria-hidden="true"/);
+    assert.ok(!svg.includes('★'));
+    assert.match(star({ fill: 'currentColor' }), /<polygon points="[^"]+" fill="currentColor"\/>/, 'a flat fill draws the outline only');
+    assert.ok(!star({ fill: 'currentColor' }).includes('#E9C24A'));
   });
 
-  test('the wordmark puts the star between TRU and MEN', () => {
+  test('the wordmark is the supplied lockup as an image, never typeset', () => {
     const html = wordmark();
-    const truAt = html.indexOf('>TRU<');
-    const starAt = html.indexOf('wordmark__star');
-    const menAt = html.indexOf('>MEN<');
-    assert.ok(truAt > -1 && starAt > truAt && menAt > starAt, 'the star is not between the two halves');
+    assert.match(html, /<img class="wordmark__lockup" src="\/assets\/img\/viri-veri-lockup-(navy|transparent)\.svg" alt=""/);
+    assert.match(html, /width="2046" height="779"/, 'intrinsic size so the layout does not shift');
+    assert.ok(!html.includes('>VIRI<') && !html.includes('>VERI<'), 'the letterforms are the mark, not text');
+    assert.ok(html.includes('viri-veri-lockup-transparent.svg'), 'light tone takes navy letterforms');
+    assert.ok(wordmark({ tone: 'dark' }).includes('viri-veri-lockup-navy.svg'), 'dark tone takes cream letterforms');
   });
 
-  test('the wordmark can show or hide the PRODUCTIONS line and the motto', () => {
-    assert.ok(wordmark({ productions: true }).includes('Productions'));
-    assert.ok(!wordmark({ productions: false }).includes('wordmark__sub'));
-    assert.ok(wordmark({ motto: true }).includes('Viri Veri'));
-    assert.ok(!wordmark({ motto: false }).includes('Viri Veri'));
+  test('the wordmark sizes by class and can show or hide the motto', () => {
+    assert.ok(wordmark({ size: 'lg' }).includes('wordmark--lg'));
+    assert.ok(wordmark({ motto: true }).includes('Men of truth'));
+    assert.ok(!wordmark({ motto: false }).includes('wordmark__motto'));
   });
 
   test('buttons render an accessible arrow only on filled variants', () => {

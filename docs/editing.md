@@ -67,7 +67,7 @@ page, the newsletter button, and the structured data.
 
 ```js
 contact: {
-  general: 'hello@trumenproductions.com',
+  general: 'hello@viriveriproductions.com',
   …
 }
 ```

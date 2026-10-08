@@ -13,6 +13,10 @@
 > `functions/`, `db/`, `scripts/`, `test/invest/`, `test/e2e/` and `docs/invest/`. Where the implementation
 > departs from a line below, the reason is in `docs/invest/DECISIONS.md`; the standing choice is that the page is
 > built inside this site's existing zero-dependency toolchain rather than a second framework (D-01).
+>
+> **Brand note (October 8, 2026).** Every `TRU★MEN Productions` below is the brief as written. On October 7, 2026,
+> per counsel, the company became **VIRI VERI Productions**; the build renders the new name and the supplied
+> lockup everywhere the brief says the mark goes, and the retired name is now a forbidden string (D-26).
 
 ## 0. How to use this file
 

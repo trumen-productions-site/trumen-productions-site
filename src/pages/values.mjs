@@ -53,7 +53,7 @@ export default {
   path: '/values/',
   title: 'Values',
   description:
-    'Veritas, Testimonium, Fraternitas, Ars — the four values behind every TRU★MEN Productions ' +
+    'Veritas, Testimonium, Fraternitas, Ars — the four values behind every VIRI VERI Productions ' +
     'project, written down so the work can be measured against them.',
   body,
 };

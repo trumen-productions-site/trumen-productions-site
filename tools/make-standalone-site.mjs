@@ -15,6 +15,7 @@
  */
 
 import { readFile, writeFile } from 'node:fs/promises';
+import { existsSync } from 'node:fs';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import path from 'node:path';
 
@@ -24,7 +25,7 @@ import { esc, each } from '../src/lib/html.mjs';
 import { loadPages } from '../build.mjs';
 
 const ROOT = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
-const OUT = process.argv[2] || path.join(ROOT, 'trumen-site-preview.html');
+const OUT = process.argv[2] || path.join(ROOT, 'viri-veri-site-preview.html');
 
 /* ── Slice the rendered pages apart ───────────────────────────────────── */
 
@@ -59,19 +60,38 @@ function rewriteLinks(html) {
   });
 }
 
+/**
+ * Inline every `<img src="/assets/img/*.svg">` as a data: URI so the brand
+ * lockup travels inside the one file. Other image formats are left as they are
+ * (none are referenced by the pages' chrome today; the build will say so).
+ */
+const inlined = new Map();
+async function inlineImages(html) {
+  const refs = [...html.matchAll(/src="(\/assets\/img\/[^"]+\.svg)"/g)].map((m) => m[1]);
+  for (const ref of new Set(refs)) {
+    if (inlined.has(ref)) continue;
+    const file = path.join(ROOT, 'src', ref);
+    if (!existsSync(file)) throw new Error(`image referenced by a page is missing: ${ref}`);
+    const svg = await readFile(file, 'utf8');
+    inlined.set(ref, `data:image/svg+xml;base64,${Buffer.from(svg, 'utf8').toString('base64')}`);
+  }
+  return html.replace(/src="(\/assets\/img\/[^"]+\.svg)"/g, (whole, ref) => `src="${inlined.get(ref)}"`);
+}
+
 /* ── Assemble ─────────────────────────────────────────────────────────── */
 
 const pages = await loadPages();
-const rendered = pages.map((page) => ({
-  page,
-  html: render({ ...page, body: typeof page.body === 'function' ? page.body() : page.body }),
-}));
+const rendered = [];
+for (const page of pages) {
+  const html = render({ ...page, body: typeof page.body === 'function' ? page.body() : page.body });
+  rendered.push({ page, html: await inlineImages(html) });
+}
 
 const home = rendered.find((r) => r.page.path === '/');
 if (!home) throw new Error('no home page to take the chrome from');
 
-const header = between(home.html, '<a class="skip-link"', '</header>');
-const chrome = between(home.html, '<section class="newsletter"', '</footer>');
+const header = await inlineImages(between(home.html, '<a class="skip-link"', '</header>'));
+const chrome = await inlineImages(between(home.html, '<section class="newsletter"', '</footer>'));
 
 const [siteCss, pitchCss, siteJs, pitchJs] = await Promise.all([
   readFile(path.join(ROOT, 'src/assets/css/site.css'), 'utf8'),

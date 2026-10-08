@@ -47,14 +47,14 @@ function kicker({ at, text, width = 900, tone = '' }) {
 </div>`;
 }
 
-/** The TRU★MEN wordmark at stage scale. */
+/** The VIRI★VERI wordmark at stage scale, in the composition's own ink. */
 function stageLogo(size = 36) {
   return `
 <span class="pk-logo" style="--pk-logo:${size}px">
   <span class="pk-logo__line">
-    <span>TRU</span>
-    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1.6l2.9 7.1 7.7.5-5.9 4.9 1.9 7.4-6.6-4.1-6.6 4.1 1.9-7.4L1.4 9.2l7.7-.5z"/></svg>
-    <span>MEN</span>
+    <span>VIRI</span>
+    <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12.11,0.0 14.82,7.79 22.73,8.06 16.49,12.94 21.18,24.0 12.11,16.12 5.68,20.37 7.73,12.94 1.27,7.99 9.4,7.79"/></svg>
+    <span>VERI</span>
   </span>
   <span class="pk-logo__sub">Productions</span>
 </span>`;

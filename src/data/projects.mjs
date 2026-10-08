@@ -130,7 +130,7 @@ export const projects = [
     kind: 'Documentary · Feature',
     title: 'Estelusti',
     subtitle: 'What They Outlived',
-    byline: 'A TRU★MEN Productions documentary',
+    byline: 'A VIRI VERI Productions documentary',
     status: 'in-development',
     statusDetail: 'In development',
     beat: 'revocation',

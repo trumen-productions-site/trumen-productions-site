@@ -99,7 +99,7 @@ ${urls}
 }
 
 function robots(siteUrl) {
-  return `# TRU★MEN Productions
+  return `# VIRI VERI Productions
 User-agent: *
 Allow: /
 
@@ -111,7 +111,7 @@ function manifest(site) {
   return JSON.stringify(
     {
       name: site.namePlain,
-      short_name: 'TRU★MEN',
+      short_name: 'VIRI VERI',
       description: site.tagline,
       start_url: '/',
       display: 'standalone',

@@ -34,7 +34,7 @@ export const offering = {
   /** The sponsor. `brandCleared` flips when gate G_DBA is signed. */
   sponsor: {
     legalName: 'Revelatory Productions, LLC',
-    brand: 'TRU★MEN Productions',
+    brand: 'VIRI VERI Productions',
     brandCleared: false,
   },
 

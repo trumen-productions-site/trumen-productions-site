@@ -47,7 +47,7 @@ Read the result by `utm_content`, by **booked calls**, not clicks.
 - **Only the facts the page states, stated the same way.** 1996, twenty-six, 1997, three years and eleven months,
   a unanimous reversal on March 27, 2000, Op. No. 25093. Nothing about any official, lawyer or other person.
 - **Only the two authors are named.** No studio, platform, partner, sponsor, agent or manager. No casting names.
-- **The mark is `TRU★MEN Productions`**, with the star, in every placement that carries it.
+- **The mark is `VIRI VERI Productions`**, shown as the supplied lockup (the faceted star between the words) in every placement that carries it; in running text the name is written `VIRI VERI Productions`, never `Veri Veri`, never with an asterisk, and never the retired `TRU★MEN`.
 - **Not an offer.** Where character count allows, "Not an offer of securities." Always on the landing page.
 
 ## Creative checklist

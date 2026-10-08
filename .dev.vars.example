@@ -15,7 +15,7 @@ TURNSTILE_SECRET=
 
 # Email: leave RESEND_API_KEY empty to log mail to the console instead of sending
 RESEND_API_KEY=
-MAIL_FROM="TRU★MEN Productions <invest@example.invalid>"
+MAIL_FROM="VIRI VERI Productions <invest@example.invalid>"
 PRODUCER_EMAIL=michaelmartin@greenplanit.org
 CONTACT_EMAIL=michaelmartin@greenplanit.org
 

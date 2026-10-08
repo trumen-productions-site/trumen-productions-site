@@ -57,7 +57,7 @@ jobs:
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
         run: |
           npx --yes wrangler@3 d1 migrations apply ce_invest --remote
-          npx --yes wrangler@3 pages deploy dist --project-name trumen-invest --branch staging --commit-dirty=true
+          npx --yes wrangler@3 pages deploy dist --project-name viri-veri-invest --branch staging --commit-dirty=true
 
       - name: No Cloudflare secrets — skipped
         if: ${{ env.CLOUDFLARE_API_TOKEN == '' }}
@@ -101,4 +101,4 @@ jobs:
         run: |
           test -n "$CLOUDFLARE_API_TOKEN" || { echo "CLOUDFLARE_API_TOKEN is required for production"; exit 1; }
           npx --yes wrangler@3 d1 migrations apply ce_invest --remote
-          npx --yes wrangler@3 pages deploy dist --project-name trumen-invest --branch production --commit-dirty=true
+          npx --yes wrangler@3 pages deploy dist --project-name viri-veri-invest --branch production --commit-dirty=true

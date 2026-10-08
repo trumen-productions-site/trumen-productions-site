@@ -21,8 +21,8 @@ export const forbidden = [
   { pattern: /passive income/i, reason: 'tax framing — only with G_TAX', gate: 'G_TAX' },
 
   // ── Brand ───────────────────────────────────────────────────────────
-  { pattern: /TRU\*MEN/, reason: 'the mark takes the star glyph, never an asterisk' },
-  { pattern: /TRUMAN Productions/i, reason: 'misspelling of the mark' },
+  { pattern: /TRU★MEN|TRU\*MEN|TruMen|TRU MEN|TRU-MEN|Truman Productions/i, reason: 'the retired mark — the company is VIRI VERI Productions since October 7, 2026' },
+  { pattern: /VIRI\*VERI|Veri Veri|Viri Viri|ViriVeri|VeriVeri/, reason: 'the mark is written VIRI VERI, two words, and drawn with the star only in the lockup' },
   { pattern: /A South Carolina production house/i, reason: 'superseded tagline' },
 
   // ── Removed or superseded ───────────────────────────────────────────
@@ -109,7 +109,7 @@ export const allowedNames = [
   'WAM Entertainment Law',
   'Vertical',
   'Viri Veri',
-  'Productions Viri Veri', // the lockup reads "TRU★MEN Productions · Viri Veri"
+  'Viri Veri Productions',
   'Productions',
   'Georgia', // the typeface, in CSS comments only
   'Cal.com',

@@ -11,8 +11,9 @@ const CREAM = '#f3ebdd';
 const BRASS = '#b08d57';
 const GREEN = '#2e6b4f';
 const GOLD = '#d4af37';
+void GOLD;
 
-const STAR = 'M12 1.6l2.9 7.1 7.7.5-5.9 4.9 1.9 7.4-6.6-4.1-6.6 4.1 1.9-7.4L1.4 9.2l7.7-.5z';
+import { lockupNested } from '../lib/lockup.mjs';
 
 /**
  * The scales: a post, a beam, two pans. Drawn plainly on purpose — the one
@@ -53,12 +54,8 @@ export function keyArt({ width = 600, height = 750, decorative = false, id = 'ke
   <text x="300" y="392" text-anchor="middle" font-family="Georgia, 'Iowan Old Style', 'Times New Roman', serif" font-size="58" letter-spacing="6" fill="${CREAM}">ESTABLISHED</text>
   <line x1="200" y1="430" x2="400" y2="430" stroke="${BRASS}" stroke-width="3"/>
   ${scales(190, 470, 1)}
-  <text x="300" y="668" text-anchor="middle" font-family="Georgia, 'Iowan Old Style', 'Times New Roman', serif" font-size="17" font-style="italic" letter-spacing="2" fill="${BRASS}">A true story from the public record</text>
-  <g transform="translate(236 686)">
-    <text x="0" y="16" font-family="Poppins, 'Helvetica Neue', Arial, sans-serif" font-style="italic" font-weight="700" font-size="18" letter-spacing="1" fill="${CREAM}">TRU</text>
-    <g transform="translate(42 1) scale(0.72)"><path d="${STAR}" fill="${GOLD}"/></g>
-    <text x="64" y="16" font-family="Poppins, 'Helvetica Neue', Arial, sans-serif" font-style="italic" font-weight="700" font-size="18" letter-spacing="1" fill="${CREAM}">MEN</text>
-  </g>
+  <text x="300" y="652" text-anchor="middle" font-family="Georgia, 'Iowan Old Style', 'Times New Roman', serif" font-size="17" font-style="italic" letter-spacing="2" fill="${BRASS}">A true story from the public record</text>
+  ${lockupNested({ variant: 'navy', x: 195, y: 668, width: 210, idPrefix: `${id}-lockup` })}
 </svg>`.trim();
 }
 
@@ -74,12 +71,7 @@ export function keyArtCard() {
   <line x1="120" y1="420" x2="420" y2="420" stroke="${BRASS}" stroke-width="3"/>
   <text x="120" y="478" font-family="Georgia, serif" font-size="26" font-style="italic" fill="${BRASS}">A true story from the public record · Private offering · Accredited investors only</text>
   ${scales(820, 160, 1.4)}
-  <g transform="translate(120 540)">
-    <text x="0" y="24" font-family="Poppins, sans-serif" font-style="italic" font-weight="700" font-size="28" letter-spacing="1" fill="${CREAM}">TRU</text>
-    <g transform="translate(62 2) scale(1.1)"><path d="${STAR}" fill="${GOLD}"/></g>
-    <text x="96" y="24" font-family="Poppins, sans-serif" font-style="italic" font-weight="700" font-size="28" letter-spacing="1" fill="${CREAM}">MEN</text>
-    <text x="178" y="24" font-family="Poppins, sans-serif" font-weight="500" font-size="16" letter-spacing="6" fill="${CREAM}">PRODUCTIONS</text>
-  </g>
+  ${lockupNested({ variant: 'navy', x: 118, y: 474, width: 320, idPrefix: 'card-lockup' })}
 </svg>`.trim();
 }
 

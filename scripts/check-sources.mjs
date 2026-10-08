@@ -16,7 +16,7 @@
 
 import { comps, candidates } from '../src/invest/config/comps.mjs';
 
-const UA = 'Mozilla/5.0 (compatible; TRU-MEN-source-check/1.0; +https://trumen-productions.netlify.app)';
+const UA = 'Mozilla/5.0 (compatible; VIRI-VERI-source-check/1.0; +https://viri-veri-productions.netlify.app)';
 
 async function probe(url) {
   const controller = new AbortController();

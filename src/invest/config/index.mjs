@@ -66,7 +66,7 @@ export const OfferingSchema = s.object({
   issuer: s.pendingOr(s.object({ legalName: s.string({ min: 1 }), state: s.string({ min: 2 }) })),
   sponsor: s.object({
     legalName: s.literal('Revelatory Productions, LLC'),
-    brand: s.literal('TRU★MEN Productions'),
+    brand: s.literal('VIRI VERI Productions'),
     brandCleared: s.boolean(),
   }),
   exemption: s.pendingOr(s.enum(['506(c)', '506(b)', 'other'])),
@@ -160,7 +160,7 @@ export const MarketingSchema = s.object({
 export const SiteSchema = s.object({
   domain: s.pendingOr(s.string({ pattern: /^https:\/\/[a-z0-9.-]+$/ })),
   contact: s.object({ email: s.string({ pattern: /^[^@\s]+@[^@\s]+\.[a-z]+$/i }), subject: s.string({ min: 1 }) }),
-  entity: s.object({ legalName: s.string({ min: 1 }), brand: s.literal('TRU★MEN Productions'), address: s.string({ min: 10 }) }),
+  entity: s.object({ legalName: s.string({ min: 1 }), brand: s.literal('VIRI VERI Productions'), address: s.string({ min: 10 }) }),
   booking: s.object({
     host: s.pendingOr(s.object({ name: s.string({ min: 1 }), calendar: s.string({ min: 1 }) })),
     hostTitle: s.string({ min: 1 }),

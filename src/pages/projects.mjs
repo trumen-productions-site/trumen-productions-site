@@ -71,14 +71,14 @@ export default {
   path: '/projects/',
   title: 'Projects',
   description:
-    'The TRU★MEN Productions slate: the memoir Clearly Established, the companion legal volume ' +
+    'The VIRI VERI Productions slate: the memoir Clearly Established, the companion legal volume ' +
     'The Liberty Argument, a completed feature screenplay, an eighty-episode vertical series, ' +
     'and the documentary Estelusti: What They Outlived.',
   jsonLd: [
     {
       '@context': 'https://schema.org',
       '@type': 'ItemList',
-      name: 'TRU★MEN Productions — the slate',
+      name: 'VIRI VERI Productions — the slate',
       itemListElement: projects.map((p, i) => ({
         '@type': 'ListItem',
         position: i + 1,

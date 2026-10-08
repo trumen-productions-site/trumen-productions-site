@@ -70,7 +70,7 @@ const TRANSCRIPT = {
   Close: `
     <p class="lead">Clearly Established</p>
     <p>${esc(film.closing.line)}</p>
-    <p>A feature film · Based on a true story. TRU★MEN Productions — Michael &amp; David Martin · <em>Viri Veri</em>.</p>`,
+    <p>A feature film · Based on a true story. VIRI VERI Productions — Michael &amp; David Martin · <em>men of truth</em>.</p>`,
 };
 
 const playerConfig = JSON.stringify({

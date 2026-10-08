@@ -22,7 +22,7 @@ const invest = pages.filter((p) => INVEST_PATHS.includes(p.sitePath));
 
 describe('LINT-01 forbidden strings', () => {
   test('hype is caught', () => {
-    for (const bad of ['a guaranteed return', 'risk-free', 'you can’t lose', 'a sure thing', 'a safe investment', 'TRU*MEN', 'Truman Productions']) {
+    for (const bad of ['a guaranteed return', 'risk-free', 'you can’t lose', 'a sure thing', 'a safe investment', 'TRU*MEN', 'Truman Productions', 'TRU★MEN Productions', 'TruMen', 'Veri Veri']) {
       assert.ok(lintForbidden(bad).length > 0, `"${bad}" should be forbidden`);
     }
   });

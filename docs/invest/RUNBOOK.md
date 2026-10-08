@@ -45,7 +45,7 @@ the `invest-e2e-output` artefact.
 
 ## 3. Staging
 
-A Cloudflare Pages project, `trumen-invest`, with the `staging` branch behind **Cloudflare Access** (Zero Trust →
+A Cloudflare Pages project, `viri-veri-invest`, with the `staging` branch behind **Cloudflare Access** (Zero Trust →
 Access → Applications → self-hosted, the staging hostname, an allow policy on an email list). Nobody outside the list
 reaches it; the page additionally carries `noindex, nofollow`, an `X-Robots-Tag`, and the red ribbon.
 
@@ -55,14 +55,14 @@ Once, from a machine with the Cloudflare account:
 npx wrangler login
 npx wrangler d1 create ce_invest                  # paste database_id into wrangler.toml
 npx wrangler d1 migrations apply ce_invest --remote
-npx wrangler pages project create trumen-invest --production-branch production
+npx wrangler pages project create viri-veri-invest --production-branch production
 # secrets — never in a file, never in the repository
-for s in TURNSTILE_SECRET RESEND_API_KEY CALCOM_API_KEY IP_SALT CRON_SECRET; do npx wrangler pages secret put $s --project-name trumen-invest; done
+for s in TURNSTILE_SECRET RESEND_API_KEY CALCOM_API_KEY IP_SALT CRON_SECRET; do npx wrangler pages secret put $s --project-name viri-veri-invest; done
 ```
 
 Then every push to `main` deploys staging through `.github/workflows/invest-deploy.yml`, if the repository secrets
 `CLOUDFLARE_API_TOKEN` (Pages:Edit, D1:Edit) and `CLOUDFLARE_ACCOUNT_ID` are set. Without them the workflow builds
-and tests and deploys nothing. Manually: `npm run build && npx wrangler pages deploy dist --project-name trumen-invest --branch staging`.
+and tests and deploys nothing. Manually: `npm run build && npx wrangler pages deploy dist --project-name viri-veri-invest --branch staging`.
 
 Staging variables (`wrangler.toml → [vars]`) use the mock scheduler and mock Turnstile so the flow can be walked
 end to end on the staging URL. Switch `SCHEDULER` to `calcom` on staging once Phase 4 begins (§ 7).
@@ -195,7 +195,7 @@ calendar, so follow each booking by hand from the producer's *Booked* notice —
 
 | | Where |
 |---|---|
-| Static pages, Functions, headers | Cloudflare Pages project `trumen-invest` (`wrangler.toml`) |
+| Static pages, Functions, headers | Cloudflare Pages project `viri-veri-invest` (`wrangler.toml`) |
 | Database | D1 `ce_invest`; schema `db/migrations/0001_init.sql` |
 | Rate limits | `/api/lead` 10 / 10 min per address (plain form 3 / hour); `/api/slots` 60 / 10 min; `/api/book` 20 / 10 min; `/api/event` 240 / 10 min; `/api/follow` 5 / hour |
 | Booking window | lead time 4 h (`BOOKING_LEAD_TIME_HOURS`), horizon 60 days (`BOOKING_HORIZON_DAYS`), 30 minutes (`BOOKING_DURATION_MINUTES`) |

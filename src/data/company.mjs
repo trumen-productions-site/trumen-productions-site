@@ -6,7 +6,7 @@
 
 /**
  * The spine of the work — Provocation, Prevarication, Revocation.
- * Everything TRU★MEN makes sits on one of these three beats.
+ * Everything VIRI VERI makes sits on one of these three beats.
  */
 export const spine = [
   {
@@ -149,7 +149,7 @@ export const brothers = [
         'sentence, the appeal, and the reversal, he kept the file — the transcripts, the ' +
         'filings, the two versions of the same opinion — because someone had to keep a copy ' +
         'the State could not revise.',
-      'He co-writes and co-produces every TRU★MEN project, and leads the company’s research ' +
+      'He co-writes and co-produces every VIRI VERI project, and leads the company’s research ' +
         'and rights work, including the seven generations of documentation behind The ' +
         'Liberty Argument.',
     ],
@@ -162,12 +162,13 @@ export const brothers = [
  */
 export const news = [
   {
-    date: '2026-08-01',
-    dateLabel: 'August 2026',
-    title: 'Introducing TRU★MEN Productions',
+    date: '2026-10-07',
+    dateLabel: 'October 2026',
+    title: 'Introducing VIRI VERI Productions',
     body:
-      'Revelatory Productions, LLC begins operating as TRU★MEN Productions — a family ' +
-      'company for true stories that hold up in court, on the page, and on screen.',
+      'Revelatory Productions, LLC operates as VIRI VERI Productions — the family motto, ' +
+      '“men of truth,” now the name over the door: a company for true stories that hold up ' +
+      'in court, on the page, and on screen.',
   },
   {
     date: '2026-08-15',

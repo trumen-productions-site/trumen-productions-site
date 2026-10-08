@@ -24,7 +24,7 @@ signature — a name without `signed`, or `signed` without a date — is refused
 |---|---|---|---|
 | `G_TRADEMARK` | Class 41 ITU filed for the mark (Gate G) | Alexa Whiteside | The mark is on every page. Public use before filing weakens the position the Plan of Action is built around. |
 | `G_COPYRIGHT` | Copyright applications filed for the works named on the page | Alexa Whiteside | The page names the memoir, the screenplay and Episodes 1–11 as material that exists. |
-| `G_DBA` | TRU★MEN Productions name cleared and DBA registered — or the footer set to the legal name only | Alexa Whiteside | The footer says `d/b/a TRU★MEN Productions` only when `offering.sponsor.brandCleared` is true. |
+| `G_DBA` | VIRI VERI Productions name cleared and DBA registered — or the footer set to the legal name only | Alexa Whiteside | The footer says `d/b/a VIRI VERI Productions` only when `offering.sponsor.brandCleared` is true. The pivot from TRU★MEN on October 7, 2026 reset this gate: the new name needs its own clearance. |
 | `G_SECURITIES` | Securities counsel approved the structure, issuer, documents, Form D and state notice plan, verification method | Securities counsel, via Alexa | A public page promoted with paid ads is general solicitation. Lawful only under an exemption that permits it (the page assumes Rule 506(c)) with real obligations: accredited investors only, reasonable verification, Form D, state notices. Entertainment counsel's sign-off does not cover it. |
 | `G_COPY` | Every word approved, including story claims and names | Alexa Whiteside | The page makes factual claims about a court case and two living people. |
 | `G_TAX` | Tax wording approved | CPA / tax counsel | Required only when `features.taxSection` is on; the tax card and tile read nothing but the signed text in `legal.tax`. |
@@ -50,8 +50,9 @@ file in `src/invest/config/`. `npm run check:forbidden`.
 - **Hype and promises** — `guarantee` (permitted only in `legal.mjs` and the rendered disclaimer footer),
   `risk-free`, `can't lose`, `sure thing`, `safe investment`; `passive income` unless `G_TAX`. A private offering
   page that promises an outcome is a liability, not a sales page.
-- **Brand** — `TRU*MEN` (the mark takes the star glyph), `TRUMAN Productions`, `A South Carolina production house`
-  (superseded tagline). The mark is always `TRU★MEN Productions`.
+- **Brand** — the retired mark in every spelling (`TRU★MEN`, `TRU*MEN`, `TruMen`, `TRU MEN`, `Truman Productions`), the
+  misspellings of the new one (`Veri Veri`, `Viri Viri`, `VIRI*VERI`), and `A South Carolina production house`
+  (superseded tagline). The name is always `VIRI VERI Productions`; the mark is the supplied lockup, never typeset.
 - **Removed or superseded** — `Lisa Davis`, `Frankfurt Kurnit`, `Swanson Plantation`, `sixty-plus days`, `Loyd`,
   `Eve Stacey`, `Summerville`, `nineteen`. Each was corrected in the canon; none may come back.
 - **Out of scope** — `Green Plan`, `Danny Boy`, `MACRO`, `Mansa`, `Allen Media`, `BuzzFeed`, `muVpix`,

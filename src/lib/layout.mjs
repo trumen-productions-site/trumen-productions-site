@@ -96,7 +96,7 @@ function head({
   // A page may set its own robots directive (the investor pages are
   // `noindex, nofollow`); `noindex: true` keeps the older "noindex, follow".
   const robotsContent = robots || (noindex ? 'noindex, follow' : null);
-  const og = ogImage || { src: '/assets/img/og-default.png', width: 1200, height: 630, alt: 'TRU★MEN Productions — Viri Veri' };
+  const og = ogImage || { src: '/assets/img/og-default.png', width: 1200, height: 630, alt: 'VIRI VERI Productions — men of truth' };
 
   return `
 <meta charset="utf-8">
@@ -155,7 +155,7 @@ function header(path) {
 <header class="site-header" data-site-header>
   <div class="site-header__inner container">
     <a class="site-header__brand" href="/" ${path === '/' ? 'aria-current="page"' : ''}>
-      ${wordmark({ size: 'sm', productions: true })}
+      ${wordmark({ size: 'sm', tone: 'light' })}
       <span class="visually-hidden">${esc(site.namePlain)} — home</span>
     </a>
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-nav-toggle>
@@ -190,7 +190,7 @@ export function newsletter() {
   const href = mailto(
     site.contact.general,
     site.subjects.newsletter,
-    'Please add me to the TRU★MEN Productions updates list.\n\nName:\n',
+    'Please add me to the VIRI VERI Productions updates list.\n\nName:\n',
   );
   return `
 <section class="newsletter" aria-labelledby="newsletter-title">
@@ -221,7 +221,7 @@ function footer() {
   <div class="container">
     <div class="site-footer__top">
       <div class="site-footer__brand">
-        ${wordmark({ size: 'md', productions: true, motto: true })}
+        ${wordmark({ size: 'md', tone: 'dark', motto: true })}
         <p class="site-footer__tagline">${esc(site.tagline)}</p>
         ${when(
           site.contact.phone,
@@ -251,7 +251,7 @@ function footer() {
     </div>
     <div class="site-footer__legal">
       <p>© ${year} ${esc(site.legalLine)}</p>
-      <p class="site-footer__motto">${star({ size: 12, fill: '#ec3013' })} <em>${esc(site.motto)}</em> — ${esc(site.mottoTranslation)}</p>
+      <p class="site-footer__motto">${star({ size: 12 })} <em>${esc(site.motto)}</em> — ${esc(site.mottoTranslation)}</p>
     </div>
   </div>
 </footer>`.trim();
