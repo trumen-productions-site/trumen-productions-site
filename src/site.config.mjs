@@ -1,5 +1,5 @@
 /**
- * TRU★MEN Productions — site configuration.
+ * VIRI★VERI Productions — site configuration.
  *
  * This is the single source of truth for everything that is not page prose:
  * the company identity, contact routing, navigation, and the verified facts
@@ -18,13 +18,16 @@
 
 export const site = {
   // ── Identity ───────────────────────────────────────────────────────────
-  name: 'TRU★MEN Productions',
-  nameParts: { before: 'TRU', after: 'MEN' }, // the star is drawn, not typed
-  namePlain: 'TruMen Productions',
+  // The pivot of October 7, 2026 (per counsel): the motto becomes the name.
+  // Written VIRI VERI Productions in text; the lockup (the supplied SVG with
+  // the faceted star between the words) wherever the mark is shown.
+  name: 'VIRI VERI Productions',
+  nameParts: { before: 'VIRI', after: 'VERI' }, // the star is drawn, not typed
+  namePlain: 'Viri Veri Productions',
   legalEntity: 'Revelatory Productions, LLC',
   legalLine:
-    'Revelatory Productions, LLC, doing business as TRU★MEN Productions. ' +
-    'TRU★MEN and the star mark are trademarks of Revelatory Productions, LLC; registration pending.',
+    'Revelatory Productions, LLC, doing business as VIRI VERI Productions. ' +
+    'VIRI VERI and the star mark are trademarks of Revelatory Productions, LLC; registration pending.',
   motto: 'Viri Veri',
   mottoTranslation: 'Men of truth',
   tagline: 'We tell true stories that hold up — in court, on the page, and on screen.',
@@ -38,12 +41,12 @@ export const site = {
   // Provisional: a free Netlify subdomain, claimed at deploy time. When a real
   // domain is registered, change this one line, rebuild, and redeploy — nothing
   // else in the project refers to the domain.
-  url: 'https://trumen-productions.netlify.app',
+  url: 'https://viri-veri-productions.netlify.app',
 
   // A short description used for <meta name="description"> fallbacks,
   // Open Graph, and structured data.
   description:
-    'TRU★MEN Productions is a family film and publishing company founded by brothers ' +
+    'VIRI VERI Productions is a family film and publishing company founded by brothers ' +
     'Michael and David Martin. We tell true stories that hold up — in court, on the ' +
     'page, and on screen. Featured project: Clearly Established.',
 
@@ -70,18 +73,18 @@ export const site = {
 
   // Subject lines are prefilled so inbound mail is self-sorting.
   subjects: {
-    general: 'Inquiry via trumenproductions.com',
+    general: 'Inquiry via the VIRI VERI Productions website',
     rights: 'Rights & representation inquiry — Clearly Established',
     financing: 'Financing / production partnership inquiry — Clearly Established',
-    press: 'Press inquiry — TRU★MEN Productions',
-    newsletter: 'Subscribe me to TRU★MEN updates',
+    press: 'Press inquiry — VIRI VERI Productions',
+    newsletter: 'Subscribe me to VIRI VERI updates',
   },
 
   // ── Social ─────────────────────────────────────────────────────────────
   // Omit or set to null to hide. Nothing is rendered for an empty list.
   social: [
     // TODO: add real profiles, e.g.
-    // { label: 'Instagram', href: 'https://instagram.com/trumenproductions' },
+    // { label: 'Instagram', href: 'https://instagram.com/viriveriproductions' },
   ],
 
   // ── Navigation ─────────────────────────────────────────────────────────

@@ -13,7 +13,7 @@ package-lock.json
 
 # Generated on demand by `npm run pitch`.
 clearly-established-pitch.html
-trumen-site-preview.html
+viri-veri-site-preview.html
 
 # Reel renders — regenerate with `cd four-rules-reels && make all`.
 four-rules-reels/out/*.mp4
@@ -25,3 +25,10 @@ __pycache__/
 four-rules-reels/out/QC_REPORT.md
 four-rules-reels/out/*.srt
 four-rules-reels/out/thumbnails/
+
+# Investor page: local secrets, the local SQLite database, E2E output, the demo folder.
+invest-demo/
+.dev.vars
+.data/
+.wrangler/
+test/e2e/output/

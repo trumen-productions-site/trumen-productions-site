@@ -253,14 +253,21 @@ describe('the mark', () => {
     }
   });
 
-  test('the wordmark is drawn with a star between TRU and MEN on every page', () => {
+  test('the mark is the supplied VIRI★VERI lockup on every page, never rebuilt from type', () => {
     for (const page of pages) {
       assert.ok(
-        /<span class="wordmark__word">TRU<\/span><svg[^>]*class="star wordmark__star"/.test(page.html) ||
-          page.html.includes('wordmark__star'),
-        `${page.sitePath} does not render the star mark`,
+        /<img class="wordmark__lockup" src="\/assets\/img\/viri-veri-lockup-(navy|transparent)\.svg" alt=""/.test(page.html),
+        `${page.sitePath} does not carry the lockup`,
       );
-      assert.ok(page.html.includes('>MEN</span>'), `${page.sitePath} is missing the MEN half of the wordmark`);
+      assert.ok(!page.html.includes('wordmark__word'), `${page.sitePath} typesets the mark`);
+    }
+  });
+
+  test('the retired mark never appears anywhere in the build', () => {
+    for (const page of pages) {
+      for (const old of ['TRU★MEN', 'TruMen', 'TRU MEN', 'TRU*MEN', 'trumen']) {
+        assert.ok(!page.html.includes(old), `${page.sitePath} still carries "${old}"`);
+      }
     }
   });
 
@@ -272,19 +279,13 @@ describe('the mark', () => {
   });
 
   /*
-   * Visible copy always shows the drawn mark. The plain spelling survives in
-   * two places on purpose: the <title>/meta, where a star glyph would look
-   * like mojibake in a search result, and inside .visually-hidden text, where
-   * it is the accessible name a screen reader reads instead of announcing
-   * "black star".
+   * In prose the company is written VIRI VERI Productions — two words, no
+   * star; the star is drawn only inside the lockup. A single-word spelling or
+   * a wrong vowel is the kind of thing that creeps in from a text editor.
    */
-  test('the wordmark is never typed as plain "TruMen" in visible body copy', () => {
+  test('the name is never misspelt in the build', () => {
     for (const page of pages) {
-      const main = (page.html.split('<main')[1]?.split('</main>')[0] ?? '').replace(
-        /<span class="visually-hidden">[\s\S]*?<\/span>/g,
-        '',
-      );
-      assert.ok(!/\bTruMen\b/.test(main), `${page.sitePath} types "TruMen" instead of the mark`);
+      assert.ok(!/ViriVeri|VeriVeri|Veri Veri|Viri Viri|VIRI\*VERI/.test(page.html), `${page.sitePath} misspells the name`);
     }
   });
 

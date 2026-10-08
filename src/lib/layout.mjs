@@ -74,11 +74,29 @@ function breadcrumbLd(path, title) {
    Head
    ───────────────────────────────────────────────────────────────────────── */
 
-function head({ title, description, path, ogType = 'website', jsonLd = [], css = [], preload = [], noindex = false }) {
-  const fullTitle = path === '/' ? `${site.namePlain} — ${site.motto}` : `${title} · ${site.namePlain}`;
+function head({
+  title,
+  description,
+  path,
+  ogType = 'website',
+  jsonLd = [],
+  css = [],
+  preload = [],
+  noindex = false,
+  robots = null,
+  ogImage = null,
+  titleOverride = null,
+  fonts = true,
+  baseCss = true,
+}) {
+  const fullTitle = titleOverride || (path === '/' ? `${site.namePlain} — ${site.motto}` : `${title} · ${site.namePlain}`);
   const desc = clip(description || site.description, 300);
   const canonical = absolute(path);
   const ld = [organizationLd(), websiteLd(), breadcrumbLd(path, title), ...jsonLd].filter(Boolean);
+  // A page may set its own robots directive (the investor pages are
+  // `noindex, nofollow`); `noindex: true` keeps the older "noindex, follow".
+  const robotsContent = robots || (noindex ? 'noindex, follow' : null);
+  const og = ogImage || { src: '/assets/img/og-default.png', width: 1200, height: 630, alt: 'VIRI VERI Productions — men of truth' };
 
   return `
 <meta charset="utf-8">
@@ -86,7 +104,7 @@ function head({ title, description, path, ogType = 'website', jsonLd = [], css =
 <title>${esc(fullTitle)}</title>
 <meta name="description" content="${esc(desc)}">
 <link rel="canonical" href="${esc(canonical)}">
-${when(noindex, '<meta name="robots" content="noindex, follow">')}
+${when(robotsContent, `<meta name="robots" content="${esc(robotsContent)}">`)}
 <meta name="color-scheme" content="light">
 <meta name="theme-color" content="#0b1f3a">
 
@@ -96,24 +114,31 @@ ${when(noindex, '<meta name="robots" content="noindex, follow">')}
 <meta property="og:description" content="${esc(desc)}">
 <meta property="og:url" content="${esc(canonical)}">
 <meta property="og:locale" content="${esc(site.locale)}">
-<meta property="og:image" content="${esc(absolute('/assets/img/og-default.png'))}">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="TRU★MEN Productions — Viri Veri">
+<meta property="og:image" content="${esc(absolute(og.src))}">
+<meta property="og:image:width" content="${esc(og.width)}">
+<meta property="og:image:height" content="${esc(og.height)}">
+<meta property="og:image:alt" content="${esc(og.alt)}">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="${esc(fullTitle)}">
 <meta name="twitter:description" content="${esc(desc)}">
-<meta name="twitter:image" content="${esc(absolute('/assets/img/og-default.png'))}">
+<meta name="twitter:image" content="${esc(absolute(og.src))}">
 
 <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
+${when(
+  fonts,
+  `<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="${esc(FONT_HREF)}">
-${each(preload, (p) => `<link rel="preload" href="${esc(p.href)}" as="${esc(p.as)}"${p.crossorigin ? ' crossorigin' : ''}>`)}
-<link rel="stylesheet" href="/assets/css/site.css">
+<link rel="stylesheet" href="${esc(FONT_HREF)}">`,
+)}
+${each(preload, (p) =>
+  p.as === 'module'
+    ? `<link rel="modulepreload" href="${esc(p.href)}">`
+    : `<link rel="preload" href="${esc(p.href)}" as="${esc(p.as)}"${p.crossorigin ? ' crossorigin' : ''}>`,
+)}
+${when(baseCss, '<link rel="stylesheet" href="/assets/css/site.css">')}
 ${each(css, (href) => `<link rel="stylesheet" href="${esc(href)}">`)}
 ${each(ld, (obj) => `<script type="application/ld+json">${JSON.stringify(obj)}</script>`)}
 `.trim();
@@ -130,7 +155,7 @@ function header(path) {
 <header class="site-header" data-site-header>
   <div class="site-header__inner container">
     <a class="site-header__brand" href="/" ${path === '/' ? 'aria-current="page"' : ''}>
-      ${wordmark({ size: 'sm', productions: true })}
+      ${wordmark({ size: 'sm', tone: 'light' })}
       <span class="visually-hidden">${esc(site.namePlain)} — home</span>
     </a>
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-nav-toggle>
@@ -165,7 +190,7 @@ export function newsletter() {
   const href = mailto(
     site.contact.general,
     site.subjects.newsletter,
-    'Please add me to the TRU★MEN Productions updates list.\n\nName:\n',
+    'Please add me to the VIRI VERI Productions updates list.\n\nName:\n',
   );
   return `
 <section class="newsletter" aria-labelledby="newsletter-title">
@@ -196,7 +221,7 @@ function footer() {
   <div class="container">
     <div class="site-footer__top">
       <div class="site-footer__brand">
-        ${wordmark({ size: 'md', productions: true, motto: true })}
+        ${wordmark({ size: 'md', tone: 'dark', motto: true })}
         <p class="site-footer__tagline">${esc(site.tagline)}</p>
         ${when(
           site.contact.phone,
@@ -226,7 +251,7 @@ function footer() {
     </div>
     <div class="site-footer__legal">
       <p>© ${year} ${esc(site.legalLine)}</p>
-      <p class="site-footer__motto">${star({ size: 12, fill: '#ec3013' })} <em>${esc(site.motto)}</em> — ${esc(site.mottoTranslation)}</p>
+      <p class="site-footer__motto">${star({ size: 12 })} <em>${esc(site.motto)}</em> — ${esc(site.mottoTranslation)}</p>
     </div>
   </div>
 </footer>`.trim();
@@ -248,6 +273,13 @@ function footer() {
  * @param {string[]} [page.js]      extra scripts, loaded as modules, deferred
  * @param {object[]} [page.jsonLd]  extra structured-data objects
  * @param {boolean} [page.chrome]   set false to omit header/footer (the player)
+ * @param {object}  [page.frame]    with chrome off, HTML to place before and after <main>
+ *                                  ({ before, after }) — the investor pages' own header and footer
+ * @param {string}  [page.robots]   a robots directive to emit verbatim
+ * @param {object}  [page.ogImage]  { src, width, height, alt } to replace the default card
+ * @param {string}  [page.bodyAttrs] extra attributes for <body>
+ * @param {boolean} [page.fonts]     set false to skip the web-font stylesheet (the investor pages)
+ * @param {boolean} [page.baseCss]   set false to skip site.css; the page lists its own base stylesheet in `css`
  */
 export function render(page) {
   const {
@@ -263,21 +295,34 @@ export function render(page) {
     chrome = true,
     preload = [],
     noindex = false,
+    robots = null,
+    ogImage = null,
+    titleOverride = null,
+    frame = {},
+    bodyAttrs = '',
+    fonts = true,
+    baseCss = true,
   } = page;
+
+  // Scripts may be plain paths or { src, module: true } for ES modules.
+  const script = (entry) =>
+    typeof entry === 'string'
+      ? `<script src="${esc(entry)}" defer></script>`
+      : `<script src="${esc(entry.src)}"${entry.module ? ' type="module"' : ' defer'}></script>`;
 
   return `<!doctype html>
 <html lang="${esc(site.lang)}">
 <head>
-${head({ title, description, path, ogType, jsonLd, css, preload, noindex })}
+${head({ title, description, path, ogType, jsonLd, css, preload, noindex, robots, ogImage, titleOverride, fonts, baseCss })}
 </head>
-<body class="${esc(bodyClass)}">
-${chrome ? header(path) : ''}
+<body class="${esc(bodyClass)}"${bodyAttrs ? ` ${bodyAttrs}` : ''}>
+${chrome ? header(path) : frame.before || ''}
 <main id="main" class="site-main">
 ${body}
 </main>
-${chrome ? `${newsletter()}\n${footer()}` : ''}
+${chrome ? `${newsletter()}\n${footer()}` : frame.after || ''}
 <script src="/assets/js/site.js" defer></script>
-${each(js, (src) => `<script src="${esc(src)}" defer></script>`)}
+${each(js, script)}
 </body>
 </html>
 `;

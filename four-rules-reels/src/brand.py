@@ -292,13 +292,13 @@ def scales(width: int = 220, color: tuple[int, int, int] = BRASS) -> Image.Image
 
 def _placeholder_lockup(width: int) -> Image.Image:
     """
-    Stand-in for brand/trumen-lockup.png.
+    Stand-in for brand/viri-veri-lockup.png.
 
     The brand rules say the lockup is supplied and must never be rebuilt from
     type. It was not supplied with this handoff, so this is a structural
     placeholder that satisfies the end card's composition and is flagged in
     QC_REPORT.md on every render. Drop the real 2400×1131 PNG into
-    brand/trumen-lockup.png and it is used instead, with no code change.
+    brand/viri-veri-lockup.png and it is used instead, with no code change.
     """
     height = int(width * 1131 / 2400)
     img = Image.new("RGBA", (width, height), NAVY + (255,))
@@ -307,25 +307,24 @@ def _placeholder_lockup(width: int) -> Image.Image:
     star = Image.new("RGBA", (mark_size, mark_size), (0, 0, 0, 0))
     ImageDraw.Draw(star).polygon(_star_points(mark_size), fill=GOLD)
 
-    f_mark = font(mark_size, "italic")
-    left = draw_text(img, "TRU", xy=(0, height // 2), f=f_mark, fill=CREAM, anchor="lm")
+    f_mark = font(mark_size, "regular")
+    left = draw_text(img, "VIRI", xy=(0, height // 2), f=f_mark, fill=CREAM, anchor="lm")
     gap = int(mark_size * 0.16)
-    total = left.w + gap + mark_size + gap + measure("MEN", f_mark)[0]
+    total = left.w + gap + mark_size + gap + measure("VERI", f_mark)[0]
     x = (width - total) // 2
     img.paste(NAVY + (255,), (0, 0, width, height))
-    draw_text(img, "TRU", xy=(x, int(height * 0.42)), f=f_mark, fill=CREAM, anchor="lm")
+    draw_text(img, "VIRI", xy=(x, int(height * 0.42)), f=f_mark, fill=CREAM, anchor="lm")
     img.alpha_composite(star, (x + left.w + gap, int(height * 0.42) - mark_size // 2))
-    draw_text(img, "MEN", xy=(x + left.w + gap + mark_size + gap, int(height * 0.42)), f=f_mark, fill=CREAM, anchor="lm")
+    draw_text(img, "VERI", xy=(x + left.w + gap + mark_size + gap, int(height * 0.42)), f=f_mark, fill=CREAM, anchor="lm")
 
-    sub = font(int(width * 0.035), "regular")
-    draw_text(img, "PRODUCTIONS", xy=(width // 2, int(height * 0.70)), f=sub, fill=BRASS, anchor="mt", tracking=int(width * 0.022))
     d = ImageDraw.Draw(img)
     d.line(
-        [(int(width * 0.10), int(height * 0.80)), (int(width * 0.90), int(height * 0.80))],
+        [(int(width * 0.10), int(height * 0.66)), (int(width * 0.90), int(height * 0.66))],
         fill=BRASS,
         width=max(2, width // 600),
     )
-    draw_text(img, "VIRI VERI", xy=(width // 2, int(height * 0.84)), f=sub, fill=BRASS, anchor="mt", tracking=int(width * 0.012))
+    sub = font(int(width * 0.035), "regular")
+    draw_text(img, "PRODUCTIONS", xy=(width // 2, int(height * 0.72)), f=sub, fill=CREAM, anchor="mt", tracking=int(width * 0.022))
     return img
 
 
@@ -348,7 +347,7 @@ LOCKUP_IS_PLACEHOLDER = False
 def lockup(width: int = 900) -> Image.Image:
     """The end-card lockup, scaled to `width`. Supplied PNG wins if present."""
     global LOCKUP_IS_PLACEHOLDER
-    supplied = ROOT / "brand" / "trumen-lockup.png"
+    supplied = ROOT / "brand" / "viri-veri-lockup.png"
     if supplied.exists():
         LOCKUP_IS_PLACEHOLDER = False
         img = Image.open(supplied).convert("RGBA")

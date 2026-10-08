@@ -15,6 +15,9 @@ what it expected — nothing is ever half-published.
 
 ---
 
+> **The investor page** (`/invest/`) has its own guide: [`docs/invest/CONTENT.md`](invest/CONTENT.md).
+> Its copy lives in `src/invest/config/`, and undecided terms are `pending(…)` values, not blanks.
+
 ## The one rule
 
 **Copy lives in `src/data/`. Layout lives in `src/pages/`.**
@@ -64,7 +67,7 @@ page, the newsletter button, and the structured data.
 
 ```js
 contact: {
-  general: 'hello@trumenproductions.com',
+  general: 'hello@viriveriproductions.com',
   …
 }
 ```

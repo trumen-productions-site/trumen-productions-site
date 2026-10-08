@@ -97,6 +97,9 @@ describe('navigation', () => {
     }
     for (const page of pages) {
       if (page.sitePath === '/' || page.sitePath === '/404.html') continue;
+      // The investor pages ship dark: `noindex, nofollow`, deliberately
+      // unlinked from the company site until the launch gates are signed.
+      if (page.html.includes('<meta name="robots" content="noindex, nofollow">')) continue;
       assert.ok(reachable.has(page.sitePath), `${page.sitePath} is more than two clicks from home`);
     }
   });

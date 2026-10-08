@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════════════════════════════════
-   TRU★MEN Productions — site stylesheet
+   VIRI★VERI Productions — site stylesheet
    ───────────────────────────────────────────────────────────────────────────
    One file, no build step, no preprocessor. Organised as:
 
@@ -21,7 +21,8 @@
 /* ── 1. Tokens ────────────────────────────────────────────────────────── */
 
 :root {
-  /* TRU★MEN brand — LOCKED July 12, 2026. The same five values the reel
+  /* VIRI★VERI brand — palette LOCKED July 12, 2026; the mark is the supplied
+     lockup (October 7, 2026). The same five values the reel
      pipeline uses (four-rules-reels/brand/tokens.json). */
   --navy: #0b1f3a;
   --cream: #f3ebdd;
@@ -318,69 +319,44 @@ strong {
   color: var(--cream);
 }
 
-/* — the wordmark — */
+/* — the wordmark: the supplied VIRI★VERI lockup, as an image — */
 
 .wordmark {
   display: inline-flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 0.22em;
-  font-family: var(--font-sign);
+  gap: 0.5em;
   line-height: 1;
   color: inherit;
-  --wm: 1.5rem;
+  --wm: 9.5rem; /* the lockup's width */
 }
 
 .wordmark--sm {
-  --wm: clamp(1.15rem, 0.9rem + 0.8vw, 1.5rem);
+  --wm: clamp(8rem, 6rem + 5vw, 12rem);
 }
 .wordmark--md {
-  --wm: clamp(1.6rem, 1.2rem + 1.4vw, 2.2rem);
+  --wm: clamp(11rem, 8rem + 8vw, 15rem);
 }
 .wordmark--lg {
-  --wm: clamp(2.4rem, 1.4rem + 4vw, 4.2rem);
+  --wm: clamp(16rem, 10rem + 18vw, 26rem);
 }
 .wordmark--xl {
-  --wm: clamp(3rem, 1.2rem + 8vw, 7rem);
+  --wm: clamp(18rem, 8rem + 36vw, 40rem);
 }
 
-.wordmark__line {
-  display: flex;
-  align-items: center;
-  gap: 0.18em;
-  font-size: var(--wm);
-  font-weight: 700;
-  font-style: italic;
-  letter-spacing: 0.03em;
-}
-
-.wordmark__star {
-  width: 0.62em;
-  height: 0.62em;
-  flex: none;
-  fill: var(--gold);
-  transform: translateY(-0.02em);
-}
-
-.on-brass .wordmark__star {
-  fill: var(--navy);
-}
-
-.wordmark__sub {
-  font-size: calc(var(--wm) * 0.28);
-  font-weight: 500;
-  letter-spacing: 0.45em;
-  text-transform: uppercase;
-  padding-left: 0.12em;
+.wordmark__lockup {
+  display: block;
+  width: var(--wm);
+  height: auto;
 }
 
 .wordmark__motto {
   font-family: var(--font-doc);
   font-style: italic;
-  font-size: calc(var(--wm) * 0.42);
-  letter-spacing: 0;
+  font-size: calc(var(--wm) * 0.09);
+  letter-spacing: 0.02em;
   color: var(--muted);
-  margin-top: 0.15em;
+  padding-left: 0.3em;
 }
 
 /* — header — */

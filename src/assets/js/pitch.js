@@ -23,7 +23,7 @@
      data-panel="qIn,qOut"               the red question field's slide
      data-at="t"                         hard cut to visible at t
 
-   Public surface: `window.TruMenPitch.create(rootElement, options)`.
+   Public surface: `window.ViriVeriPitch.create(rootElement, options)`.
    ═══════════════════════════════════════════════════════════════════════ */
 
 (function () {
@@ -465,7 +465,7 @@
     return api;
   }
 
-  window.TruMenPitch = { create: create, Easing: Easing, fadeIO: fadeIO, animate: animate };
+  window.ViriVeriPitch = { create: create, Easing: Easing, fadeIO: fadeIO, animate: animate };
 
   /* ── Auto-boot every player on the page ───────────────────────────────── */
 

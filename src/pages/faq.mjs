@@ -43,7 +43,7 @@ export default {
   path: '/faq/',
   title: 'FAQ',
   description:
-    'Answers about TRU★MEN Productions, the Clearly Established case record, the erasure of ' +
+    'Answers about VIRI VERI Productions, the Clearly Established case record, the erasure of ' +
     'June 12, 2000, rights and representation, and how to reach us.',
   jsonLd: [
     {

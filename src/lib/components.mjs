@@ -13,30 +13,54 @@ import { esc, each, when, attrs, raw } from './html.mjs';
    ───────────────────────────────────────────────────────────────────────── */
 
 /**
- * The five-pointed star that sits between TRU and MEN.
+ * The faceted five-pointed star that sits between VIRI and VERI, in the three
+ * golds of the supplied lockup (VIRI VERI Productions Logo, Option C,
+ * October 7, 2026). The geometry is the logo's, normalised to a 24-unit box.
  * Drawn rather than typed so it never depends on a font shipping a glyph.
  */
-export function star({ size = 16, fill = 'currentColor', className = 'star' } = {}) {
-  return `<svg class="${esc(className)}" width="${size}" height="${size}" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 1.6l2.9 7.1 7.7.5-5.9 4.9 1.9 7.4-6.6-4.1-6.6 4.1 1.9-7.4L1.4 9.2l7.7-.5z" fill="${esc(fill)}"/></svg>`;
+export const STAR_FACETS = [
+  { points: '11.76,11.29 12.11,0.0 14.82,7.79', fill: '#E9C24A' },
+  { points: '11.76,11.29 14.82,7.79 22.73,8.06', fill: '#C9A03A' },
+  { points: '11.76,11.29 22.73,8.06 16.49,12.94', fill: '#C9A03A' },
+  { points: '11.76,11.29 16.49,12.94 21.18,24.0', fill: '#8A6A22' },
+  { points: '11.76,11.29 21.18,24.0 12.11,16.12', fill: '#E9C24A' },
+  { points: '11.76,11.29 12.11,16.12 5.68,20.37', fill: '#8A6A22' },
+  { points: '11.76,11.29 5.68,20.37 7.73,12.94', fill: '#C9A03A' },
+  { points: '11.76,11.29 7.73,12.94 1.27,7.99', fill: '#8A6A22' },
+  { points: '11.76,11.29 1.27,7.99 9.4,7.79', fill: '#E9C24A' },
+  { points: '11.76,11.29 9.4,7.79 12.11,0.0', fill: '#C9A03A' },
+];
+
+/** The star's outline, for a single-colour rendering. */
+export const STAR_OUTLINE = '12.11,0.0 14.82,7.79 22.73,8.06 16.49,12.94 21.18,24.0 12.11,16.12 5.68,20.37 7.73,12.94 1.27,7.99 9.4,7.79';
+
+/**
+ * The star. Faceted by default; pass `fill` for one colour (an icon, a
+ * monochrome field).
+ */
+export function star({ size = 16, fill = null, className = 'star' } = {}) {
+  const body = fill
+    ? `<polygon points="${STAR_OUTLINE}" fill="${esc(fill)}"/>`
+    : STAR_FACETS.map((f) => `<polygon points="${f.points}" fill="${f.fill}"/>`).join('');
+  return `<svg class="${esc(className)}" width="${size}" height="${size}" viewBox="0 0 24 24" aria-hidden="true" focusable="false">${body}</svg>`;
 }
 
 /**
- * The TRU★MEN wordmark.
+ * The VIRI★VERI Productions lockup — the supplied SVG, never rebuilt from
+ * type. The image is decorative (alt=""); callers put the spoken name
+ * beside it in a .visually-hidden span, as the header and footer do.
  *
  * @param {object}  o
  * @param {'sm'|'md'|'lg'|'xl'} o.size    visual scale
- * @param {boolean} o.productions         show the letterspaced PRODUCTIONS line
- * @param {boolean} o.motto               show "Viri Veri" beneath
- * @param {boolean} o.stacked             stack PRODUCTIONS under the wordmark
+ * @param {'light'|'dark'} o.tone          the ground it sits on: light → navy letterforms, dark → cream
+ * @param {boolean} o.motto               show "Men of truth" beneath
  */
-export function wordmark({ size = 'md', productions = true, motto = false, className = '' } = {}) {
+export function wordmark({ size = 'md', tone = 'light', motto = false, className = '' } = {}) {
+  const src = tone === 'dark' ? '/assets/img/viri-veri-lockup-navy.svg' : '/assets/img/viri-veri-lockup-transparent.svg';
   return `
 <span class="wordmark wordmark--${esc(size)} ${esc(className)}">
-  <span class="wordmark__line">
-    <span class="wordmark__word">TRU</span>${star({ size: 100, className: 'wordmark__star' })}<span class="wordmark__word">MEN</span>
-  </span>
-  ${when(productions, `<span class="wordmark__sub">Productions</span>`)}
-  ${when(motto, `<span class="wordmark__motto">Viri Veri</span>`)}
+  <img class="wordmark__lockup" src="${src}" alt="" width="2046" height="779" decoding="async">
+  ${when(motto, `<span class="wordmark__motto">Men of truth</span>`)}
 </span>`.trim();
 }
 

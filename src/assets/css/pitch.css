@@ -484,7 +484,7 @@
   flex-direction: column;
   align-items: flex-start;
   gap: calc(var(--pk-logo) * 0.22);
-  font-family: 'Poppins', sans-serif;
+  font-family: Georgia, 'Iowan Old Style', 'Times New Roman', serif;
   line-height: 1;
   color: var(--pk-ink);
 }
@@ -493,10 +493,10 @@
   display: flex;
   align-items: center;
   gap: calc(var(--pk-logo) * 0.2);
-  font-weight: 700;
-  font-style: italic;
+  font-weight: 400;
   font-size: var(--pk-logo);
-  letter-spacing: 0.03em;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .pk-logo__line svg {
@@ -507,7 +507,7 @@
 }
 
 .pk-logo__sub {
-  font-weight: 500;
+  font-weight: 400;
   font-size: calc(var(--pk-logo) * 0.28);
   letter-spacing: 0.45em;
   text-transform: uppercase;

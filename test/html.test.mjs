@@ -88,7 +88,11 @@ describe('document structure', () => {
       });
 
       test('loads its stylesheets and scripts by absolute path', () => {
-        assert.ok(page.html.includes('href="/assets/css/site.css"'), 'site.css not linked');
+        // The investor pages link the build-time subset of site.css instead (src/invest/lib/css-subset.mjs).
+        assert.ok(
+          page.html.includes('href="/assets/css/site.css"') || page.html.includes('href="/assets/css/invest-base.css"'),
+          'site.css (or its investor subset) not linked',
+        );
         assert.ok(page.html.includes('src="/assets/js/site.js" defer'), 'site.js not deferred');
         const localRefs = [...page.html.matchAll(/(?:href|src)="(\/assets\/[^"]+)"/g)].map((m) => m[1]);
         for (const ref of localRefs) {

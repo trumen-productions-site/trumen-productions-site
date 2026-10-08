@@ -1,0 +1,46 @@
+{
+  "_comment": "TEST FIXTURE ONLY. Every figure here is invented to prove that a fully decided config builds for production. None of it is a real term, and this file is never read by a deploy — only by test/invest/gates.test.mjs through INVEST_CONFIG_OVERRIDE.",
+  "offering": {
+    "production": { "shootWindow": "Shooting in the fixture year" },
+    "issuer": { "legalName": "Fixture Block One Productions, LLC", "state": "South Carolina" },
+    "exemption": "506(c)",
+    "totalRaise": 1500000,
+    "minimum": 25000,
+    "waterfall": { "investorFirstPct": 120, "thenSplit": "net receipts are split evenly between investors and the producers" },
+    "escrow": true,
+    "collectionAccount": true,
+    "useOfFunds": [
+      { "label": "Above the line", "pct": 20 },
+      { "label": "Production", "pct": 45 },
+      { "label": "Post-production", "pct": 15 },
+      { "label": "Marketing and release", "pct": 12 },
+      { "label": "Contingency and fees", "pct": 8 }
+    ]
+  },
+  "legal": {
+    "retention": "Leads and consents are kept for the fixture period and then deleted.",
+    "verification": "Accredited status is verified by an independent verification service before any subscription is accepted. No documents pass through this website."
+  },
+  "perks": [
+    { "level": "All levels" },
+    { "level": "All levels" },
+    { "level": "All levels" },
+    { "level": "All levels" },
+    { "level": "All levels" },
+    { "level": "All levels" }
+  ],
+  "investSite": {
+    "domain": "https://fixture.invalid",
+    "booking": { "host": { "name": "Fixture Host", "calendar": "fixture" } },
+    "turnstile": { "siteKey": "0xFIXTUREKEY0000000000000" }
+  },
+  "gates": {
+    "G_TRADEMARK": { "signed": true, "by": "Fixture", "date": "2026-10-03" },
+    "G_COPYRIGHT": { "signed": true, "by": "Fixture", "date": "2026-10-03" },
+    "G_DBA": { "signed": true, "by": "Fixture", "date": "2026-10-03" },
+    "G_SECURITIES": { "signed": true, "by": "Fixture", "date": "2026-10-03" },
+    "G_COPY": { "signed": true, "by": "Fixture", "date": "2026-10-03" },
+    "G_OUTREACH": { "signed": true, "by": "Fixture", "date": "2026-10-03" },
+    "G_ADS": { "signed": true, "by": "Fixture", "date": "2026-10-03" }
+  }
+}

@@ -1,8 +1,9 @@
-# TRU★MEN Productions — website
+# VIRI VERI Productions — website
 
-The company site for TRU★MEN Productions (Revelatory Productions, LLC) — *Viri Veri*.
-Seven pages, a two-minute animated pitch for *Clearly Established*, and a test suite that
-refuses to let it ship broken.
+The company site for VIRI VERI Productions (Revelatory Productions, LLC) — *men of truth*. Until October 7, 2026 the company traded as TRU★MEN Productions; the pivot to the VIRI VERI name and the supplied star lockup, per counsel, is recorded in `docs/invest/DECISIONS.md` (D-26).
+Seven pages, a two-minute animated pitch for *Clearly Established*, a gated investor page
+for the *Clearly Established* private offering, and a test suite that refuses to let any of
+it ship broken.
 
 **Live pages**
 
@@ -17,19 +18,31 @@ refuses to let it ship broken.
 | `/faq/` | Twelve questions, also emitted as `FAQPage` structured data |
 | `/contact/` | Four routes: general, rights & representation, financing & production, press |
 
+**Dark pages** — built, tested, never linked, never indexed, excluded from the company site's deploys. See
+[*The investor page*](#the-investor-page).
+
+| Page | What it is |
+| --- | --- |
+| `/invest/` | The CLEARLY ESTABLISHED investor page: hero, terms strip, the case, why investors participate, the six-step qualification-and-booking flow, team, marketing, perks, use of funds, FAQ, legal footer |
+| `/invest/confirmed/` · `/invest/received/` · `/invest/not-accredited/` | Where the flow and its no-JavaScript fallback land |
+| `/privacy/` · `/terms/` | The investor page's privacy policy and SMS terms |
+
 ---
 
 ## Run it
 
-Node 20 or newer. Nothing to install — there are no dependencies.
+Node 22.13 or newer. Nothing to install — there are no dependencies.
 
 ```bash
-npm run dev      # build, serve at http://localhost:8080, rebuild on change
-npm run build    # build into dist/
-npm test         # build, then run the full suite (400+ assertions)
-npm run preview  # write trumen-site-preview.html — the whole site as one file
-npm run pitch    # write clearly-established-pitch.html — the pitch as one file
-npm run images   # regenerate the social card and touch icon (needs a Chromium)
+npm run dev          # build, serve at http://localhost:8080, rebuild on change
+npm run build        # build everything into dist/ (the investor page in staging mode)
+npm run build:site   # the company site alone — what Netlify and GitHub Pages publish
+npm run build:prod   # the investor page for production: refused until every launch gate is signed
+npm test             # build, then run the full suite (690 assertions)
+npm run dev:invest   # the investor page with its API, locally, no accounts needed
+npm run preview      # write viri-veri-site-preview.html — the whole site as one file
+npm run pitch        # write clearly-established-pitch.html — the pitch as one file
+npm run images       # regenerate the social cards and touch icon (needs a Chromium)
 ```
 
 `dist/` is the deployable artefact: plain HTML, CSS, JS, and images. No server, no runtime,
@@ -42,7 +55,7 @@ gitignored — regenerate rather than commit.
 
 | Command | Output | What it's for |
 | --- | --- | --- |
-| `npm run preview` | `trumen-site-preview.html` (~183 kB) | All nine pages in one file, with working navigation. Open it on a laptop, email it for sign-off, take it into a meeting with no wifi. |
+| `npm run preview` | `viri-veri-site-preview.html` (~200 kB) | All nine pages in one file, with working navigation. Open it on a laptop, email it for sign-off, take it into a meeting with no wifi. |
 | `npm run pitch` | `clearly-established-pitch.html` (~92 kB) | The animated pitch alone, with its transcript. The one to attach to an email. |
 
 The preview turns internal links into in-page routing (`/faq/` becomes `#/faq/`, and
@@ -168,7 +181,7 @@ total is still 120 seconds and that no moment of the timeline goes dark.
 
 ## Tests
 
-`npm test` builds, then runs 400+ assertions across seven files. They are not decoration —
+`npm test` builds, then runs 690 assertions across seven site files and eleven investor-page files. They are not decoration —
 they caught three real defects during the build: an unreadable colour pair, a specificity
 bug that flattened the pitch's spacing, and an invisible button on the dark hero.
 
@@ -181,6 +194,11 @@ bug that flattened the pitch's spacing, and an invisible button on the dark hero
 | `pitch.test.mjs` | The runtime is still 120s; cues derive from durations; chapters tile with no gaps; every timing attribute parses inside the runtime; the shots cover the whole timeline; the transcript carries every phrase the animation shows |
 | `content.test.mjs` | The record is consistent across pages; the superseded "four and a half years" cannot come back; quotations are attributed; no placeholder contact details, casting names, budget placeholder, or confidential figures reach the build |
 | `lib.test.mjs` | The template helpers, including escaping |
+| `invest/*.test.mjs` | The investor page: config schemas (CFG), launch gates and the refused production build (GATE), footnotes (FN), forbidden strings, canon facts, names and required text (LINT/CANON/REQ), the flow machine (FLOW), validators, first-touch attribution (UTM), the API against the real migration on SQLite (API), security headers (SEC), and the rendered page |
+
+The browser suite (`npm run test:e2e`: E2E-01…05, A11Y-01/02 with axe, SNAP-01) and the Lighthouse
+budgets (`npm run perf`: PERF-01) are the one place the repository installs anything, and only for
+the run: `npm install --no-save playwright-core axe-core lighthouse`. CI runs both.
 
 ---
 
@@ -205,6 +223,44 @@ missing paths and you are done.
 
 Set `site.url` to the real domain before the first deploy; it is baked into canonicals, the
 sitemap, and structured data at build time.
+
+---
+
+## The investor page
+
+`/invest/` is a single-purpose landing page for paid social: a cold accredited investor in, a
+booked 30-minute call with the producer out. It is built from the owner's brief, saved verbatim
+as [`HANDOFF.md`](HANDOFF.md), and it **ships dark**: `noindex, nofollow`, never linked from the
+company site, left out of `npm run build:site`, and deployable to production only through a
+gated workflow that refuses to build until every launch gate in
+`src/invest/config/gates.json` is signed.
+
+What is in the box:
+
+- **A typed config layer** (`src/invest/config/`) in which every term, figure, perk, FAQ and
+  disclaimer is a value — or a `pending('reason')`, which renders as a visible `[[PENDING]]`
+  token on staging and fails the production build. No invented numbers, enforced.
+- **A compliance layer**: a footnote engine that keeps every caveat in view, forbidden-string
+  and canon-fact lints, a proper-name allowlist, required-text checks, and the launch gates.
+- **The six-step flow** (`src/assets/js/invest/`): a pure state machine the tests prove can
+  never reach the booking states from a "no / not sure", a real calendar grid with keyboard
+  navigation, timezone handling, and a plain form that works with JavaScript off.
+- **A backend** (`functions/`, Cloudflare Pages Functions + D1): leads, consents with the exact
+  text shown, bookings that cannot double-book, a server-side event log, Turnstile, rate
+  limits, a scheduler adapter (mock and Cal.com), text-first email with an `.ics`, and an
+  abandonment sweep.
+- **Scripts** for the gates, the pending terms, the lints, the comparable sources, a CSV export,
+  and a counsel review packet generated from the build.
+- **Documentation** in [`docs/invest/`](docs/invest/): `RUNBOOK.md`, `COMPLIANCE.md`,
+  `CONTENT.md`, `ADS.md`, `DECISIONS.md`, and the generated `COUNSEL_REVIEW.md`.
+
+`npm run demo` writes `invest-demo/` — the investor pages with relative paths and an in-page shim
+that answers the API from the same mock calendar the tests use, so the whole six-step flow can be
+walked from disk or any static host with nothing saved anywhere. A presentation tool, not the
+staging deployment.
+
+Start with the runbook. Everything the brief did not decide, and every place the build departs
+from it, is in `DECISIONS.md`.
 
 ---
 
@@ -234,8 +290,9 @@ The design and the copy come from a Claude Design handoff, preserved unchanged i
 
 - `project/Clearly Established Video.dc.html` and `project/clearly-film.jsx` — the animated
   pitch, ported to `src/lib/pitch-stage.mjs` and `src/assets/js/pitch.js`
-- `project/uploads/index.pdf` — a print of the earlier TRU★MEN site; the source for the
-  brand (Poppins bold italic wordmark with the star, Georgia for prose), the three-beat
+- `project/uploads/index.pdf` — a print of the earlier site under the retired TRU★MEN mark; the source for the
+  three-beat spine, the four values, and the corrected facts (the wordmark it shows is retired — the
+  mark is now the supplied VIRI VERI lockup in `src/assets/img/`), the three-beat
   spine, the four values, and the corrected facts
 - `project/uploads/Clearly_Established_Screenplay pitch deck.pptx` — the film pitch
 - `chats/chat1.md` — the conversation the copy was settled in
@@ -246,6 +303,6 @@ one that mattered: time served is **three years and eleven months**, not the ear
 
 ---
 
-© 2026 Revelatory Productions, LLC, doing business as TRU★MEN Productions.
-TRU★MEN and the star mark are trademarks of Revelatory Productions, LLC; registration
+© 2026 Revelatory Productions, LLC, doing business as VIRI VERI Productions.
+VIRI VERI and the star mark are trademarks of Revelatory Productions, LLC; registration
 pending.

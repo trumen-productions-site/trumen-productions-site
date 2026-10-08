@@ -137,7 +137,7 @@ export default {
   path: '/contact/',
   title: 'Contact',
   description:
-    'Contact TRU★MEN Productions — general inquiries, rights and representation, financing and ' +
+    'Contact VIRI VERI Productions — general inquiries, rights and representation, financing and ' +
     'production partnership, and press.',
   jsonLd: [
     {

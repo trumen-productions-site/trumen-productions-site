@@ -18,9 +18,9 @@ export const faq = [
   {
     q: 'What is <em>Viri Veri</em>?',
     a:
-      'Latin for “men of truth.” It is the family motto and the line beneath the TRU★MEN ' +
-      'wordmark. It is also the standard we ask to be held to: if we cannot source it, we ' +
-      'do not say it.',
+      'Latin for “men of truth.” It is the family motto, and since October 2026 the ' +
+      'company’s name. It is also the standard we ask to be held to: if we cannot source ' +
+      'it, we do not say it.',
   },
   {
     q: 'Is <em>Clearly Established</em> a true story?',
@@ -59,7 +59,7 @@ export const faq = [
   {
     q: 'What are Provocation, Prevarication and Revocation?',
     a:
-      'The three beats every TRU★MEN project sits on. Provocation is the case, 1996–2000. ' +
+      'The three beats every VIRI VERI project sits on. Provocation is the case, 1996–2000. ' +
       'Prevarication is the erasure of June 12, 2000. Revocation is the land — 860 acres in ' +
       'Recovery, Decatur County, Georgia, taken from the family with no lawful basis. ' +
       '<a href="/our-story/#the-spine">Read the spine of the work</a>.',
@@ -93,7 +93,7 @@ export const faq = [
       'not announcements of attachment.',
   },
   {
-    q: 'How do I contact TRU★MEN Productions?',
+    q: 'How do I contact VIRI VERI Productions?',
     a: 'Through the <a href="/contact/">contact page</a>. Inquiries go to a monitored inbox, not a form service.',
   },
 ];

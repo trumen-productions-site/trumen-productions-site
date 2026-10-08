@@ -19,7 +19,7 @@ ${pageHeader({
       </div>
       <div class="prose">
         <p>
-          TRU★MEN Productions was founded by brothers David and Michael Martin. One of us lived
+          VIRI VERI Productions was founded by brothers David and Michael Martin. One of us lived
           the years. One of us kept the file. Both of us decided that the only answer to a record
           that could be revised was to build one that could not.
         </p>
@@ -142,7 +142,7 @@ export default {
   path: '/our-story/',
   title: 'Our story',
   description:
-    'TRU★MEN Productions — founded by brothers Michael and David Martin. The spine of the work: ' +
+    'VIRI VERI Productions — founded by brothers Michael and David Martin. The spine of the work: ' +
     'Provocation, Prevarication, Revocation. Three beats, one family, all on the record.',
   body,
 };

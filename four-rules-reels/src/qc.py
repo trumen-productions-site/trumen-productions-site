@@ -422,7 +422,7 @@ def write_report(results: list) -> Path:
     ]
     if brand.LOCKUP_IS_PLACEHOLDER:
         lines.append(
-            "- **End-card lockup** — `brand/trumen-lockup.png` was NOT supplied with the handoff. "
+            "- **End-card lockup** — `brand/viri-veri-lockup.png` was NOT supplied with the handoff. "
             "A structural placeholder is rendered in its place. The brand rules say the lockup is "
             "supplied and must never be rebuilt from type, so this is the one asset blocking a "
             "brand-correct end card. Drop the real 2400×1131 PNG in and re-render."
